@@ -5251,3 +5251,19 @@ p {
   font-weight: 600;
   background: linear-gradient(90deg, rgba(237, 0, 28, 0.12), transparent);
 }
+
+/* contact form honeypot (bots only) */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.contact-form {
+  position: relative;
+}
+.contact-form .btn[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+}

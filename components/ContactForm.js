@@ -4,32 +4,45 @@ import { useState } from 'react';
 import { services, site } from '@/lib/data';
 import Icon from './Icon';
 
-// No backend yet: the form composes an email in the visitor's mail client.
-// Swap handleSubmit for an API route / form service when one is available.
+// Submissions go to Netlify Forms (form "contact", registered in public/__forms.html).
+// They appear under Forms in the Netlify dashboard; email notifications are set up there.
 export default function ContactForm() {
   const [selected, setSelected] = useState([]);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const toggle = (t) => setSelected((s) => (s.includes(t) ? s.filter((x) => x !== t) : [...s, t]));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const body = [
-      `Name: ${f.get('name')}`,
-      `Email: ${f.get('email')}`,
-      `Company: ${f.get('company') || '-'}`,
-      `Budget: ${f.get('budget')}`,
-      `Interested in: ${selected.join(', ') || '-'}`,
-      '',
-      f.get('message'),
-    ].join('\n');
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent('Project enquiry — ' + f.get('name'))}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    data.set('form-name', 'contact');
+    data.set('interests', selected.join(', ') || '-');
+    setStatus('sending');
+    try {
+      const res = await fetch('/__forms.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString(),
+      });
+      if (!res.ok) throw new Error(res.statusText);
+      form.reset();
+      setSelected([]);
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
-    <form className="contact-form glass" onSubmit={handleSubmit}>
+    <form className="contact-form glass" name="contact" onSubmit={handleSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
+      {/* honeypot: hidden from people, bots fill it in and Netlify discards the submission */}
+      <p className="hp-field" aria-hidden="true">
+        <label>
+          Leave this empty <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
       <fieldset>
         <legend>I&apos;m interested in…</legend>
         <div className="chips">
@@ -76,10 +89,18 @@ export default function ContactForm() {
         <textarea name="message" rows={5} required placeholder=" " />
         <span>Tell us about your project *</span>
       </label>
-      <button className="btn btn-primary btn-lg" type="submit" data-magnetic>
-        Send Message <Icon name="arrow" size={18} />
+      <button className="btn btn-primary btn-lg" type="submit" disabled={status === 'sending'} data-magnetic>
+        {status === 'sending' ? 'Sending…' : 'Send Message'} <Icon name="arrow" size={18} />
       </button>
-      {sent && <p className="form-note" role="status">Your email app should open with the message ready to send. Thanks!</p>}
+      <p className="form-note" role="status" aria-live="polite">
+        {status === 'sent' && 'Thanks! Your message has been sent — we’ll get back to you within one business day.'}
+        {status === 'error' && (
+          <>
+            Sorry, something went wrong. Please try again or email us at{' '}
+            <a href={`mailto:${site.email}`}>{site.email}</a>.
+          </>
+        )}
+      </p>
     </form>
   );
 }

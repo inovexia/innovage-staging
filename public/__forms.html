@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <!--
+      Netlify Forms registration. Netlify scans this static file at deploy time to detect the form;
+      components/ContactForm.js submits to it with fetch. Keep the field names in sync with that component.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="bot-field" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <input name="company" />
+      <input name="budget" />
+      <input name="interests" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
