@@ -24,8 +24,12 @@ export default function CaseStudiesPage() {
       <section className="section">
         <div className="container case-grid">
           {caseStudies.map((c) => (
-            <article key={c.client} className="case spot" data-reveal>
-              <div className="case-visual">
+            <article key={c.slug} id={c.slug} className="case spot" data-reveal style={{ scrollMarginTop: 120 }}>
+              <Link href={`/case-studies/${c.slug}`} className="case-link" aria-label={`${c.client} case study`} />
+              <div className={`case-visual ${c.images ? 'has-shot' : ''}`}>
+                {c.images && (
+                  <Image src={c.images.desktop} alt="" fill sizes="(max-width: 960px) 100vw, 560px" className="case-shot" />
+                )}
                 <div className="logo-tile">
                   <Image src={c.logo} alt={c.client} width={160} height={60} />
                 </div>
@@ -39,9 +43,9 @@ export default function CaseStudiesPage() {
                     <span key={t} className="tag">{t}</span>
                   ))}
                 </div>
-                <Link href="/contact" className="link-arrow">
-                  Start a similar project <Icon name="arrow" size={16} />
-                </Link>
+                <span className="link-arrow">
+                  View case study <Icon name="arrow" size={16} />
+                </span>
               </div>
             </article>
           ))}

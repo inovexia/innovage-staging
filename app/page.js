@@ -6,6 +6,9 @@ import Counter from '@/components/Counter';
 import ProcessShowcase from '@/components/ProcessShowcase';
 import SolutionsList from '@/components/SolutionsList';
 import CTASection from '@/components/CTASection';
+import TeckHubShowcase from '@/components/TeckHubShowcase';
+import Testimonials from '@/components/Testimonials';
+import BlogSection from '@/components/BlogSection';
 import { pillars, stats, clients, marquee } from '@/lib/data';
 
 export default function Home() {
@@ -141,6 +144,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TECKHUB360 */}
+      <TeckHubShowcase />
+
       {/* PROCESS */}
       <ProcessShowcase
         eyebrow="How we work"
@@ -180,6 +186,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      <Testimonials />
+
+      {/* BLOG */}
+      <BlogSection />
 
       <CTASection />
     </>

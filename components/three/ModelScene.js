@@ -3,8 +3,12 @@
 import { useEffect, useRef } from 'react';
 import buildSolutions from './models/solutions';
 import buildProcess from './models/process';
+import buildTeckhub from './models/teckhub';
+import buildServices from './models/services';
+import buildOcr from './models/ocr';
+import { createRenderer } from './webgl';
 
-const SETS = { solutions: buildSolutions, process: buildProcess };
+const SETS = { solutions: buildSolutions, process: buildProcess, teckhub: buildTeckhub, services: buildServices, ocr: buildOcr };
 
 /**
  * Small 3D stage that shows one model per item of a set. The active model
@@ -35,7 +39,8 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
       if (disposed) return;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      const renderer = createRenderer(THREE, { antialias: true, alpha: true });
+      if (!renderer) return;
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;

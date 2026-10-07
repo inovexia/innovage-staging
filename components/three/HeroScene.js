@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { createRenderer } from './webgl';
 
 /**
  * Home hero: client work shown on floating devices, wrapped in a wireframe
@@ -21,7 +22,18 @@ export default function HeroScene() {
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const isSmall = window.innerWidth < 768;
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+      const renderer = createRenderer(THREE, { antialias: true, alpha: true, powerPreference: 'high-performance' });
+      if (!renderer) {
+        // no WebGL: show the device showcase as a static image instead
+        const img = document.createElement('img');
+        img.src = '/images/hero-devices.webp';
+        img.alt = '';
+        img.className = 'hero-fallback';
+        mount.appendChild(img);
+        mount.classList.add('is-ready');
+        cleanup = () => img.remove();
+        return;
+      }
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       mount.appendChild(renderer.domElement);
