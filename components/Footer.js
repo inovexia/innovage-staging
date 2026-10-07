@@ -69,8 +69,8 @@ export default function Footer() {
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} {site.legalName} All rights reserved.</span>
         <span className="footer-legal">
-          <Link href="/terms">Terms &amp; Condition</Link>
-          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms-and-conditions">Terms &amp; Conditions</Link>
+          <Link href="/privacy-policy">Privacy Policy</Link>
         </span>
       </div>
       <div className="footer-word" aria-hidden="true">INNOVAGE</div>
