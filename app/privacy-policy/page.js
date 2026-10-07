@@ -1,10 +1,12 @@
 import LegalPage from '@/components/LegalPage';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Privacy Policy',
   description:
     'How Innovage Softwares Inc. collects, uses and protects your personal information, in line with PIPEDA and applicable Ontario privacy laws.',
-};
+  path: '/privacy-policy',
+});
 
 // Copy from the live policy at https://innovagesoft.com/privacy-policy/
 // Blocks: { p } | { ul: [] } | { contact: true } — rendered by components/LegalPage.js

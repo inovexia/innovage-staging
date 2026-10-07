@@ -2,11 +2,13 @@ import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
 import Icon from '@/components/Icon';
 import { site } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Contact',
   description: 'Start your project with Innovage. Book a free consultation.',
-};
+  path: '/contact',
+});
 
 export default function ContactPage() {
   return (

@@ -2,11 +2,13 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import Icon from '@/components/Icon';
 import { industries } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Industries',
   description: 'Custom software, automation and digital products for businesses across industries.',
-};
+  path: '/industries',
+});
 
 export default function IndustriesPage() {
   return (

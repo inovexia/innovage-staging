@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import Icon from '@/components/Icon';
 import { caseStudies } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -14,11 +15,13 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const c = caseStudies.find((x) => x.slug === slug);
   if (!c) return {};
-  return {
+  return pageMeta({
     title: `${c.client} — Case Study`,
-    description: c.text,
-    openGraph: c.images ? { images: [{ url: c.images.desktop, width: 1440, height: 900 }] } : undefined,
-  };
+    description: `${c.title}. ${c.text}`,
+    path: `/case-studies/${c.slug}`,
+    type: 'article',
+    ...(c.images && { image: { url: `/images/og/case-${c.images.desktop.split('/').pop().replace('-desktop.webp', '.jpg')}`, width: 1200, height: 630, alt: `${c.client} website designed and built by Innovage` } }),
+  });
 }
 
 const host = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '');

@@ -2,11 +2,13 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import BlogCard from '@/components/BlogCard';
 import { posts } from '@/lib/posts';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Blog',
   description: 'Insights on custom software, automation, web design and digital product strategy from the Innovage team.',
-};
+  path: '/blog',
+});
 
 export default function BlogPage() {
   const [featured, ...rest] = posts;

@@ -4,11 +4,13 @@ import CTASection from '@/components/CTASection';
 import SolutionsList from '@/components/SolutionsList';
 import Icon from '@/components/Icon';
 import { services } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Services',
   description: 'Website design, development, mobile apps, custom software, business automation, SaaS platforms and ongoing support.',
-};
+  path: '/services',
+});
 
 export default function ServicesPage() {
   return (

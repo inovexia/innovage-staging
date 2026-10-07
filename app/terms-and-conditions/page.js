@@ -1,9 +1,11 @@
 import LegalPage from '@/components/LegalPage';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Terms & Conditions',
   description: 'The terms and conditions that govern your use of the innovagesoft.com website and its related services.',
-};
+  path: '/terms-and-conditions',
+});
 
 // Copy from the live page at https://innovagesoft.com/terms-and-condition/
 // TODO: review with legal before launch — the live copy names "Innovage Software Services Private Limited"

@@ -3,11 +3,13 @@ import CTASection from '@/components/CTASection';
 import Counter from '@/components/Counter';
 import Icon from '@/components/Icon';
 import { stats } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'About',
   description: 'Innovage is a Canadian-based software studio with 10+ years of digital experience and 100+ projects delivered.',
-};
+  path: '/about',
+});
 
 const values = [
   { icon: 'target', title: 'Business First', text: 'We build the right solution—not simply what was initially requested—by understanding how your business actually works.' },

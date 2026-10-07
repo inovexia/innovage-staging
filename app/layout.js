@@ -2,21 +2,17 @@ import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Effects from '@/components/Effects';
+import { pageMeta, SITE_URL, DEFAULT_TITLE } from '@/lib/seo';
 import './globals.css';
 
 const body = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
 const display = Sora({ subsets: ['latin'], variable: '--font-display', display: 'swap' });
 
 export const metadata = {
-  metadataBase: new URL('https://innovagesoft.com'),
-  title: {
-    default: 'Innovage — We Build Digital Products That Move Your Business Forward',
-    template: '%s | Innovage',
-  },
-  description:
-    'Custom web apps, business portals, SaaS platforms and mobile applications — designed around the way your business actually works. Canadian-based, 10+ years, 100+ projects.',
+  ...pageMeta({ path: '/' }),
+  metadataBase: new URL(SITE_URL),
+  title: { default: DEFAULT_TITLE, template: '%s | Innovage' },
   icons: { icon: '/images/innovage-footer-logo.png' },
-  openGraph: { siteName: 'Innovage', type: 'website', locale: 'en_CA' },
 };
 
 export const viewport = {

@@ -9,6 +9,7 @@ import Image from 'next/image';
 import FAQ from '@/components/FAQ';
 import { services, caseStudies } from '@/lib/data';
 import { serviceDetails } from '@/lib/serviceDetails';
+import { pageMeta } from '@/lib/seo';
 
 
 export function generateStaticParams() {
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const s = services.find((x) => x.slug === slug);
-  return s ? { title: s.title, description: s.summary } : {};
+  return s ? pageMeta({ title: s.title, description: `${s.tagline}. ${s.summary}`, path: `/services/${s.slug}` }) : {};
 }
 
 export default async function ServicePage({ params }) {

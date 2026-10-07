@@ -4,11 +4,13 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import Icon from '@/components/Icon';
 import { caseStudies } from '@/lib/data';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Case Studies',
   description: 'Businesses we have helped build — websites, platforms and custom software delivered by Innovage.',
-};
+  path: '/case-studies',
+});
 
 export default function CaseStudiesPage() {
   return (

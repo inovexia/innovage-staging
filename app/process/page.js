@@ -1,11 +1,13 @@
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import ProcessShowcase from '@/components/ProcessShowcase';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'Process',
   description: 'Discover, Define, Design, Build, Validate, Launch, Evolve — the Innovage seven-step process.',
-};
+  path: '/process',
+});
 
 export default function ProcessPage() {
   return (

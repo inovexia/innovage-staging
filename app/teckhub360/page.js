@@ -6,12 +6,14 @@ import Icon from '@/components/Icon';
 import TeckHubStage from '@/components/TeckHubStage';
 import ThemePreview from '@/components/teckhub/ThemePreview';
 import ModelScene from '@/components/three/ModelScene';
+import { pageMeta } from '@/lib/seo';
 
-export const metadata = {
+export const metadata = pageMeta({
   title: 'TeckHub360 — client portal for Canadian accounting firms',
   description:
     'A white-label client portal built for Canadian accounting firms — document intake, OCR that maps receipts to CRA GIFI codes, GST/HST and personal filing pipelines, financial invoices and payroll, under your own branding.',
-};
+  path: '/teckhub360',
+});
 
 const audiences = [
   { icon: 'briefcase', title: 'Accounting firms', text: 'Several accountants, a shared client load, and a partner who wants to see what is outstanding without asking anyone.' },

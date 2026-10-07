@@ -7,8 +7,7 @@ import BlogCard from '@/components/BlogCard';
 import ArticleAside from '@/components/ArticleAside';
 import Icon from '@/components/Icon';
 import { posts, getPost, formatDate, slugify } from '@/lib/posts';
-
-const SITE = 'https://innovagesoft.com';
+import { pageMeta, SITE_URL as SITE } from '@/lib/seo';
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -18,18 +17,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return {
+  return pageMeta({
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      type: 'article',
-      title: post.title,
-      description: post.excerpt,
-      publishedTime: post.date,
-      images: [{ url: post.image, width: 1600, height: 900 }],
-    },
-  };
+    path: `/blog/${post.slug}`,
+    type: 'article',
+    image: { url: `/images/og/blog-${post.image.split('/').pop().replace('.webp', '.jpg')}`, width: 1200, height: 630, alt: post.title },
+    openGraph: { publishedTime: post.date, authors: [post.author.name], section: post.category },
+  });
 }
 
 function Block({ b }) {
