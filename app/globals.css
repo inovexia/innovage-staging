@@ -5030,6 +5030,22 @@ p {
   50%, 60% { top: 100%; transform: translateY(-100%); }
   100% { top: 0; transform: none; }
 }
+/* case studies with sync points follow per-page keyframes (--anim, built in the page)
+   so desktop and mobile pass each section together */
+@media (prefers-reduced-motion: no-preference) {
+  .cd-preview-section:hover .cd-preview.scrolls.synced .cd-scroll img {
+    top: 0;
+    transform: none;
+    animation: var(--anim) var(--dur, 9s) linear forwards;
+  }
+  @media (hover: none) {
+    .cd-preview.scrolls.synced .cd-scroll img {
+      top: 0;
+      transform: none;
+      animation: var(--anim) var(--dur, 9s) linear 1.5s infinite alternate;
+    }
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .cd-preview-section:hover .cd-preview.scrolls .cd-scroll img,
   .cd-preview.scrolls .cd-scroll img {

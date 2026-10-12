@@ -29,6 +29,23 @@ const host = (url) => url.replace(/^https?:\/\//, '').replace(/\/$/, '');
 // Longer pages scroll for longer, so the speed feels the same on every case study.
 const scrollSeconds = (img) => Math.min(Math.max(Math.round(((img.fullHeight || 0) / 1200) * 2.8), 6), 14);
 
+// Sections sit at different depths on the desktop and mobile layouts, so a plain
+// top-to-bottom scroll drifts apart. With sync points, both screens get keyframes
+// that reach each section at the same moment.
+function syncKeyframes(slug, img) {
+  if (!img.scrollSync) return null;
+  const maxD = img.fullHeight - 750; // desktop frame is 16:10 of a 1200px-wide image
+  const maxM = img.mobileFullHeight - 844; // phone frame is 390 x 844
+  const pts = [...img.scrollSync.map(([d, m]) => [Math.min(d, maxD), Math.min(m, maxM)]), [maxD, maxM]]
+    .filter(([d, m], i, a) => i === 0 || (d > a[i - 1][0] && m > a[i - 1][1]));
+  const at = ([d, m]) => (((d / maxD + m / maxM) / 2) * 100).toFixed(2);
+  const kf = (name, i, h) =>
+    `@keyframes ${name}{${pts.map((p) => `${at(p)}%{transform:translateY(-${((p[i] / h) * 100).toFixed(3)}%)}`).join('')}}`;
+  const d = `cd-sync-${slug}-d`;
+  const m = `cd-sync-${slug}-m`;
+  return { d, m, css: kf(d, 0, img.fullHeight) + kf(m, 1, img.mobileFullHeight) };
+}
+
 function Showcase({ c }) {
   if (!c.images) {
     return (
@@ -61,6 +78,7 @@ export default async function CaseStudyPage({ params }) {
   if (idx === -1) notFound();
   const c = caseStudies[idx];
   const next = caseStudies[(idx + 1) % caseStudies.length];
+  const sync = c.images?.full && syncKeyframes(c.slug, c.images);
 
   const facts = [
     { label: 'Client', value: c.client },
@@ -160,7 +178,8 @@ export default async function CaseStudyPage({ params }) {
                 {c.images.full ? 'Hover over this section to scroll through the whole homepage on desktop and mobile.' : 'Designed to work beautifully on desktop and mobile.'}
               </p>
             </div>
-            <div className={`cd-preview ${c.images.full ? 'scrolls' : ''}`} style={{ '--dur': `${scrollSeconds(c.images)}s` }}>
+            {sync && <style>{sync.css}</style>}
+            <div className={`cd-preview ${c.images.full ? 'scrolls' : ''} ${sync ? 'synced' : ''}`} style={{ '--dur': `${scrollSeconds(c.images)}s` }}>
               <div className="cd-browser big" data-reveal>
                 <div className="cd-browser-bar">
                   <span className="cd-dots"><i /><i /><i /></span>
@@ -173,6 +192,7 @@ export default async function CaseStudyPage({ params }) {
                     width={1200}
                     height={c.images.fullHeight || 750}
                     sizes="(max-width: 960px) 92vw, 820px"
+                    style={sync ? { '--anim': sync.d } : undefined}
                   />
                 </div>
               </div>
@@ -184,6 +204,7 @@ export default async function CaseStudyPage({ params }) {
                     width={390}
                     height={c.images.mobileFullHeight || 780}
                     sizes="240px"
+                    style={sync ? { '--anim': sync.m } : undefined}
                   />
                 </div>
               </div>
