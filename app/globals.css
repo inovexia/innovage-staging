@@ -356,7 +356,6 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  max-width: 1360px;
 }
 .logo {
   flex-shrink: 0;

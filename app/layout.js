@@ -12,7 +12,7 @@ export const metadata = {
   ...pageMeta({ path: '/' }),
   metadataBase: new URL(SITE_URL),
   title: { default: DEFAULT_TITLE, template: '%s | Innovage' },
-  icons: { icon: '/images/innovage-footer-logo.png' },
+  icons: { icon: '/images/favicon.png', apple: '/images/favicon.png' },
 };
 
 export const viewport = {
