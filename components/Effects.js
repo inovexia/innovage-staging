@@ -35,12 +35,26 @@ export default function Effects() {
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
-    document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => {
-      if (reduced) el.classList.add('in');
-      else io.observe(el);
-    });
+    const watch = (root) =>
+      root.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => {
+        if (reduced) el.classList.add('in');
+        else io.observe(el);
+      });
+    watch(document);
 
-    const cleanups = [() => io.disconnect()];
+    // content mounted later (client components, hot reload) would otherwise stay hidden
+    const mo = new MutationObserver((records) => {
+      records.forEach((r) =>
+        r.addedNodes.forEach((n) => {
+          if (n.nodeType !== 1) return;
+          if (n.matches('[data-reveal]:not(.in)')) reduced ? n.classList.add('in') : io.observe(n);
+          watch(n);
+        })
+      );
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+
+    const cleanups = [() => io.disconnect(), () => mo.disconnect()];
 
     if (fine && !reduced) {
       // Spotlight + tilt

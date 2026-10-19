@@ -3,25 +3,18 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import SolutionsList from '@/components/SolutionsList';
 import Icon from '@/components/Icon';
+import Rich from '@/components/Rich';
 import { services } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
+import content from '@/content/pages/services.json';
 
-export const metadata = pageMeta({
-  title: 'Services',
-  description: 'Website design, development, mobile apps, custom software, business automation, SaaS platforms and ongoing support.',
-  path: '/services',
-});
+export const metadata = pageMeta({ ...content.meta, path: '/services' });
 
 export default function ServicesPage() {
+  const { hero } = content;
   return (
     <>
-      <PageHero
-        eyebrow="Services"
-        title="What We Do"
-        accent="Best"
-        text="We offer a full suite of digital services to bring your vision to life—from strategy and design to development, launch and long-term support."
-        crumbs={[{ label: 'Services' }]}
-      />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Services' }]} />
 
       <section className="section">
         <div className="container">
@@ -32,7 +25,7 @@ export default function ServicesPage() {
                 <h3>{s.title}</h3>
                 <p className="svc-tag">{s.tagline}</p>
                 <p>{s.summary}</p>
-                <span className="link-arrow">Read More <Icon name="arrow" size={16} /></span>
+                <span className="link-arrow">{content.cardLinkLabel} <Icon name="arrow" size={16} /></span>
               </Link>
             ))}
           </div>
@@ -42,16 +35,15 @@ export default function ServicesPage() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-head left">
-            <span className="eyebrow" data-reveal>Solutions</span>
             <h2 className="h2" data-reveal data-delay="60">
-              Technology Built Around <span className="grad-text">Real Business Needs</span>
+              <Rich text={content.solutions.title} />
             </h2>
           </div>
           <SolutionsList />
         </div>
       </section>
 
-      <CTASection />
+      <CTASection {...content.cta} />
     </>
   );
 }

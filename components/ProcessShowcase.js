@@ -12,7 +12,7 @@ import ModelScene from './three/ModelScene';
  */
 const STEP_VH = 70; // scroll distance per step, in viewport heights
 
-export default function ProcessShowcase({ eyebrow, title, text, children }) {
+export default function ProcessShowcase({ title, text, children }) {
   const wrapRef = useRef(null);
   const frameRef = useRef(null);
   const listRef = useRef(null);
@@ -70,7 +70,6 @@ export default function ProcessShowcase({ eyebrow, title, text, children }) {
       <div className="process-sticky">
         <div className="container process-grid">
           <div className="process-left">
-            {eyebrow && <span className="eyebrow">{eyebrow}</span>}
             <h2 className="h2">{title}</h2>
             {text && <p className="lead process-lead">{text}</p>}
             <div className="process-stage">

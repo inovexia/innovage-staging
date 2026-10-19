@@ -7,10 +7,12 @@ import Icon from '@/components/Icon';
 import ModelScene from '@/components/three/ModelScene';
 import Image from 'next/image';
 import FAQ from '@/components/FAQ';
-import { services, caseStudies } from '@/lib/data';
-import { serviceDetails } from '@/lib/serviceDetails';
+import Rich from '@/components/Rich';
+import { services, caseStudies, fill } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
+import page from '@/content/pages/services.json';
 
+const { detail: t, cta } = page;
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -26,13 +28,13 @@ export default async function ServicePage({ params }) {
   const { slug } = await params;
   const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
-  const info = serviceDetails[slug];
-  const cases = info.cases.map((name) => caseStudies.find((c) => c.client === name)).filter(Boolean);
+  const info = service;
+  const vars = { service: service.title };
+  const cases = info.caseStudies.map((name) => caseStudies.find((c) => c.client === name)).filter(Boolean);
 
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title={service.title}
         text={service.tagline + '. ' + service.summary}
         crumbs={[{ label: 'Services', href: '/services' }, { label: service.title }]}
@@ -42,7 +44,6 @@ export default async function ServicePage({ params }) {
       <section className="section">
         <div className="container detail-grid">
           <div>
-            <span className="eyebrow" data-reveal>What&apos;s included</span>
             <h2 className="h2" data-reveal data-delay="60">
               {service.tagline.split(' ').slice(0, -2).join(' ')}{' '}
               <span className="grad-text">{service.tagline.split(' ').slice(-2).join(' ')}</span>
@@ -55,12 +56,12 @@ export default async function ServicePage({ params }) {
                 </div>
               ))}
             </div>
-            <h3 className="h2" data-reveal>How we deliver it</h3>
+            <h3 className="h2" data-reveal>{t.deliverTitle}</h3>
             <ProcessTimeline />
           </div>
 
           <aside className="detail-aside glass" data-reveal data-delay="120">
-            <h3>All Services</h3>
+            <h3>{t.asideTitle}</h3>
             <ul>
               {services.map((s) => (
                 <li key={s.slug}>
@@ -70,8 +71,8 @@ export default async function ServicePage({ params }) {
                 </li>
               ))}
             </ul>
-            <Link href="/contact" className="btn btn-primary" data-magnetic>
-              Get a Free Quote <Icon name="arrow" size={18} />
+            <Link href={t.asideButton.href} className="btn btn-primary" data-magnetic>
+              {t.asideButton.label} <Icon name="arrow" size={18} />
             </Link>
           </aside>
         </div>
@@ -81,11 +82,10 @@ export default async function ServicePage({ params }) {
       <section className="section section-alt">
         <div className="container sd-why">
           <div>
-            <span className="eyebrow" data-reveal>Why it matters</span>
             <h2 className="h2" data-reveal data-delay="60">{info.why.title}</h2>
             <p className="lead" data-reveal data-delay="120">{info.why.text}</p>
-            <Link href="/contact" className="btn btn-primary" data-reveal data-delay="180" data-magnetic>
-              Discuss your project <Icon name="arrow" size={18} />
+            <Link href={t.whyButton.href} className="btn btn-primary" data-reveal data-delay="180" data-magnetic>
+              {t.whyButton.label} <Icon name="arrow" size={18} />
             </Link>
           </div>
           <div className="sd-benefits">
@@ -104,8 +104,7 @@ export default async function ServicePage({ params }) {
       <section className="section">
         <div className="container sd-deliver">
           <div className="sd-card spot" data-reveal>
-            <span className="eyebrow">What you get</span>
-            <h3>Deliverables</h3>
+            <h3>{t.deliverablesTitle}</h3>
             <ol className="sd-list">
               {info.deliverables.map((d, i) => (
                 <li key={d} style={{ '--i': i }}>
@@ -116,9 +115,8 @@ export default async function ServicePage({ params }) {
             </ol>
           </div>
           <div className="sd-card spot" data-reveal data-delay="120">
-            <span className="eyebrow">How we build it</span>
-            <h3>Tools &amp; technologies</h3>
-            <p>We choose the simplest proven stack for the job — these are the tools we most often use for {service.title}.</p>
+            <h3>{t.stackTitle}</h3>
+            <p>{fill(t.stackText, vars)}</p>
             <div className="sd-stack">
               {info.stack.map((t, i) => (
                 <span key={t} style={{ '--i': i }}>{t}</span>
@@ -134,16 +132,13 @@ export default async function ServicePage({ params }) {
           <div className="container">
             <div className="bs-head">
               <div>
-                <span className="eyebrow" data-reveal>Case studies</span>
                 <h2 className="h2" data-reveal data-delay="60">
-                  {service.title} <span className="grad-text">in action</span>
+                  <Rich text={fill(t.casesTitle, vars)} />
                 </h2>
-                <p className="lead" data-reveal data-delay="120">
-                  A look at related work we&apos;ve delivered for businesses like yours.
-                </p>
+                <p className="lead" data-reveal data-delay="120">{t.casesText}</p>
               </div>
-              <Link href="/case-studies" className="btn btn-ghost bs-all" data-reveal data-delay="160" data-magnetic>
-                All case studies <Icon name="arrow" size={18} />
+              <Link href={t.casesButton.href} className="btn btn-ghost bs-all" data-reveal data-delay="160" data-magnetic>
+                {t.casesButton.label} <Icon name="arrow" size={18} />
               </Link>
             </div>
             <div className={`sd-cases ${cases.length === 1 ? 'single' : ''}`}>
@@ -162,7 +157,7 @@ export default async function ServicePage({ params }) {
                       ))}
                     </div>
                     <span className="link-arrow">
-                      Read the case study <Icon name="arrow" size={16} />
+                      {t.caseLinkLabel} <Icon name="arrow" size={16} />
                     </span>
                   </div>
                 </Link>
@@ -172,9 +167,9 @@ export default async function ServicePage({ params }) {
         </section>
       )}
 
-      <FAQ title={<>{service.title} <span className="grad-text">questions</span></>} items={info.faqs} />
+      <FAQ title={<Rich text={fill(t.faqTitle, vars)} />} items={info.faqs} />
 
-      <CTASection />
+      <CTASection {...cta} />
     </>
   );
 }

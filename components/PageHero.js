@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import WaveScene from './three/WaveScene';
+import Rich from './Rich';
 
-export default function PageHero({ eyebrow, title, accent, text, crumbs = [], visual, children }) {
+export default function PageHero({ title, text, crumbs = [], visual, children }) {
   return (
     <section className={`page-hero ${visual ? 'has-visual' : ''}`}>
       <WaveScene />
@@ -17,9 +18,8 @@ export default function PageHero({ eyebrow, title, accent, text, crumbs = [], vi
               </span>
             ))}
           </nav>
-          {eyebrow && <span className="eyebrow" data-reveal>{eyebrow}</span>}
           <h1 className="display" data-reveal data-delay="80">
-            {title} {accent && <span className="grad-text">{accent}</span>}
+            <Rich text={title} />
           </h1>
           {text && <p className="lead" data-reveal data-delay="160">{text}</p>}
           {children}

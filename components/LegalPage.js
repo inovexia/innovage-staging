@@ -2,8 +2,9 @@ import Link from 'next/link';
 import PageHero from './PageHero';
 import Icon from './Icon';
 import LegalToc from './LegalToc';
+import { site } from '@/lib/data';
 
-const EMAIL = 'enquiry@innovagesoft.com';
+const EMAIL = site.enquiryEmail;
 
 // Body blocks: { p } | { ul: [] } | { contact: true }
 function Block({ b, subject }) {
@@ -20,10 +21,10 @@ function Block({ b, subject }) {
 }
 
 /** Legal document layout: sticky table of contents + numbered, linkable sections. */
-export default function LegalPage({ title, accent, text, crumb, intro, sections, subject, contactTitle }) {
+export default function LegalPage({ title, text, crumb, intro, sections, subject, contactTitle }) {
   return (
     <>
-      <PageHero title={title} accent={accent} text={text} crumbs={[{ label: crumb }]} />
+      <PageHero title={title} text={text} crumbs={[{ label: crumb }]} />
       <section className="section">
         <div className="container legal-grid">
           <aside className="legal-toc">

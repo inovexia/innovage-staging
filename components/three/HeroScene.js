@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { createRenderer } from './webgl';
+import { createRenderer, isLightTheme, watchTheme } from './webgl';
 
 /**
- * Home hero: client work shown on floating devices, wrapped in a wireframe
- * shell, an orbiting particle ring and a drifting star field.
+ * Home hero: client work shown on floating devices, with an orbiting
+ * particle ring and a drifting star field.
  * Reacts to the pointer and scroll; pauses when off-screen.
  */
 export default function HeroScene() {
@@ -45,7 +45,7 @@ export default function HeroScene() {
       const root = new THREE.Group();
       scene.add(root);
 
-      const uniforms = { uTime: { value: 0 } };
+      const uniforms = { uTime: { value: 0 }, uLight: { value: isLightTheme() ? 1 : 0 } };
 
       // --- Showcase: client work on devices (transparent PNG/WebP) ---------
       const deviceMat = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: 0.02, opacity: 0, toneMapped: false });
@@ -62,13 +62,6 @@ export default function HeroScene() {
           render();
         }
       });
-
-      // Wireframe shell
-      const shell = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(2.25, 2),
-        new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: 0.05 })
-      );
-      root.add(shell);
 
       // --- Orbit ring of particles -----------------------------------------
       const ringCount = isSmall ? 900 : 1800;
@@ -87,7 +80,7 @@ export default function HeroScene() {
       ringGeo.setAttribute('aSeed', new THREE.BufferAttribute(ringSeed, 1));
       const pointMat = (size) =>
         new THREE.ShaderMaterial({
-          uniforms: { uTime: uniforms.uTime, uSize: { value: size * renderer.getPixelRatio() } },
+          uniforms: { uTime: uniforms.uTime, uLight: uniforms.uLight, uSize: { value: size * renderer.getPixelRatio() } },
           vertexShader: /* glsl */ `
             attribute float aSeed;
             uniform float uTime;
@@ -101,6 +94,7 @@ export default function HeroScene() {
             }`,
           fragmentShader: /* glsl */ `
             uniform float uTime;
+            uniform float uLight;
             varying float vSeed;
             void main(){
               float d = length(gl_PointCoord - 0.5);
@@ -108,12 +102,14 @@ export default function HeroScene() {
               float a = smoothstep(0.5, 0.0, d);
               float tw = 0.55 + 0.45 * sin(uTime * 2.0 + vSeed * 40.0);
               // neutral particles, with a rare brand-red accent
-              vec3 col = vSeed > 0.94 ? vec3(0.93, 0.0, 0.11) : vec3(0.85 + vSeed * 0.15);
+              // light theme: dark ink particles instead of glowing ones
+              vec3 ink = mix(vec3(0.85 + vSeed * 0.15), vec3(0.1 + vSeed * 0.2), uLight);
+              vec3 col = vSeed > 0.94 ? vec3(0.93, 0.0, 0.11) : ink;
               gl_FragColor = vec4(col, a * tw * 0.7);
             }`,
           transparent: true,
           depthWrite: false,
-          blending: THREE.AdditiveBlending,
+          blending: uniforms.uLight.value ? THREE.NormalBlending : THREE.AdditiveBlending,
         });
       const ring = new THREE.Points(ringGeo, pointMat(3.2));
       ring.rotation.x = 0.35;
@@ -197,8 +193,6 @@ export default function HeroScene() {
         devices.rotation.x = -(pointer.y * 0.25 + scrollP * 0.4) * 0.5;
         devices.rotation.y = -pointer.x * 0.35 * 0.4;
 
-        shell.rotation.y = -t * 0.06;
-        shell.rotation.x = t * 0.04;
         ring.rotation.y = t * 0.08;
         stars.rotation.y = t * 0.004;
         root.rotation.x = pointer.y * 0.25 + scrollP * 0.4;
@@ -215,11 +209,22 @@ export default function HeroScene() {
         render();
         raf = requestAnimationFrame(loop);
       };
+      // additive glow vanishes on a light page, so switch blending with the theme
+      const unwatchTheme = watchTheme((light) => {
+        uniforms.uLight.value = light ? 1 : 0;
+        for (const m of [ring.material, stars.material]) {
+          m.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+          m.needsUpdate = true;
+        }
+        if (reduced) render();
+      });
+
       if (reduced) render();
       else loop();
       requestAnimationFrame(() => mount.classList.add('is-ready'));
 
       cleanup = () => {
+        unwatchTheme();
         cancelAnimationFrame(raf);
         window.removeEventListener('pointermove', onMove);
         window.removeEventListener('scroll', onScroll);

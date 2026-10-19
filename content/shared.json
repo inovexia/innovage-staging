@@ -1,0 +1,167 @@
+{
+  "_note": "Content reused on several pages. TODO (testimonials): sample quotes carried over from the live site — replace with real, approved client quotes (add name and role once the client signs off on being named).",
+  "process": [
+    {
+      "title": "Discover",
+      "text": "We start by understanding your business, users, objectives, challenges, and existing processes. This gives us the context needed to build the right solution—not simply build what was initially requested.",
+      "deliverables": [
+        "Stakeholder & user interviews",
+        "Map of your current process",
+        "Goals, constraints and risks"
+      ]
+    },
+    {
+      "title": "Define",
+      "text": "We turn business needs into clear requirements, priorities, workflows, scope, and measurable outcomes. Together, we establish what needs to be built and what success looks like.",
+      "deliverables": [
+        "Prioritised requirements",
+        "Scope and price for the next stage",
+        "Measures of success"
+      ]
+    },
+    {
+      "title": "Design",
+      "text": "Before development begins, we shape the user experience. We create user journeys, wireframes, interfaces, and prototypes that allow you to see and refine the product before significant development investment.",
+      "deliverables": [
+        "User journeys & wireframes",
+        "Clickable prototype",
+        "UI design system"
+      ]
+    },
+    {
+      "title": "Build",
+      "text": "Our development team transforms the approved design and requirements into a working digital product. Development is organized into manageable phases, allowing you to review progress and provide feedback throughout the journey.",
+      "deliverables": [
+        "Frontend, backend & integrations",
+        "Phased releases you can review",
+        "Regular progress demos"
+      ]
+    },
+    {
+      "title": "Validate",
+      "text": "Quality is built into our process. We test functionality, usability, responsiveness, integration, performance, and real-world business workflows to ensure the solution is ready for users.",
+      "deliverables": [
+        "Functional & usability testing",
+        "Security & performance checks",
+        "Sign-off on real workflows"
+      ]
+    },
+    {
+      "title": "Launch",
+      "text": "We prepare the solution for production, complete deployment and configuration, support data migration where required, and help ensure a smooth transition from development to live operation.",
+      "deliverables": [
+        "Production deployment & configuration",
+        "Data migration",
+        "Technical & user documentation"
+      ]
+    },
+    {
+      "title": "Evolve",
+      "text": "Launch is not the end of the relationship. We provide ongoing support, maintenance, optimization, and enhancements so your digital product can adapt as your business, customers, and technology evolve.",
+      "deliverables": [
+        "Maintenance & security updates",
+        "Monitoring & optimisation",
+        "An enhancement roadmap"
+      ]
+    }
+  ],
+  "stats": [
+    {
+      "value": 10,
+      "suffix": "+",
+      "label": "Years of Digital Experience"
+    },
+    {
+      "value": 100,
+      "suffix": "+",
+      "label": "Projects Delivered"
+    },
+    {
+      "value": 5,
+      "suffix": " yrs",
+      "label": "Average Client Relationship"
+    },
+    {
+      "value": 100,
+      "suffix": "%",
+      "label": "Canadian Team"
+    }
+  ],
+  "solutions": [
+    {
+      "title": "Custom Software",
+      "text": "Customer portals, internal systems, dashboards, approvals, reporting and integrations.",
+      "cta": "Explore Custom Software",
+      "href": "/services/custom-software"
+    },
+    {
+      "title": "Business Automation",
+      "text": "Connect your systems, automate workflows and reduce spreadsheets, emails and repetitive data entry.",
+      "cta": "Explore Automation",
+      "href": "/services/business-automation"
+    },
+    {
+      "title": "Web Applications",
+      "text": "Secure, responsive applications accessible from anywhere.",
+      "cta": "Learn More",
+      "href": "/services/website-development"
+    },
+    {
+      "title": "Enterprise & Professional Systems",
+      "text": "Complex systems involving multiple users, roles, workflows, reporting, and integrations.",
+      "cta": "Learn More",
+      "href": "/services/custom-software"
+    },
+    {
+      "title": "SaaS Platforms",
+      "text": "Scalable multi-user applications designed for recurring-service businesses.",
+      "cta": "Learn More",
+      "href": "/services/saas-platforms"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Inovexia",
+      "logo": "/images/inovexia.png"
+    },
+    {
+      "name": "Mattressville",
+      "logo": "/images/mattressville-logo-no-slogan.avif"
+    },
+    {
+      "name": "Klej",
+      "logo": "/images/klej.png"
+    },
+    {
+      "name": "Demo Soap",
+      "logo": "/images/demosoap-logo.png"
+    }
+  ],
+  "testimonials": [
+    {
+      "client": "Mattressville",
+      "logo": "/images/mattressville-logo-no-slogan.avif",
+      "category": "E-commerce • Website Development",
+      "quote": "They understood our process better than we did. Six months in, I can't imagine running the business without the system they built."
+    },
+    {
+      "client": "Inovexia",
+      "logo": "/images/inovexia.png",
+      "category": "Brand • Web Platform",
+      "quote": "We'd been burned by two agencies before. This was the first team that actually shipped what they showed us in the prototype, on the date they said."
+    },
+    {
+      "client": "Klej",
+      "logo": "/images/klej.png",
+      "category": "Custom Software",
+      "quote": "They built it like it was their own product. Years later they're still the first people we call when we want to add something."
+    },
+    {
+      "client": "Demo Soap",
+      "logo": "/images/demosoap-logo.png",
+      "category": "E-commerce • Website Design & Development",
+      "quote": "Our new online store finally feels like our shop — easy to browse, true to our brand, and simple for customers to order from on any device.",
+      "_note": "TODO: DRAFT quote written by us, not Demo Soap words — replace with their real, approved quote before going live."
+    }
+  ]
+}

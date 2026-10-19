@@ -1,0 +1,224 @@
+{
+  "hero": {
+    "title": "Custom software built around *how your business actually works.*",
+    "text": "We design and build web apps, portals, SaaS platforms and mobile apps for education, finance and marketing teams across Canada — and we stay on after launch.",
+    "industriesLabel": "Proven in",
+    "primaryButton": {
+      "label": "Get in Touch",
+      "href": "/contact"
+    },
+    "secondaryButton": {
+      "label": "See Our Work",
+      "href": "/case-studies"
+    },
+    "stats": [
+      {
+        "value": 10,
+        "suffix": "+",
+        "label": "Years of experience"
+      },
+      {
+        "value": 100,
+        "suffix": "+",
+        "label": "Projects delivered"
+      },
+      {
+        "value": "Web · SaaS · Mobile",
+        "label": "End-to-end delivery"
+      }
+    ]
+  },
+  "marquee": [
+    "Digital Products",
+    "Custom Software",
+    "Web Applications",
+    "SaaS Platforms",
+    "Mobile Experiences",
+    "Business Automation",
+    "UI/UX Design",
+    "Cloud Solutions"
+  ],
+  "teckhub": {
+    "badge": "New",
+    "label": "Our own product",
+    "title": "TeckHub*360*",
+    "subtitle": "The portal Canadian accounting firms *run filing season on.*",
+    "text": "After years of building client portals for Canadian practices one at a time, we built our own. Clients upload against a checklist, your team codes with OCR-suggested GIFI codes and files step by step — with payroll, invoices, deadlines and secure chat in the same place, under your firm's branding.",
+    "highlights": [
+      {
+        "value": "OCR",
+        "label": "GIFI codes suggested, accountant confirms"
+      },
+      {
+        "value": 2,
+        "label": "Filing paths: business and T1"
+      },
+      {
+        "value": 10,
+        "label": "Modules, one login"
+      },
+      {
+        "value": 100,
+        "suffix": "%",
+        "label": "Your branding, not ours"
+      }
+    ],
+    "primaryButton": {
+      "label": "Explore TeckHub360",
+      "href": "/teckhub360"
+    },
+    "secondaryButton": {
+      "label": "Book a demo",
+      "href": "/contact"
+    }
+  },
+  "intro": {
+    "title": "Software that fits your business, *not the other way around.*",
+    "paragraphs": [
+      "Off-the-shelf tools make your team change how it works to suit the software. We do the opposite: we learn the way your business already runs, build around it, then make it faster.",
+      "Strategy, UX/UI, development, deployment and ongoing support — one team, from the first conversation to years after launch."
+    ],
+    "button": {
+      "label": "Book a Free Consultation",
+      "href": "/contact"
+    },
+    "card": {
+      "title": "Built by people who stay.",
+      "items": [
+        {
+          "icon": "compass",
+          "title": "We start with your process",
+          "text": "We learn how work flows through your business before we write a line of code."
+        },
+        {
+          "icon": "users",
+          "title": "Senior team, no handoffs",
+          "text": "The people you meet in discovery are the people who build your product."
+        },
+        {
+          "icon": "pin",
+          "title": "Canadian, end to end",
+          "text": "Based in Mississauga, working in your time zone, with Canadian hosting where compliance matters."
+        },
+        {
+          "icon": "heart",
+          "title": "Long-term partnership",
+          "text": "Launch is the start of the relationship, not the end of the invoice."
+        }
+      ],
+      "link": {
+        "label": "More about us",
+        "href": "/about"
+      }
+    }
+  },
+  "services": {
+    "title": "What We *Build*",
+    "text": "Four things we do every day, on the stacks we know best — chosen for your project, not out of habit.",
+    "linkLabel": "Read More",
+    "items": [
+      {
+        "icon": "cube",
+        "title": "Custom Software Development",
+        "text": "We map how work actually moves through your business, then build the portals, internal tools, dashboards and approval workflows around it.",
+        "tags": [
+          "React",
+          "Next.js",
+          "Node.js",
+          "Laravel"
+        ],
+        "href": "/services/custom-software"
+      },
+      {
+        "icon": "cloud",
+        "title": "SaaS Product Development",
+        "text": "Multi-tenancy, billing, onboarding, usage limits and admin designed in from day one — not bolted on after your first hundred customers.",
+        "tags": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Stripe"
+        ],
+        "href": "/services/saas-platforms"
+      },
+      {
+        "icon": "mobile",
+        "title": "Web & Mobile Apps",
+        "text": "Fast websites and web apps, plus iOS and Android apps that share one codebase and one backend.",
+        "tags": [
+          "Next.js",
+          "React Native",
+          "WordPress",
+          "Laravel"
+        ],
+        "href": "/services/app-development"
+      },
+      {
+        "icon": "bolt",
+        "title": "AI & Automation",
+        "text": "Connect the systems you already use, automate the handoffs between them, and put AI to work on documents, extraction and drafting.",
+        "tags": [
+          "Python",
+          "Node.js",
+          "Claude API",
+          "Zapier"
+        ],
+        "href": "/services/business-automation"
+      }
+    ]
+  },
+  "solutions": {
+    "title": "Technology Built Around *Real Business Needs*",
+    "text": "From business automation to custom software platforms, we design and build digital solutions that solve complex operational challenges."
+  },
+  "industries": {
+    "title": "Industry *Expertise*",
+    "text": "Deep experience in education, finance and marketing, now extended into AI and automation.",
+    "linkLabel": "Learn more",
+    "ai": {
+      "icon": "spark",
+      "title": "AI & Automation",
+      "tagline": "Where we're heading next",
+      "text": "We are bringing AI assistants, document intelligence and workflow automation to the industries we know best.",
+      "tags": [
+        "AI assistants",
+        "OCR & extraction",
+        "Workflow automation"
+      ],
+      "href": "/contact"
+    },
+    "button": {
+      "label": "Explore industries",
+      "href": "/industries"
+    }
+  },
+  "process": {
+    "title": "Seven stages, *on every engagement.*",
+    "text": "Each stage is scoped and priced before work starts, so there are no surprise line items. Pick a stage to see what happens in it and what you walk away with.",
+    "button": {
+      "label": "See the full process",
+      "href": "/process"
+    }
+  },
+  "clients": {
+    "title": "Businesses We've *Helped Build*",
+    "text": "A decade of work for Canadian businesses — and clients who tend to stay for years, not projects."
+  },
+  "testimonials": {
+    "title": "Don't take *our word for it.*",
+    "text": "Long-term partnerships are the best measure of our work. Here's what the businesses we build with say."
+  },
+  "blog": {
+    "title": "Latest from *our blog*",
+    "text": "Practical thinking on software, automation, design and growing your business with technology.",
+    "button": {
+      "label": "View all articles",
+      "href": "/blog"
+    }
+  },
+  "cta": {
+    "title": "Let's talk about what you're trying to build.",
+    "text": "A 30-minute call with the people who would build it. No pitch deck — just your problem, and an honest view of how we would approach it.",
+    "button": "Get in Touch"
+  }
+}

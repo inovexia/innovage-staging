@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { testimonials } from '@/lib/data';
 import Icon from './Icon';
+import Rich from './Rich';
 
 const DURATION = 7000; // ms each testimonial stays up while autoplaying
 
@@ -12,7 +13,7 @@ const DURATION = 7000; // ms each testimonial stays up while autoplaying
  * drives the timing). Pauses on hover/focus and off-screen, supports swipe,
  * arrows and the client list; no autoplay with reduced motion.
  */
-export default function Testimonials() {
+export default function Testimonials({ title, text }) {
   const n = testimonials.length;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -50,13 +51,10 @@ export default function Testimonials() {
 
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow" data-reveal>Testimonials</span>
           <h2 className="h2" data-reveal data-delay="60">
-            Don&apos;t take <span className="grad-text">our word for it.</span>
+            <Rich text={title} />
           </h2>
-          <p className="lead" data-reveal data-delay="120">
-            Long-term partnerships are the best measure of our work. Here&apos;s what the businesses we build with say.
-          </p>
+          <p className="lead" data-reveal data-delay="120">{text}</p>
         </div>
 
         <div

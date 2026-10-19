@@ -1,0 +1,10 @@
+{
+  "hero": {
+    "title": "Page *Not Found*",
+    "text": "The page you're looking for doesn't exist or has moved."
+  },
+  "button": {
+    "label": "Back to Home",
+    "href": "/"
+  }
+}

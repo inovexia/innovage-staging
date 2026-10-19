@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Process",
+    "description": "Discover, Define, Design, Build, Validate, Launch, Evolve — the Innovage seven-step process."
+  },
+  "hero": {
+    "title": "Our Proven *Process*",
+    "text": "Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement."
+  },
+  "showcase": {
+    "_note": "The stages themselves are in content/shared.json under \"process\".",
+    "title": "Discover *→* Evolve",
+    "text": "At every stage, we work closely with you to reduce uncertainty, maintain visibility, and build technology that delivers real business value."
+  }
+}

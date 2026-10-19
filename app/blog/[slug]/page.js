@@ -7,7 +7,11 @@ import BlogCard from '@/components/BlogCard';
 import ArticleAside from '@/components/ArticleAside';
 import Icon from '@/components/Icon';
 import { posts, getPost, formatDate, slugify } from '@/lib/posts';
+import Rich from '@/components/Rich';
 import { pageMeta, SITE_URL as SITE } from '@/lib/seo';
+import content from '@/content/pages/blog.json';
+
+const t = content.post;
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
@@ -63,7 +67,7 @@ export default async function BlogPostPage({ params }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero eyebrow={post.category} title={post.title} crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}>
+      <PageHero title={post.title} crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}>
         <div className="article-meta" data-reveal data-delay="160">
           <span className="avatar" aria-hidden="true">{initials}</span>
           <span>
@@ -94,13 +98,13 @@ export default async function BlogPostPage({ params }) {
               <nav className="post-nav" aria-label="More articles">
                 {prev ? (
                   <Link href={`/blog/${prev.slug}`} className="post-nav-link">
-                    <small><Icon name="arrow" size={14} className="flip" /> Previous</small>
+                    <small><Icon name="arrow" size={14} className="flip" /> {t.previous}</small>
                     <span>{prev.title}</span>
                   </Link>
                 ) : <span />}
                 {next && (
                   <Link href={`/blog/${next.slug}`} className="post-nav-link next">
-                    <small>Next <Icon name="arrow" size={14} /></small>
+                    <small>{t.next} <Icon name="arrow" size={14} /></small>
                     <span>{next.title}</span>
                   </Link>
                 )}
@@ -115,18 +119,17 @@ export default async function BlogPostPage({ params }) {
       <section className="section section-alt">
         <div className="container">
           <div className="section-head left">
-            <span className="eyebrow" data-reveal>Keep reading</span>
-            <h2 className="h2" data-reveal data-delay="60">More from the <span className="grad-text">Blog</span></h2>
+            <h2 className="h2" data-reveal data-delay="60"><Rich text={t.relatedTitle} /></h2>
           </div>
           <div className="post-grid">
             {related.map((p, i) => (
-              <BlogCard key={p.slug} post={p} delay={i * 90} />
+              <BlogCard key={p.slug} post={p} delay={i * 90} linkLabel={content.cardLinkLabel} />
             ))}
           </div>
         </div>
       </section>
 
-      <CTASection />
+      <CTASection {...t.cta} />
     </>
   );
 }

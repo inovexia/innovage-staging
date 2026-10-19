@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "Services",
+    "description": "Website design, development, mobile apps, custom software, business automation, SaaS platforms and ongoing support."
+  },
+  "hero": {
+    "title": "What We Do *Best*",
+    "text": "We offer a full suite of digital services to bring your vision to life—from strategy and design to development, launch and long-term support."
+  },
+  "cardLinkLabel": "Read More",
+  "solutions": {
+    "title": "Technology Built Around *Real Business Needs*"
+  },
+  "detail": {
+    "_note": "Labels for every /services/<slug> page. {service} is replaced with the service title. Service-specific content lives in content/services.json.",
+    "deliverTitle": "How we deliver it",
+    "asideTitle": "All Services",
+    "asideButton": {
+      "label": "Get a Free Quote",
+      "href": "/contact"
+    },
+    "whyButton": {
+      "label": "Discuss your project",
+      "href": "/contact"
+    },
+    "deliverablesTitle": "Deliverables",
+    "stackTitle": "Tools & technologies",
+    "stackText": "We choose the simplest proven stack for the job — these are the tools we most often use for {service}.",
+    "casesTitle": "{service} *in action*",
+    "casesText": "A look at related work we've delivered for businesses like yours.",
+    "casesButton": {
+      "label": "All case studies",
+      "href": "/case-studies"
+    },
+    "caseLinkLabel": "Read the case study",
+    "faqTitle": "{service} *questions*"
+  }
+}

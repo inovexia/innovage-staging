@@ -7,6 +7,17 @@ import { useEffect, useState } from 'react';
 import { nav } from '@/lib/data';
 import Icon from './Icon';
 
+// the initial theme is set before paint by the inline script in app/layout.js
+function toggleTheme() {
+  const root = document.documentElement;
+  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+  root.dataset.theme = next;
+  try {
+    localStorage.setItem('theme', next);
+  } catch {}
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', next === 'light' ? '#f6f5fa' : '#0b0a14');
+}
+
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -48,7 +59,8 @@ export default function Header() {
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${hidden && !open ? 'is-hidden' : ''}`}>
       <div className="container header-inner">
         <Link href="/" className="logo" aria-label="Innovage home">
-          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={180} height={30} priority />
+          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={180} height={30} priority className="logo-dark" />
+          <Image src="/images/innovage-logo-dark.png" alt="Innovage" width={180} height={30} priority className="logo-light" />
         </Link>
 
         <nav className="nav-pill" aria-label="Main">
@@ -93,6 +105,7 @@ export default function Header() {
                 <li key={item.label}>
                   <Link href={item.href} className={`nav-link ${isActive(item.href) ? 'active' : ''}`}>
                     {item.label}
+                    {item.badge && <span className="nav-new">{item.badge}</span>}
                   </Link>
                 </li>
               )
@@ -101,6 +114,10 @@ export default function Header() {
         </nav>
 
         <div className="header-cta">
+          <button type="button" className="theme-toggle" aria-label="Toggle light and dark theme" onClick={toggleTheme}>
+            <Icon name="moon" size={18} className="i-moon" />
+            <Icon name="sun" size={18} className="i-sun" />
+          </button>
           <Link href="/contact" className="btn btn-primary btn-sm" data-magnetic>
             Let&apos;s Start <Icon name="arrowUpRight" size={16} />
           </Link>
@@ -139,7 +156,10 @@ export default function Header() {
                 </>
               ) : (
                 <Link href={item.href} className="m-link">
-                  {item.label}
+                  <span>
+                    {item.label}
+                    {item.badge && <span className="nav-new">{item.badge}</span>}
+                  </span>
                 </Link>
               )}
             </li>

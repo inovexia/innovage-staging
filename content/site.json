@@ -1,0 +1,95 @@
+{
+  "name": "Innovage",
+  "legalName": "Innovage Softwares Inc.",
+  "phone": "+1-(905) 232 0482",
+  "phoneHref": "tel:+19052320482",
+  "email": "innovage@innovagesoft.com",
+  "address": [
+    "36-4181 Sladeview Cres",
+    "Mississauga, Ontario, Canada",
+    "L5L 5R2"
+  ],
+  "enquiryEmail": "enquiry@innovagesoft.com",
+  "nav": [
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "TeckHub360",
+      "href": "/teckhub360",
+      "badge": "New"
+    },
+    {
+      "label": "Case Studies",
+      "href": "/case-studies"
+    },
+    {
+      "label": "Industries",
+      "href": "/industries"
+    },
+    {
+      "label": "Process",
+      "href": "/process"
+    }
+  ],
+  "footer": {
+    "text": "We design and develop custom software around the way your business actually works — web apps, portals, SaaS platforms and mobile applications.",
+    "button": {
+      "label": "Book a Free Consultation",
+      "href": "/contact"
+    },
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "companyLinks": [
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "TeckHub360",
+        "href": "/teckhub360"
+      },
+      {
+        "label": "Case Studies",
+        "href": "/case-studies"
+      },
+      {
+        "label": "Industries",
+        "href": "/industries"
+      },
+      {
+        "label": "Process",
+        "href": "/process"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact"
+      }
+    ],
+    "contactTitle": "Contact Info",
+    "legalLinks": [
+      {
+        "label": "Terms & Conditions",
+        "href": "/terms-and-conditions"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Have an Idea? Let's Turn It Into a Solution.",
+    "text": "Tell us what you're trying to achieve. We'll help you explore the right technology, approach, and path forward.",
+    "button": "Start a Conversation"
+  }
+}

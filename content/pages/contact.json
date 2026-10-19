@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Start your project with Innovage. Book a free consultation."
+  },
+  "hero": {
+    "title": "Have an Idea? *Let's Talk.*",
+    "text": "Tell us what you're trying to achieve. We'll help you explore the right technology, approach, and path forward."
+  },
+  "labels": {
+    "call": "Call us",
+    "email": "Email us",
+    "visit": "Visit us"
+  }
+}

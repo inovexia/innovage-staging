@@ -1,5 +1,4 @@
 import Icon from './Icon';
-import ModelScene from './three/ModelScene';
 
 const menu = [
   { icon: 'chart', label: 'Dashboard' },
@@ -23,7 +22,7 @@ const balance = [
   { label: 'Equity', value: '224k' },
 ];
 
-/** TeckHub360 dashboard mock-up tilted in 3D, with floating 3D accents and status chips. */
+/** TeckHub360 dashboard mock-up, tilted in 3D. */
 export default function TeckHubStage({ className = '' }) {
   return (
     <div className={`th-stage ${className}`} data-reveal data-delay="160">
@@ -91,23 +90,6 @@ export default function TeckHubStage({ className = '' }) {
             </div>
           </div>
         </div>
-      </div>
-  
-      <ModelScene set="teckhub" className="th-scene" zoom={7.4} />
-  
-      <div className="th-chip th-chip-a glass">
-        <span className="th-chip-icon"><Icon name="spark" size={15} /></span>
-        <span>
-          <small>OCR · Fuel receipt</small>
-          GIFI 9281 · 94% match
-        </span>
-      </div>
-      <div className="th-chip th-chip-b glass">
-        <span className="th-chip-icon ok"><Icon name="check" size={15} /></span>
-        <span>
-          <small>GST/HST · Q1</small>
-          Filed with CRA
-        </span>
       </div>
     </div>
   );

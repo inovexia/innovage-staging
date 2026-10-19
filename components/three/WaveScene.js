@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { snoise } from './noise';
-import { createRenderer } from './webgl';
+import { createRenderer, isLightTheme, watchTheme } from './webgl';
 
 /**
  * Inner-page header background: an undulating grid of glowing points that
@@ -51,6 +51,7 @@ export default function WaveScene() {
         uTime: { value: 0 },
         uMouse: { value: new THREE.Vector2(0, 0) },
         uPx: { value: renderer.getPixelRatio() },
+        uLight: { value: isLightTheme() ? 1 : 0 },
       };
       const mat = new THREE.ShaderMaterial({
         uniforms,
@@ -74,19 +75,20 @@ export default function WaveScene() {
             gl_Position = projectionMatrix * mv;
           }`,
         fragmentShader: /* glsl */ `
+          uniform float uLight;
           varying float vH;
           varying float vDepth;
           void main(){
             float d = length(gl_PointCoord - 0.5);
             if (d > 0.5) discard;
             float h = smoothstep(-0.8, 1.0, vH);
-            vec3 col = vec3(0.45 + h * 0.5);
+            vec3 col = mix(vec3(0.45 + h * 0.5), vec3(0.4 - h * 0.3), uLight);
             float fade = smoothstep(18.0, 6.0, vDepth);
             gl_FragColor = vec4(col, smoothstep(0.5, 0.1, d) * fade * (0.35 + h * 0.45));
           }`,
         transparent: true,
         depthWrite: false,
-        blending: THREE.AdditiveBlending,
+        blending: uniforms.uLight.value ? THREE.NormalBlending : THREE.AdditiveBlending,
       });
       const points = new THREE.Points(geo, mat);
       scene.add(points);
@@ -131,11 +133,19 @@ export default function WaveScene() {
         render();
         raf = requestAnimationFrame(loop);
       };
+      const unwatchTheme = watchTheme((light) => {
+        uniforms.uLight.value = light ? 1 : 0;
+        mat.blending = light ? THREE.NormalBlending : THREE.AdditiveBlending;
+        mat.needsUpdate = true;
+        if (reduced) render();
+      });
+
       if (reduced) render();
       else loop();
       requestAnimationFrame(() => mount.classList.add('is-ready'));
 
       cleanup = () => {
+        unwatchTheme();
         cancelAnimationFrame(raf);
         window.removeEventListener('pointermove', onMove);
         ro.disconnect();

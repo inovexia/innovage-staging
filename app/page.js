@@ -3,13 +3,18 @@ import Image from 'next/image';
 import HeroScene from '@/components/three/HeroScene';
 import Icon from '@/components/Icon';
 import Counter from '@/components/Counter';
-import ProcessShowcase from '@/components/ProcessShowcase';
+import ProcessExplorer from '@/components/ProcessExplorer';
 import SolutionsList from '@/components/SolutionsList';
 import CTASection from '@/components/CTASection';
 import TeckHubShowcase from '@/components/TeckHubShowcase';
 import Testimonials from '@/components/Testimonials';
-import BlogSection from '@/components/BlogSection';
-import { pillars, stats, clients, marquee } from '@/lib/data';
+// import BlogSection from '@/components/BlogSection'; // blog section hidden on the homepage for now
+import Rich from '@/components/Rich';
+import { stats, clients } from '@/lib/data';
+import content from '@/content/pages/home.json';
+import industryContent from '@/content/pages/industries.json';
+
+const { hero, marquee, intro, services, solutions, industries, teckhub, process: processSection, testimonials, blog, cta } = content;
 
 export default function Home() {
   return (
@@ -19,37 +24,38 @@ export default function Home() {
         <HeroScene />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="container hero-inner">
-          <span className="eyebrow pill" data-reveal>
-            <span className="pulse" /> Canadian-based software studio · 10+ years
-          </span>
-          <h1 className="hero-title" data-reveal data-delay="80">
-            We Build <span className="grad-text">Digital Products</span> That Move Your Business Forward
+          <h1 className="hero-title" data-reveal>
+            <Rich text={hero.title} />
           </h1>
-          <p className="lead" data-reveal data-delay="180">
-            Custom web apps, business portals, SaaS platforms and mobile applications — designed around the way your
-            business actually works.
-          </p>
-          <div className="btn-row" data-reveal data-delay="260">
-            <Link href="/contact" className="btn btn-primary btn-lg" data-magnetic>
-              Start Your Project <Icon name="arrow" size={18} />
+          <p className="lead" data-reveal data-delay="120">{hero.text}</p>
+          <div className="hero-industries" data-reveal data-delay="160">
+            <span className="hero-industries-label">{hero.industriesLabel}</span>
+            <ul>
+              {[...industryContent.expertise.items, industries.ai].map((ind) => (
+                <li key={ind.title}>
+                  <Link href={ind.href || industries.button.href} className="hero-industry">
+                    <Icon name={ind.icon} size={16} />
+                    {ind.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="btn-row" data-reveal data-delay="200">
+            <Link href={hero.primaryButton.href} className="btn btn-primary btn-lg" data-magnetic>
+              {hero.primaryButton.label} <Icon name="arrow" size={18} />
             </Link>
-            <Link href="/services" className="btn btn-ghost btn-lg" data-magnetic>
-              Explore Services
+            <Link href={hero.secondaryButton.href} className="btn btn-ghost btn-lg" data-magnetic>
+              {hero.secondaryButton.label}
             </Link>
           </div>
-          <dl className="hero-stats" data-reveal data-delay="340">
-            <div>
-              <dt><Counter value={10} suffix="+" /></dt>
-              <dd>Years of experience</dd>
-            </div>
-            <div>
-              <dt><Counter value={100} suffix="+" /></dt>
-              <dd>Projects delivered</dd>
-            </div>
-            <div>
-              <dt>Web · SaaS · Mobile</dt>
-              <dd>End-to-end delivery</dd>
-            </div>
+          <dl className="hero-stats" data-reveal data-delay="280">
+            {hero.stats.map((s) => (
+              <div key={s.label}>
+                <dt>{typeof s.value === 'number' ? <Counter value={s.value} suffix={s.suffix} /> : s.value}</dt>
+                <dd>{s.label}</dd>
+              </div>
+            ))}
           </dl>
         </div>
         <a href="#intro" className="scroll-cue" aria-label="Scroll to content">
@@ -68,38 +74,41 @@ export default function Home() {
         </div>
       </div>
 
-      {/* VALUE PROP */}
+      {/* TECKHUB360 — our new product, featured straight after the hero */}
+      <TeckHubShowcase {...teckhub} />
+
+      {/* VALUE PROP + WHY US */}
       <section className="section" id="intro">
         <div className="container split">
           <div>
-            <span className="eyebrow" data-reveal>Why Innovage</span>
-            <h2 className="h2" data-reveal data-delay="60">
-              Your Business Is Unique. <span className="grad-text">Your Software Should Be Too.</span>
+            <h2 className="h2" data-reveal>
+              <Rich text={intro.title} />
             </h2>
-            <p className="lead" data-reveal data-delay="120">
-              We design and develop custom software around the way your business actually works—helping you automate
-              processes, improve customer experiences and scale with confidence.
-            </p>
-            <Link href="/contact" className="btn btn-primary" data-reveal data-delay="180" data-magnetic>
-              Book a Free Consultation <Icon name="arrow" size={18} />
+            {intro.paragraphs.map((p, i) => (
+              <p key={i} className="lead" data-reveal data-delay={80 + i * 40}>{p}</p>
+            ))}
+            <Link href={intro.button.href} className="btn btn-primary" data-reveal data-delay="180" data-magnetic>
+              {intro.button.label} <Icon name="arrow" size={18} />
             </Link>
           </div>
-          <div className="value-card glass spot" data-reveal data-delay="120" data-tilt>
+          <div className="value-card glass spot" data-reveal data-delay="120">
             <div className="value-rings" aria-hidden="true">
               <span /><span /><span />
             </div>
-            <h3>From First Idea to Long-Term Success</h3>
-            <p>
-              Innovage works with you beyond development. We provide strategy, UX/UI, development, deployment,
-              maintenance and continuous optimization as your technology partner.
-            </p>
-            <ul className="check-list">
-              {['Strategy & discovery', 'UX/UI design', 'Development & deployment', 'Maintenance & optimization'].map((t) => (
-                <li key={t}><Icon name="check" size={16} /> {t}</li>
+            <h3>{intro.card.title}</h3>
+            <ul className="why-list">
+              {intro.card.items.map((w) => (
+                <li key={w.title}>
+                  <span className="svc-icon"><Icon name={w.icon} size={20} /></span>
+                  <div>
+                    <strong>{w.title}</strong>
+                    <p>{w.text}</p>
+                  </div>
+                </li>
               ))}
             </ul>
-            <Link href="/contact" className="link-arrow">
-              Get a Free Quote <Icon name="arrow" size={16} />
+            <Link href={intro.card.link.href} className="link-arrow">
+              {intro.card.link.label} <Icon name="arrow" size={16} />
             </Link>
           </div>
         </div>
@@ -109,18 +118,19 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow" data-reveal>Services</span>
-            <h2 className="h2" data-reveal data-delay="60">What We Do <span className="grad-text">Best</span></h2>
-            <p className="lead" data-reveal data-delay="120">We offer a full suite of digital services to bring your vision to life.</p>
+            <h2 className="h2" data-reveal><Rich text={services.title} /></h2>
+            <p className="lead" data-reveal data-delay="80">{services.text}</p>
           </div>
-          <div className="card-grid">
-            {pillars.map((p, i) => (
+          <div className="card-grid four">
+            {services.items.map((p, i) => (
               <Link key={p.title} href={p.href} className="svc-card spot" data-reveal data-delay={(i % 3) * 90} data-tilt>
                 <span className="svc-icon"><Icon name={p.icon} size={26} /></span>
                 <h3>{p.title}</h3>
-                <p className="svc-tag">{p.tagline}</p>
                 <p>{p.text}</p>
-                <span className="link-arrow">Read More <Icon name="arrow" size={16} /></span>
+                <div className="svc-tags">
+                  {p.tags.map((t) => <span key={t}>{t}</span>)}
+                </div>
+                <span className="link-arrow">{services.linkLabel} <Icon name="arrow" size={16} /></span>
               </Link>
             ))}
           </div>
@@ -131,43 +141,56 @@ export default function Home() {
       <section className="section section-alt">
         <div className="container">
           <div className="section-head left">
-            <span className="eyebrow" data-reveal>Solutions</span>
-            <h2 className="h2" data-reveal data-delay="60">
-              Technology Built Around <span className="grad-text">Real Business Needs</span>
+            <h2 className="h2" data-reveal>
+              <Rich text={solutions.title} />
             </h2>
-            <p className="lead" data-reveal data-delay="120">
-              From business automation to custom software platforms, we design and build digital solutions that solve
-              complex operational challenges.
-            </p>
+            <p className="lead" data-reveal data-delay="120">{solutions.text}</p>
           </div>
           <SolutionsList />
         </div>
       </section>
 
-      {/* TECKHUB360 */}
-      <TeckHubShowcase />
+      {/* INDUSTRY EXPERTISE */}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <h2 className="h2" data-reveal><Rich text={industries.title} /></h2>
+            <p className="lead" data-reveal data-delay="80">{industries.text}</p>
+          </div>
+          <div className="card-grid four">
+            {[...industryContent.expertise.items, industries.ai].map((ind, i) => (
+              <Link key={ind.title} href={ind.href || industries.button.href} className="svc-card spot" data-reveal data-delay={(i % 4) * 90} data-tilt>
+                <span className="svc-icon"><Icon name={ind.icon} size={26} /></span>
+                <h3>{ind.title}</h3>
+                <p className="svc-tag">{ind.tagline}</p>
+                <div className="svc-tags">
+                  {ind.tags.map((t) => <span key={t}>{t}</span>)}
+                </div>
+                <span className="link-arrow">{industries.linkLabel} <Icon name="arrow" size={16} /></span>
+              </Link>
+            ))}
+          </div>
+          <div className="section-head" style={{ margin: 'var(--space-head) auto 0' }}>
+            <Link href={industries.button.href} className="btn btn-ghost" data-reveal data-magnetic>
+              {industries.button.label} <Icon name="arrow" size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* PROCESS */}
-      <ProcessShowcase
-        eyebrow="How we work"
-        title={<>Our Proven <span className="grad-text">Process</span></>}
-        text="Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement. At every stage, we work closely with you to reduce uncertainty, maintain visibility, and build technology that delivers real business value."
-      >
-        <Link href="/process" className="btn btn-ghost" data-magnetic>
-          See the full process <Icon name="arrow" size={18} />
+      <ProcessExplorer title={<Rich text={processSection.title} />} text={processSection.text}>
+        <Link href={processSection.button.href} className="btn btn-ghost" data-magnetic>
+          {processSection.button.label} <Icon name="arrow" size={18} />
         </Link>
-      </ProcessShowcase>
+      </ProcessExplorer>
 
       {/* STATS + CLIENTS */}
       <section className="section section-alt">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow" data-reveal>Our Clients</span>
-            <h2 className="h2" data-reveal data-delay="60">Businesses We&apos;ve <span className="grad-text">Helped Build</span></h2>
-            <p className="lead" data-reveal data-delay="120">
-              We combine our software development expertise with proven technology platforms to build solutions that
-              are secure, scalable, and designed for long-term growth.
-            </p>
+            <h2 className="h2" data-reveal><Rich text={content.clients.title} /></h2>
+            <p className="lead" data-reveal data-delay="80">{content.clients.text}</p>
           </div>
           <div className="stats-grid">
             {stats.map((s, i) => (
@@ -188,12 +211,12 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <Testimonials />
+      <Testimonials {...testimonials} />
 
-      {/* BLOG */}
-      <BlogSection />
+      {/* BLOG — hidden for now; restore the import above and this line to bring it back */}
+      {/* <BlogSection {...blog} /> */}
 
-      <CTASection />
+      <CTASection {...cta} />
     </>
   );
 }

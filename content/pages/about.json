@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "title": "About",
+    "description": "Innovage is a Canadian-based software studio with 10+ years of digital experience and 100+ projects delivered."
+  },
+  "hero": {
+    "title": "Your Technology Partner *From First Idea to Long-Term Success*",
+    "text": "Innovage works with you beyond development. We provide strategy, UX/UI, development, deployment, maintenance and continuous optimization as your technology partner."
+  },
+  "intro": {
+    "title": "Your Business Is Unique. *Your Software Should Be Too.*",
+    "paragraphs": [
+      "We design and develop custom software around the way your business actually works—helping you automate processes, improve customer experiences and scale with confidence.",
+      "Based in Mississauga, Ontario, we combine our software development expertise with proven technology platforms to build solutions that are secure, scalable, and designed for long-term growth.",
+      "Our work has consistently centred on education (learning and education management systems), content management systems (CMS) and finance, including our own product, TeckHub360. Moving forward, we are bringing that experience into AI and automation, adding intelligent assistants, document processing and automated workflows to the systems our clients rely on every day."
+    ],
+    "badge": {
+      "value": "10+",
+      "label": "years"
+    }
+  },
+  "values": {
+    "title": "How We *Work With You*",
+    "items": [
+      {
+        "icon": "target",
+        "title": "Business First",
+        "text": "We build the right solution—not simply what was initially requested—by understanding how your business actually works."
+      },
+      {
+        "icon": "compass",
+        "title": "Total Visibility",
+        "text": "Work is delivered in manageable phases so you can review progress and give feedback throughout the journey."
+      },
+      {
+        "icon": "shield",
+        "title": "Built to Last",
+        "text": "Secure, scalable solutions designed for long-term growth, backed by ongoing support and optimization."
+      },
+      {
+        "icon": "users",
+        "title": "True Partnership",
+        "text": "Launch is not the end. We stay on as your technology partner as your business, customers and technology evolve."
+      }
+    ]
+  }
+}

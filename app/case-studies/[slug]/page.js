@@ -5,7 +5,11 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import Icon from '@/components/Icon';
 import { caseStudies } from '@/lib/data';
+import Rich from '@/components/Rich';
 import { pageMeta } from '@/lib/seo';
+import page from '@/content/pages/case-studies.json';
+
+const t = page.detail;
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -81,30 +85,29 @@ export default async function CaseStudyPage({ params }) {
   const sync = c.images?.full && syncKeyframes(c.slug, c.images);
 
   const facts = [
-    { label: 'Client', value: c.client },
-    { label: 'Industry', value: c.industry },
-    c.location && { label: 'Location', value: c.location },
-    { label: 'Services', value: c.services.join(', ') },
+    { label: t.factLabels.client, value: c.client },
+    { label: t.factLabels.industry, value: c.industry },
+    c.location && { label: t.factLabels.location, value: c.location },
+    { label: t.factLabels.services, value: c.services.join(', ') },
   ].filter(Boolean);
 
   const story = [
-    { n: '01', title: 'The client', text: c.overview },
-    { n: '02', title: 'The challenge', text: c.challenge },
-    { n: '03', title: 'Our solution', text: c.solution },
+    { n: '01', title: t.storyLabels.overview, text: c.overview },
+    { n: '02', title: t.storyLabels.challenge, text: c.challenge },
+    { n: '03', title: t.storyLabels.solution, text: c.solution },
   ];
 
   return (
     <>
       <PageHero
-        eyebrow={c.category}
         title={c.client}
         text={c.title + '. ' + c.text}
         crumbs={[{ label: 'Case Studies', href: '/case-studies' }, { label: c.client }]}
         visual={<Showcase c={c} />}
       >
         <div className="btn-row" data-reveal data-delay="220">
-          <Link href="/contact" className="btn btn-primary btn-lg" data-magnetic>
-            Start a similar project <Icon name="arrow" size={18} />
+          <Link href={t.heroButton.href} className="btn btn-primary btn-lg" data-magnetic>
+            {t.heroButton.label} <Icon name="arrow" size={18} />
           </Link>
         </div>
       </PageHero>
@@ -127,9 +130,8 @@ export default async function CaseStudyPage({ params }) {
       <section className="section">
         <div className="container">
           <div className="section-head left">
-            <span className="eyebrow" data-reveal>The project</span>
             <h2 className="h2" data-reveal data-delay="60">
-              From brief <span className="grad-text">to launch</span>
+              <Rich text={t.storyTitle} />
             </h2>
           </div>
           <div className="cd-story">
@@ -148,9 +150,8 @@ export default async function CaseStudyPage({ params }) {
       <section className="section section-alt">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow" data-reveal>What we built</span>
             <h2 className="h2" data-reveal data-delay="60">
-              Key features <span className="grad-text">& highlights</span>
+              <Rich text={t.featuresTitle} />
             </h2>
           </div>
           <div className="cd-features">
@@ -170,12 +171,11 @@ export default async function CaseStudyPage({ params }) {
         <section className="section cd-preview-section">
           <div className="container">
             <div className="section-head">
-              <span className="eyebrow" data-reveal>Take a look</span>
               <h2 className="h2" data-reveal data-delay="60">
-                The finished <span className="grad-text">website</span>
+                <Rich text={t.previewTitle} />
               </h2>
               <p className="lead" data-reveal data-delay="120">
-                {c.images.full ? 'Hover over this section to scroll through the whole homepage on desktop and mobile.' : 'Designed to work beautifully on desktop and mobile.'}
+                {c.images.full ? t.previewTextScroll : t.previewTextStatic}
               </p>
             </div>
             {sync && <style>{sync.css}</style>}
@@ -210,7 +210,7 @@ export default async function CaseStudyPage({ params }) {
               </div>
               {c.images.full && (
                 <span className="cd-hint" aria-hidden="true">
-                  <Icon name="arrow" size={14} /> Hover to scroll
+                  <Icon name="arrow" size={14} /> {t.previewHint}
                 </span>
               )}
             </div>
@@ -228,7 +228,7 @@ export default async function CaseStudyPage({ params }) {
         <div className="container">
           <Link href={`/case-studies/${next.slug}`} className="cd-next spot" data-reveal>
             <div>
-              <small>Next case study</small>
+              <small>{t.nextLabel}</small>
               <strong>{next.client}</strong>
               <span>{next.title}</span>
             </div>
@@ -240,7 +240,7 @@ export default async function CaseStudyPage({ params }) {
         </div>
       </section>
 
-      <CTASection title="Have a Project Like This in Mind?" />
+      <CTASection {...t.cta} />
     </>
   );
 }

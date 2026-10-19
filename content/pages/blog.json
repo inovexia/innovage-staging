@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Blog",
+    "description": "Insights on custom software, automation, web design and digital product strategy from the Innovage team."
+  },
+  "hero": {
+    "title": "Insights & *Ideas*",
+    "text": "Practical thinking on software, automation, design and growing your business with technology."
+  },
+  "cardLinkLabel": "Read article",
+  "cta": {
+    "title": "Have a Project in Mind?",
+    "text": "Turn the ideas in these articles into a plan for your business. We'll help you explore the right approach."
+  },
+  "post": {
+    "_note": "Labels for every /blog/<slug> page. Articles live in content/blog-posts.json.",
+    "previous": "Previous",
+    "next": "Next",
+    "relatedTitle": "More from the *Blog*"
+  }
+}

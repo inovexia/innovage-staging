@@ -5,23 +5,14 @@ import CTASection from '@/components/CTASection';
 import Icon from '@/components/Icon';
 import { caseStudies } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
+import content from '@/content/pages/case-studies.json';
 
-export const metadata = pageMeta({
-  title: 'Case Studies',
-  description: 'Businesses we have helped build — websites, platforms and custom software delivered by Innovage.',
-  path: '/case-studies',
-});
+export const metadata = pageMeta({ ...content.meta, path: '/case-studies' });
 
 export default function CaseStudiesPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Case Studies"
-        title="Businesses We've"
-        accent="Helped Build"
-        text="Secure, scalable solutions designed for long-term growth. A look at some of the work we've delivered."
-        crumbs={[{ label: 'Case Studies' }]}
-      />
+      <PageHero title={content.hero.title} text={content.hero.text} crumbs={[{ label: 'Case Studies' }]} />
 
       <section className="section">
         <div className="container case-grid">
@@ -46,7 +37,7 @@ export default function CaseStudiesPage() {
                   ))}
                 </div>
                 <span className="link-arrow">
-                  View case study <Icon name="arrow" size={16} />
+                  {content.cardLinkLabel} <Icon name="arrow" size={16} />
                 </span>
               </div>
             </article>
@@ -54,7 +45,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection {...content.cta} />
     </>
   );
 }

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Icon from './Icon';
 import { formatDate } from '@/lib/posts';
 
-export default function BlogCard({ post, featured = false, delay = 0, priority = false }) {
+export default function BlogCard({ post, featured = false, delay = 0, priority = false, linkLabel = 'Read article' }) {
   return (
     <article className={`post spot ${featured ? 'post-featured' : ''}`} data-reveal data-delay={delay} data-tilt={featured ? undefined : ''}>
       <Link href={`/blog/${post.slug}`} className="post-link" aria-label={post.title} />
@@ -24,7 +24,7 @@ export default function BlogCard({ post, featured = false, delay = 0, priority =
         <h3>{post.title}</h3>
         <p>{post.excerpt}</p>
         <span className="link-arrow">
-          Read article <Icon name="arrow" size={16} />
+          {linkLabel} <Icon name="arrow" size={16} />
         </span>
       </div>
     </article>

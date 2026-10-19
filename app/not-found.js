@@ -1,13 +1,15 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import content from '@/content/pages/not-found.json';
 
 export default function NotFound() {
+  const { hero, button } = content;
   return (
     <>
-      <PageHero eyebrow="404" title="Page" accent="Not Found" text="The page you're looking for doesn't exist or has moved." />
+      <PageHero title={hero.title} text={hero.text} />
       <section className="section">
         <div className="container">
-          <Link href="/" className="btn btn-primary">Back to Home</Link>
+          <Link href={button.href} className="btn btn-primary">{button.label}</Link>
         </div>
       </section>
     </>

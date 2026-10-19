@@ -1,12 +1,11 @@
 import Icon from './Icon';
 
 /** Accordion FAQ list (native <details>, so it works without JavaScript). */
-export default function FAQ({ id, eyebrow = 'FAQ', title, items }) {
+export default function FAQ({ id, title, items }) {
   return (
     <section id={id} className="section">
       <div className="container faq-wrap">
         <div className="section-head left">
-          <span className="eyebrow" data-reveal>{eyebrow}</span>
           <h2 className="h2" data-reveal data-delay="60">{title}</h2>
         </div>
         <div className="faq-list">

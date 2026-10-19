@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Icon from './Icon';
+import Rich from './Rich';
 import { posts, formatDate } from '@/lib/posts';
 
 /** Home "latest from the blog": one featured story plus a stacked list of recent posts. */
-export default function BlogSection() {
+export default function BlogSection({ title, text, button }) {
   const [featured, ...rest] = posts;
   const recent = rest.slice(0, 3);
 
@@ -13,16 +14,13 @@ export default function BlogSection() {
       <div className="container">
         <div className="bs-head">
           <div>
-            <span className="eyebrow" data-reveal>Insights</span>
             <h2 className="h2" data-reveal data-delay="60">
-              Latest from <span className="grad-text">our blog</span>
+              <Rich text={title} />
             </h2>
-            <p className="lead" data-reveal data-delay="120">
-              Practical thinking on software, automation, design and growing your business with technology.
-            </p>
+            <p className="lead" data-reveal data-delay="120">{text}</p>
           </div>
-          <Link href="/blog" className="btn btn-ghost bs-all" data-reveal data-delay="160" data-magnetic>
-            View all articles <Icon name="arrow" size={18} />
+          <Link href={button.href} className="btn btn-ghost bs-all" data-reveal data-delay="160" data-magnetic>
+            {button.label} <Icon name="arrow" size={18} />
           </Link>
         </div>
 

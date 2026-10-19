@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "Industries",
+    "description": "Deep expertise in education, finance and marketing technology, now extended with AI and automation, plus custom software for businesses across industries."
+  },
+  "hero": {
+    "title": "Solutions for *Every Industry*",
+    "text": "Every industry runs differently. We design technology around the workflows, customers and regulations that make yours unique."
+  },
+  "expertise": {
+    "title": "Where We Go *Deepest*",
+    "text": "Three industries where we have built, shipped and run real products, not just client projects.",
+    "linkLabel": "Learn more",
+    "items": [
+      {
+        "icon": "cap",
+        "title": "Education",
+        "tagline": "LMS & education management systems",
+        "text": "We have built learning management systems and education management platforms covering courses, assessments, admissions, attendance, fees and reporting for institutes and training providers.",
+        "tags": ["LMS", "Student portals", "Assessments", "Admissions & fees"]
+      },
+      {
+        "icon": "chart",
+        "title": "Finance",
+        "tagline": "Built into our own product, TeckHub360",
+        "text": "Our in-house platform TeckHub360 handles real financial workflows, so we know compliance, document processing, accurate calculations and secure client data from the inside.",
+        "tags": ["Tax & compliance", "OCR documents", "Client portals", "Reporting"],
+        "href": "/teckhub360"
+      },
+      {
+        "icon": "target",
+        "title": "Marketing",
+        "tagline": "Campaigns, funnels & analytics",
+        "text": "Landing pages, lead capture, CRM integrations, campaign automation and dashboards that show which channels actually drive revenue.",
+        "tags": ["Lead funnels", "CRM sync", "Campaign automation", "Analytics"]
+      }
+    ]
+  },
+  "ai": {
+    "title": "Moving Into *AI & Automation*",
+    "paragraphs": [
+      "The domain knowledge we built in education, finance and marketing now powers our AI and automation work. We know where the manual effort sits in these workflows, so we know where AI actually pays off.",
+      "Instead of bolting a chatbot onto a product, we add intelligence where it removes real work: reading documents, answering routine questions, and moving data between systems without anyone copying and pasting."
+    ],
+    "button": { "label": "Talk to us about AI", "href": "/contact" },
+    "card": {
+      "title": "What This Looks Like",
+      "items": [
+        {
+          "icon": "spark",
+          "title": "AI assistants",
+          "text": "Tutors, support agents and internal helpers trained on your own content."
+        },
+        {
+          "icon": "layers",
+          "title": "Document intelligence",
+          "text": "OCR and extraction that turn forms, invoices and records into structured data."
+        },
+        {
+          "icon": "bolt",
+          "title": "Workflow automation",
+          "text": "Hand-offs, reminders, approvals and reports that run on their own."
+        }
+      ]
+    }
+  },
+  "others": {
+    "title": "Other Industries *We Serve*",
+    "text": "The same engineering approach adapts to the workflows of any business."
+  },
+  "items": [
+    {
+      "icon": "store",
+      "title": "Retail & E-commerce",
+      "text": "Online stores, inventory sync, loyalty programs and omnichannel customer experiences."
+    },
+    {
+      "icon": "heart",
+      "title": "Healthcare & Wellness",
+      "text": "Patient portals, booking systems and secure records workflows built for compliance."
+    },
+    {
+      "icon": "building",
+      "title": "Real Estate & Construction",
+      "text": "Listing platforms, project tracking, approvals and field-to-office reporting."
+    },
+    {
+      "icon": "truck",
+      "title": "Logistics & Distribution",
+      "text": "Order tracking, dispatch tools and supply-chain automation."
+    },
+    {
+      "icon": "briefcase",
+      "title": "Professional Services",
+      "text": "Client portals, document workflows, scheduling and billing automation."
+    },
+    {
+      "icon": "factory",
+      "title": "Manufacturing",
+      "text": "Production dashboards, quality tracking and ERP integrations."
+    },
+    {
+      "icon": "users",
+      "title": "Non-Profit & Associations",
+      "text": "Membership management, donations and community platforms."
+    }
+  ],
+  "cta": {
+    "title": "Don't See Your Industry?",
+    "text": "We've built solutions for businesses of every shape. Tell us about yours and we'll show you what's possible."
+  }
+}

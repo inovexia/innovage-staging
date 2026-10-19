@@ -42,3 +42,13 @@ export function createRenderer(THREE, options = {}) {
   }
   return null;
 }
+
+export const isLightTheme = () => document.documentElement.dataset.theme === 'light';
+
+// Calls back with `true` for light / `false` for dark whenever the site theme flips.
+// Returns an unsubscribe function.
+export function watchTheme(cb) {
+  const mo = new MutationObserver(() => cb(isLightTheme()));
+  mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  return () => mo.disconnect();
+}

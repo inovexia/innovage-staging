@@ -1,32 +1,21 @@
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import ProcessShowcase from '@/components/ProcessShowcase';
+import Rich from '@/components/Rich';
 import { pageMeta } from '@/lib/seo';
+import content from '@/content/pages/process.json';
 
-export const metadata = pageMeta({
-  title: 'Process',
-  description: 'Discover, Define, Design, Build, Validate, Launch, Evolve — the Innovage seven-step process.',
-  path: '/process',
-});
+export const metadata = pageMeta({ ...content.meta, path: '/process' });
 
 export default function ProcessPage() {
+  const { hero, showcase } = content;
   return (
     <>
-      <PageHero
-        eyebrow="Process"
-        title="Our Proven"
-        accent="Process"
-        text="Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement."
-        crumbs={[{ label: 'Process' }]}
-      />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Process' }]} />
 
-      <ProcessShowcase
-        eyebrow="Seven steps"
-        title={<>Discover <span className="grad-text">→</span> Evolve</>}
-        text="At every stage, we work closely with you to reduce uncertainty, maintain visibility, and build technology that delivers real business value."
-      />
+      <ProcessShowcase title={<Rich text={showcase.title} />} text={showcase.text} />
 
-      <CTASection />
+      <CTASection {...content.cta} />
     </>
   );
 }

@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "Case Studies",
+    "description": "Businesses we have helped build — websites, platforms and custom software delivered by Innovage."
+  },
+  "hero": {
+    "title": "Businesses We've *Helped Build*",
+    "text": "Secure, scalable solutions designed for long-term growth. A look at some of the work we've delivered."
+  },
+  "cardLinkLabel": "View case study",
+  "detail": {
+    "_note": "Labels for every /case-studies/<slug> page. Case study content lives in content/case-studies.json.",
+    "heroButton": {
+      "label": "Start a similar project",
+      "href": "/contact"
+    },
+    "factLabels": {
+      "client": "Client",
+      "industry": "Industry",
+      "location": "Location",
+      "services": "Services"
+    },
+    "storyTitle": "From brief *to launch*",
+    "storyLabels": {
+      "overview": "The client",
+      "challenge": "The challenge",
+      "solution": "Our solution"
+    },
+    "featuresTitle": "Key features *& highlights*",
+    "previewTitle": "The finished *website*",
+    "previewTextScroll": "Hover over this section to scroll through the whole homepage on desktop and mobile.",
+    "previewTextStatic": "Designed to work beautifully on desktop and mobile.",
+    "previewHint": "Hover to scroll",
+    "nextLabel": "Next case study",
+    "cta": {
+      "title": "Have a Project Like This in Mind?"
+    }
+  }
+}

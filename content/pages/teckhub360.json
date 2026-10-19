@@ -1,0 +1,402 @@
+{
+  "meta": {
+    "title": "TeckHub360 — client portal for Canadian accounting firms",
+    "description": "A white-label client portal for Canadian accounting firms — document checklists, OCR-assisted GIFI coding, step-by-step filing for business and T1 clients, payroll with client approval, invoicing, deadlines and secure chat in one place."
+  },
+  "hero": {
+    "title": "The portal Canadian accounting firms *run filing season on.*",
+    "text": "Clients send documents against a checklist, your team codes and files them, payroll and invoices sit beside the return — and everyone can see exactly where things stand."
+  },
+  "demoButtons": {
+    "primary": {
+      "label": "Book a demo",
+      "href": "/contact"
+    },
+    "secondary": {
+      "label": "Request pricing",
+      "href": "/contact"
+    }
+  },
+  "audiences": {
+    "title": "One portal, *four kinds of user.*",
+    "text": "TeckHub360 grew out of building portals for Canadian practices one at a time. Everyone involved in a return logs in to the same place — and sees only their part of it.",
+    "items": [
+      {
+        "icon": "briefcase",
+        "title": "Your office",
+        "text": "Admins, accountants and staff, each with the menus and actions their role allows — and a partner view of everything outstanding."
+      },
+      {
+        "icon": "building",
+        "title": "Business clients",
+        "text": "Corporations, sole proprietors, partnerships and the self-employed upload, sign and approve from their own organisation."
+      },
+      {
+        "icon": "users",
+        "title": "Their employees",
+        "text": "Staff see their own payslips and T4s. A trusted employee can load documents, held for the owner to approve first."
+      },
+      {
+        "icon": "check",
+        "title": "Individual filers",
+        "text": "T1 clients complete a profile once, work through a checklist by category and follow their return to the end."
+      }
+    ]
+  },
+  "modules": {
+    "title": "Ten modules, *one login.*",
+    "text": "Everything a practice touches during filing season — rather than a document tool, a billing tool, a payroll spreadsheet and an inbox.",
+    "items": [
+      {
+        "icon": "building",
+        "title": "Business clients",
+        "text": "Organisations, year ends and due dates set for you."
+      },
+      {
+        "icon": "users",
+        "title": "Individual filers",
+        "text": "T1 profiles, accountant assignment, bulk actions."
+      },
+      {
+        "icon": "check",
+        "title": "Checklists & documents",
+        "text": "Monthly and yearly lists clients work through."
+      },
+      {
+        "icon": "spark",
+        "title": "OCR & GIFI coding",
+        "text": "Suggested codes, confirmed by an accountant."
+      },
+      {
+        "icon": "layers",
+        "title": "Filing steps",
+        "text": "Ordered steps from documents in to return filed."
+      },
+      {
+        "icon": "cube",
+        "title": "Payroll",
+        "text": "Pay runs, client approval, PD7A and T4 slips."
+      },
+      {
+        "icon": "chart",
+        "title": "Invoices & agreements",
+        "text": "Recurring billing, T4 invoices, payment records."
+      },
+      {
+        "icon": "target",
+        "title": "Deadlines & calendar",
+        "text": "Every CRA date across the book, with guidance."
+      },
+      {
+        "icon": "mail",
+        "title": "Secure chat",
+        "text": "Conversations kept to the right audience."
+      },
+      {
+        "icon": "shield",
+        "title": "Roles & monitoring",
+        "text": "Permissions, activity logs and access audits."
+      }
+    ]
+  },
+  "ocr": {
+    "title": "Documents in. GIFI codes suggested. *A human still signs off.*",
+    "paragraphs": [
+      "Coding a shoebox of receipts is the least pleasant, most repetitive part of the job. TeckHub360 reads each uploaded PDF, pulls out the figures and matches them against the CRA's General Index of Financial Information.",
+      "Clients can also upload their profit & loss and balance sheet and have the rows extracted for you. The value is in removing the typing, not the judgement."
+    ],
+    "steps": [
+      {
+        "icon": "design",
+        "title": "Upload",
+        "text": "Receipts, invoices and statements arrive as PDFs against the checklist."
+      },
+      {
+        "icon": "spark",
+        "title": "Read",
+        "text": "Totals and line items are pulled out of the document text."
+      },
+      {
+        "icon": "layers",
+        "title": "Suggest",
+        "text": "A CRA GIFI code is proposed with a confidence score. Under 70% is flagged for a manual check."
+      },
+      {
+        "icon": "check",
+        "title": "Confirm",
+        "text": "An accountant accepts or corrects every code before it reaches the code summary."
+      }
+    ]
+  },
+  "demoBand": {
+    "title": "Easier to show than to describe.",
+    "text": "Bring one of your own filing scenarios and we'll run it through the portal on the call."
+  },
+  "pipelines": {
+    "title": "Two ordered paths, *so nothing gets filed out of sequence.*",
+    "text": "Each step works on what the one before it produced, and a partner can see where any client sits without asking the accountant handling it.",
+    "stepsLabel": "steps",
+    "items": [
+      {
+        "title": "Prep Accounts",
+        "sub": "Business clients",
+        "steps": [
+          "Subcategories",
+          "Documents",
+          "Code summary",
+          "Tax return form",
+          "Filed with CRA"
+        ],
+        "note": "The client signs the return form inside the portal and follows it from “form generated” to “filed”."
+      },
+      {
+        "title": "Finalize Account",
+        "sub": "Individual T1 filers",
+        "steps": [
+          "Subcategories",
+          "Documents",
+          "Code summary",
+          "Tax return form"
+        ],
+        "note": "Filers get a review-only view of the same four steps, so they can confirm without being able to change the work."
+      }
+    ]
+  },
+  "payroll": {
+    "title": "Payroll your clients *actually sign off on.*",
+    "text": "Payroll runs inside the same client record as the return, with the client in the loop at the point that matters — before anyone is paid.",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Agreements & pay settings",
+        "text": "A payroll agreement per client, pay settings per employee, dated pay changes and TD1 exemptions — with a history of every correction."
+      },
+      {
+        "icon": "compass",
+        "title": "Any pay frequency",
+        "text": "Weekly, bi-weekly, semi-monthly, monthly, bi-monthly, quarterly or annual, set employee by employee."
+      },
+      {
+        "icon": "check",
+        "title": "Review, then approve",
+        "text": "A five-step pay run: your accountant reviews it, the client approves it, nothing goes out on one person’s say-so."
+      },
+      {
+        "icon": "layers",
+        "title": "QuickBooks payslip import",
+        "text": "Bring existing payslip PDFs in from QuickBooks instead of re-keying them."
+      },
+      {
+        "icon": "briefcase",
+        "title": "PD7A & T4 slips",
+        "text": "Remittances and year-end slips tracked and stored against each client."
+      },
+      {
+        "icon": "users",
+        "title": "My Pay for employees",
+        "text": "Employees log in to their own payslips and T4 history — and stop emailing the office for copies."
+      }
+    ]
+  },
+  "paperwork": {
+    "title": "Chasing paperwork, *without the chasing.*",
+    "text": "Clients work from a checklist rather than a reply-all thread, and your team sees every CRA date across the whole book — with guidance and links for each.",
+    "checklist": {
+      "title": "Checklist & documents",
+      "subtitle": "Expenses · 12 of 18 complete",
+      "uploadLabel": "Upload",
+      "completionLabel": "Completion",
+      "completion": "67%",
+      "_note": "tone: ok | info | warn | muted",
+      "items": [
+        {
+          "item": "Bank statements — Q1",
+          "status": "Approved",
+          "tone": "ok"
+        },
+        {
+          "item": "Fuel receipts",
+          "status": "In review",
+          "tone": "info"
+        },
+        {
+          "item": "Supplier invoices",
+          "status": "Re-upload asked",
+          "tone": "warn"
+        },
+        {
+          "item": "Payroll summary",
+          "status": "Not uploaded",
+          "tone": "muted"
+        }
+      ],
+      "footnote": "Multi-file upload · 10 MB per file · ZIP download"
+    },
+    "deadlines": {
+      "title": "Deadlines",
+      "subtitle": "All clients · Toronto time",
+      "columns": [
+        "Obligation",
+        "Due",
+        "Status"
+      ],
+      "items": [
+        {
+          "item": "PD7A remittance",
+          "due": "15 Apr",
+          "status": "Due in 2 days",
+          "tone": "warn"
+        },
+        {
+          "item": "GST/HST return",
+          "due": "30 Apr",
+          "status": "Upcoming",
+          "tone": "info"
+        },
+        {
+          "item": "T2 corporate return",
+          "due": "30 Jun",
+          "status": "Upcoming",
+          "tone": "info"
+        },
+        {
+          "item": "T4 submission",
+          "due": "28 Feb",
+          "status": "Done",
+          "tone": "ok"
+        }
+      ],
+      "footnote": "Due dates set from each client's year end and business type"
+    }
+  },
+  "billing": {
+    "title": "Billing that knows *which client it is looking at.*",
+    "text": "Invoicing sits inside the portal rather than beside it, so what you billed and what they paid are attached to the same client as the return. Clients see their own invoices and agreements, read-only.",
+    "items": [
+      {
+        "icon": "link",
+        "title": "Recurring agreements",
+        "text": "Billing agreements that raise business invoices on schedule, plus one-off invoices whenever you need them."
+      },
+      {
+        "icon": "briefcase",
+        "title": "T4 invoices",
+        "text": "A separate invoice type for individual filers, with its own numbering and PDF."
+      },
+      {
+        "icon": "chart",
+        "title": "Payments on the record",
+        "text": "E-Transfer, cheque, pre-authorized debit or cash, recorded against the invoice. Paid invoices lock."
+      }
+    ]
+  },
+  "extras": {
+    "title": "Beyond the return, *still in one place.*",
+    "text": "The conversations that usually end up in someone's inbox, kept against the client instead.",
+    "items": [
+      {
+        "icon": "mail",
+        "title": "Chat that stays in its lane",
+        "text": "Clients talk to their assigned accounting team; a company’s employees talk only within their company."
+      },
+      {
+        "icon": "users",
+        "title": "Invites & referrals",
+        "text": "Any client can invite family or friends to file with you, straight from the portal."
+      },
+      {
+        "icon": "shield",
+        "title": "RRSP & RESP requests",
+        "text": "Clients ask for help with their plans. Details are encrypted and consent is recorded."
+      }
+    ]
+  },
+  "whiteLabel": {
+    "title": "Your firm's portal, *not ours.*",
+    "text": "Clients log in to something that looks like you. Upload your logo and favicon, set heading, body and button colours, pick the typeface, and choose a light or dark theme.",
+    "checks": [
+      "Logo and favicon, uploaded from settings",
+      "Your heading, body and button colours",
+      "Your typeface, light or dark",
+      "Applied before first paint — no flash of our colours"
+    ],
+    "hint": "Try it — pick a colour and theme on the right."
+  },
+  "security": {
+    "title": "Tax documents deserve *more than a password.*",
+    "text": "SINs, bank details and tax documents, behind more than a password. Documents are only ever served to a signed-in user with the right role.",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "Emailed one-time codes",
+        "text": "Two-factor login, switched on for your whole firm in one setting."
+      },
+      {
+        "icon": "compass",
+        "title": "Idle auto-logout",
+        "text": "Signed out after 15 idle minutes, with a 60-second warning first."
+      },
+      {
+        "icon": "users",
+        "title": "Role-scoped access",
+        "text": "Enforced on the server, not just hidden in the menu. A client sees their own organisation only."
+      },
+      {
+        "icon": "chart",
+        "title": "Activity & access logs",
+        "text": "Who did what and when — plus an audit of every blocked or missing page someone tried to open."
+      }
+    ]
+  },
+  "roadmap": {
+    "title": "And more *on the way.*",
+    "text": "A demo covers where each one sits — we would rather tell you that on a call than put a date on a web page.",
+    "items": [
+      {
+        "icon": "link",
+        "title": "QuickBooks data sync",
+        "text": "Going beyond payslip import to keep client books and the portal in step."
+      },
+      {
+        "icon": "grid",
+        "title": "French-language portal",
+        "text": "A full French interface for clients and staff."
+      },
+      {
+        "icon": "cube",
+        "title": "Built-in payroll calculations",
+        "text": "CPP, EI and income tax worked out in the portal across provinces."
+      }
+    ]
+  },
+  "faq": {
+    "title": "TeckHub360 *questions*",
+    "items": [
+      {
+        "q": "Does the OCR code documents on its own?",
+        "a": "No, and that is deliberate. It reads the document, suggests a CRA GIFI code with a confidence score and flags anything under 70%. An accountant confirms every code before it reaches the code summary."
+      },
+      {
+        "q": "Does TeckHub360 e-file returns with the CRA?",
+        "a": "No. Your team files through the CRA software it already uses, then marks the return filed in the portal — so the client and the partner can both see it is done."
+      },
+      {
+        "q": "Can we use our own branding?",
+        "a": "Yes — logo, favicon, heading, body and button colours, typeface, and light or dark theme, all from settings."
+      },
+      {
+        "q": "Does it handle both businesses and individual filers?",
+        "a": "Both: corporations, sole proprietors, partnerships and the self-employed alongside T1 filers, each with their own filing steps, invoice type and client view."
+      },
+      {
+        "q": "Can clients pay invoices online?",
+        "a": "Payments are recorded against each invoice — E-Transfer, cheque, pre-authorized debit or cash — rather than taken by card through the portal."
+      }
+    ]
+  },
+  "cta": {
+    "title": "See TeckHub360 on your own client list.",
+    "text": "A 30-minute walkthrough with one of your real filing scenarios, not a canned demo account. We will tell you honestly whether it fits how your practice already works.",
+    "button": "Book a demo"
+  }
+}

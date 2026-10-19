@@ -3,12 +3,10 @@
 import { useEffect, useRef } from 'react';
 import buildSolutions from './models/solutions';
 import buildProcess from './models/process';
-import buildTeckhub from './models/teckhub';
 import buildServices from './models/services';
-import buildOcr from './models/ocr';
-import { createRenderer } from './webgl';
+import { createRenderer, isLightTheme, watchTheme } from './webgl';
 
-const SETS = { solutions: buildSolutions, process: buildProcess, teckhub: buildTeckhub, services: buildServices, ocr: buildOcr };
+const SETS = { solutions: buildSolutions, process: buildProcess, services: buildServices };
 
 /**
  * Small 3D stage that shows one model per item of a set. The active model
@@ -188,9 +186,20 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
       });
       io.observe(mount);
       kickRef.current = () => reduced && render(true);
+
+      const applyTheme = (light) => {
+        M.line.color.set(light ? 0x16151f : 0xffffff);
+        M.line.opacity = light ? 0.35 : 0.28;
+      };
+      applyTheme(isLightTheme());
+      const unwatchTheme = watchTheme((light) => {
+        applyTheme(light);
+        kickRef.current();
+      });
       requestAnimationFrame(() => mount.classList.add('is-ready'));
 
       cleanup = () => {
+        unwatchTheme();
         cancelAnimationFrame(raf);
         host.removeEventListener('pointermove', onMove);
         host.removeEventListener('pointerleave', onLeave);
