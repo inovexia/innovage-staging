@@ -2,13 +2,14 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import SolutionsList from '@/components/SolutionsList';
+import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
 import Rich from '@/components/Rich';
 import { services } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/services.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/services' });
+export const metadata = pageMeta({ path: '/services' });
 
 export default function ServicesPage() {
   const { hero } = content;
@@ -24,7 +25,7 @@ export default function ServicesPage() {
                 <span className="svc-icon"><Icon name={s.icon} size={26} /></span>
                 <h3>{s.title}</h3>
                 <p className="svc-tag">{s.tagline}</p>
-                <p>{s.summary}</p>
+                <p>{s.cardText || s.summary}</p>
                 <span className="link-arrow">{content.cardLinkLabel} <Icon name="arrow" size={16} /></span>
               </Link>
             ))}
@@ -42,6 +43,8 @@ export default function ServicesPage() {
           <SolutionsList />
         </div>
       </section>
+
+      <FAQ title={<Rich text={content.faq.title} />} items={content.faq.items} />
 
       <CTASection {...content.cta} />
     </>

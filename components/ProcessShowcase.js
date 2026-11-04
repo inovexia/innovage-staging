@@ -9,10 +9,11 @@ import ModelScene from './three/ModelScene';
  * scroll drives the active step (wheel, trackpad, keys and touch all work).
  * The step list slides inside its own frame and the left column shows a 3D
  * model for the active step. Normal scrolling resumes after the last step.
+ * `stepText` optionally replaces a stage's text on this page, keyed by stage title.
  */
 const STEP_VH = 70; // scroll distance per step, in viewport heights
 
-export default function ProcessShowcase({ title, text, children }) {
+export default function ProcessShowcase({ title, text, stepText, children }) {
   const wrapRef = useRef(null);
   const frameRef = useRef(null);
   const listRef = useRef(null);
@@ -97,7 +98,7 @@ export default function ProcessShowcase({ title, text, children }) {
                   </button>
                   <div className="step-card" onClick={() => goTo(i)}>
                     <h3>{s.title}</h3>
-                    <p>{s.text}</p>
+                    <p>{stepText?.[s.title] || s.text}</p>
                   </div>
                 </li>
               ))}

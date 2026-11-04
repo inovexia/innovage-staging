@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import PageHero from './PageHero';
+import FAQ from './FAQ';
+import Rich from './Rich';
 import Icon from './Icon';
 import LegalToc from './LegalToc';
 import { site } from '@/lib/data';
@@ -21,7 +23,7 @@ function Block({ b, subject }) {
 }
 
 /** Legal document layout: sticky table of contents + numbered, linkable sections. */
-export default function LegalPage({ title, text, crumb, intro, sections, subject, contactTitle }) {
+export default function LegalPage({ title, text, crumb, intro, sections, subject, contactTitle, faq }) {
   return (
     <>
       <PageHero title={title} text={text} crumbs={[{ label: crumb }]} />
@@ -58,6 +60,8 @@ export default function LegalPage({ title, text, crumb, intro, sections, subject
           </article>
         </div>
       </section>
+
+      <FAQ title={<Rich text={faq.title} />} items={faq.items} />
     </>
   );
 }

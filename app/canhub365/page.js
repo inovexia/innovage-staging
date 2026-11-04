@@ -3,14 +3,14 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
-import TeckHubStage from '@/components/TeckHubStage';
-import ThemePreview from '@/components/teckhub/ThemePreview';
-import OcrDiagram from '@/components/teckhub/OcrDiagram';
+import CanHubStage from '@/components/CanHubStage';
+import ThemePreview from '@/components/canhub/ThemePreview';
+import ProductShot from '@/components/canhub/ProductShot';
 import Rich from '@/components/Rich';
 import { pageMeta } from '@/lib/seo';
-import content from '@/content/pages/teckhub360.json';
+import content from '@/content/pages/canhub365.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/teckhub360' });
+export const metadata = pageMeta({ path: '/canhub365' });
 
 const c = content;
 
@@ -51,15 +51,15 @@ function DemoButtons({ center }) {
   );
 }
 
-export default function TeckHubPage() {
+export default function CanHubPage() {
   const { checklist, deadlines } = c.paperwork;
   return (
     <>
       <PageHero
         title={c.hero.title}
         text={c.hero.text}
-        crumbs={[{ label: 'TeckHub360' }]}
-        visual={<TeckHubStage className="tp-hero-stage" />}
+        crumbs={[{ label: 'CanHub 365' }]}
+        visual={<CanHubStage className="tp-hero-stage" priority />}
       >
         <DemoButtons />
       </PageHero>
@@ -81,8 +81,8 @@ export default function TeckHubPage() {
               <span className="tp-hub-ring" />
               <span className="tp-hub-ring r2" />
               <span className="tp-hub-core">
-                <b>TeckHub</b>
-                <span>360</span>
+                <b>CanHub</b>
+                <span>365</span>
               </span>
             </div>
             {c.modules.items.map((m, i) => (
@@ -108,7 +108,7 @@ export default function TeckHubPage() {
             ))}
           </div>
           <div className="tp-scanner" data-reveal data-delay="120">
-            <OcrDiagram />
+            <ProductShot image={c.ocr.image} />
           </div>
         </div>
 
@@ -127,7 +127,7 @@ export default function TeckHubPage() {
       </section>
 
       {/* DEMO BAND */}
-      <section className="section tp-band-wrap">
+      <section className="section">
         <div className="container">
           <div className="tp-band" data-reveal>
             <div>
@@ -180,6 +180,9 @@ export default function TeckHubPage() {
       <section className="section section-alt">
         <div className="container">
           <SectionHead center title={c.paperwork.title} text={c.paperwork.text} />
+          <div className="tp-shot-wide" data-reveal data-delay="60">
+            <ProductShot image={c.paperwork.image} sizes="(max-width: 1100px) 100vw, 1040px" />
+          </div>
           <div className="tp-panels">
             <div className="tp-panel" data-reveal data-delay="60">
               <div className="tp-panel-head">
@@ -277,7 +280,12 @@ export default function TeckHubPage() {
       {/* ROADMAP */}
       <section id="roadmap" className="section">
         <div className="container">
-          <SectionHead title={c.roadmap.title} text={c.roadmap.text} />
+          <div className="tp-split tp-roadmap-head">
+            <SectionHead title={c.roadmap.title} text={c.roadmap.text} />
+            <div data-reveal data-delay="120">
+              <ProductShot image={c.roadmap.image} />
+            </div>
+          </div>
           <Cards items={c.roadmap.items} cols="three" />
         </div>
       </section>

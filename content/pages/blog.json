@@ -1,11 +1,7 @@
 {
-  "meta": {
-    "title": "Blog",
-    "description": "Insights on custom software, automation, web design and digital product strategy from the Innovage team."
-  },
   "hero": {
-    "title": "Insights & *Ideas*",
-    "text": "Practical thinking on software, automation, design and growing your business with technology."
+    "title": "Software Technology Insights & *Ideas*",
+    "text": "Practical thinking from the Innovage team: SaaS development insights, AI and business automation trends, web design and growing your business with technology."
   },
   "cardLinkLabel": "Read article",
   "cta": {
@@ -17,5 +13,26 @@
     "previous": "Previous",
     "next": "Next",
     "relatedTitle": "More from the *Blog*"
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "Where can I find the latest news on an Ontario software technology blog?",
+        "a": "Following a dedicated Ontario software technology blog gives local businesses access to regional tech news, digital transformation strategies, and modern software development practices."
+      },
+      {
+        "q": "How do SaaS development insights help founders build better cloud products?",
+        "a": "Reading expert SaaS development insights equips startups and enterprise leaders with best practices for multi-tenant architecture, cloud security, and subscription growth models."
+      },
+      {
+        "q": "What are the current AI and business automation trends impacting companies in Ontario?",
+        "a": "Staying updated on AI and business automation trends helps organizations integrate smart workflow tools, eliminate manual tasks, and maintain a competitive advantage in today's digital market."
+      },
+      {
+        "q": "Why should accounting practices follow a cloud accounting software guide?",
+        "a": "A comprehensive cloud accounting software guide offers valuable step-by-step advice on selecting compliant financial platforms, securing client data, and streamlining tax workflows."
+      }
+    ]
   }
 }

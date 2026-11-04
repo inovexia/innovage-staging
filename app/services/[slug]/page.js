@@ -35,8 +35,8 @@ export default async function ServicePage({ params }) {
   return (
     <>
       <PageHero
-        title={service.title}
-        text={service.tagline + '. ' + service.summary}
+        title={service.heroTitle || service.title}
+        text={service.heroText || service.tagline + '. ' + service.summary}
         crumbs={[{ label: 'Services', href: '/services' }, { label: service.title }]}
         visual={<ModelScene set="services" active={services.indexOf(service)} className="page-hero-scene" zoom={5.3} />}
       />
@@ -57,7 +57,7 @@ export default async function ServicePage({ params }) {
               ))}
             </div>
             <h3 className="h2" data-reveal>{t.deliverTitle}</h3>
-            <ProcessTimeline />
+            <ProcessTimeline stepText={service.processText} />
           </div>
 
           <aside className="detail-aside glass" data-reveal data-delay="120">

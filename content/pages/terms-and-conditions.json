@@ -1,18 +1,14 @@
 {
   "_note": "Copy from the live page at https://innovagesoft.com/terms-and-condition/. TODO: review with legal before launch — the live copy names \"Innovage Software Services Private Limited\" with Uttar Pradesh, India jurisdiction (the privacy policy names Innovage Softwares Inc., Ontario), and its \"Intellectual property rights\" section repeats the privacy policy's data-retention paragraph. Section body blocks: { \"p\": \"...\" } | { \"ul\": [...] } | { \"contact\": true }",
-  "meta": {
-    "title": "Terms & Conditions",
-    "description": "The terms and conditions that govern your use of the innovagesoft.com website and its related services."
-  },
   "hero": {
-    "title": "Terms & *Conditions*",
-    "text": "The terms that govern your use of our website and services."
+    "title": "Innovage Terms & *Conditions*",
+    "text": "The Innovage terms of service, software usage agreement and acceptable use policy that govern your use of the innovagesoft.com website and services."
   },
   "crumb": "Terms & Conditions",
   "subject": "Policy",
   "contactTitle": "Questions about these terms?",
   "intro": [
-    "These terms and conditions (“Agreement”) sets forth the general terms and conditions of your use of the innovagesoft.com website (“Website” or “Service”) and any of its related products and services (collectively, “Services”). This Agreement is legally binding between you (“User”, “you” or “your”) and Innovage Software Services Private Limited. (“Innovage Software”, “Innovage Software Services Private Limited “, “ISSPL”, “we”, “us” or “our”). By accessing and using the Website and Services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Agreement. If you are entering into this Agreement on behalf of a business or other legal entity, you represent that you have the authority to bind such entity to this Agreement, in which case the terms “User”, “you” or “your” shall refer to such entity. If you do not have such authority, or if you do not agree with the terms of this Agreement, you must not accept this Agreement and may not access and use the Website and Services. You acknowledge that this Agreement is a contract between you and Innovage Software Services Private Limited, even though it is electronic and is not physically signed by you, and it governs your use of the Website and Services."
+    "These terms and conditions (“Agreement”) sets forth the general terms and conditions of your use of the innovagesoft.com website (“Website” or “Service”) and any of its related products and services (collectively, “Services”). This Agreement is legally binding between you (“User”, “you” or “your”) and Innovage (“Innovage”, “we”, “us” or “our”). By accessing and using the Website and Services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Agreement. If you are entering into this Agreement on behalf of a business or other legal entity, you represent that you have the authority to bind such entity to this Agreement, in which case the terms “User”, “you” or “your” shall refer to such entity. If you do not have such authority, or if you do not agree with the terms of this Agreement, you must not accept this Agreement and may not access and use the Website and Services. You acknowledge that this Agreement is a contract between you and Innovage, even though it is electronic and is not physically signed by you, and it governs your use of the Website and Services."
   ],
   "sections": [
     {
@@ -74,7 +70,7 @@
       "title": "Limitation of liability",
       "body": [
         {
-          "p": "To the fullest extent permitted by applicable law, in no event will Innovage Software Services Private Limited, its affiliates, directors, officers, employees, agents, suppliers or licensors be liable to any person for any indirect, incidental, special, punitive, cover or consequential damages (including, without limitation, damages for lost profits, revenue, sales, goodwill, use of content, impact on business, business interruption, loss of anticipated savings, loss of business opportunity) however caused, under any theory of liability, including, without limitation, contract, tort, warranty, breach of statutory duty, negligence or otherwise, even if the liable party has been advised as to the possibility of such damages or could have foreseen such damages. To the maximum extent permitted by applicable law, the aggregate liability of Innovage Software Services Private Limited and its affiliates, officers, employees, agents, suppliers and licensors relating to the services will be limited to an amount greater of one dollar or any amounts actually paid in cash by you to Innovage Software Services Private Limited for the prior one month period prior to the first event or occurrence giving rise to such liability. The limitations and exclusions also apply if this remedy does not fully compensate you for any losses or fails of its essential purpose."
+          "p": "To the fullest extent permitted by applicable law, in no event will Innovage, its affiliates, directors, officers, employees, agents, suppliers or licensors be liable to any person for any indirect, incidental, special, punitive, cover or consequential damages (including, without limitation, damages for lost profits, revenue, sales, goodwill, use of content, impact on business, business interruption, loss of anticipated savings, loss of business opportunity) however caused, under any theory of liability, including, without limitation, contract, tort, warranty, breach of statutory duty, negligence or otherwise, even if the liable party has been advised as to the possibility of such damages or could have foreseen such damages. To the maximum extent permitted by applicable law, the aggregate liability of Innovage and its affiliates, officers, employees, agents, suppliers and licensors relating to the services will be limited to an amount greater of one dollar or any amounts actually paid in cash by you to Innovage for the prior one month period prior to the first event or occurrence giving rise to such liability. The limitations and exclusions also apply if this remedy does not fully compensate you for any losses or fails of its essential purpose."
         }
       ]
     },
@@ -83,7 +79,7 @@
       "title": "Indemnification",
       "body": [
         {
-          "p": "You agree to indemnify and hold Innovage Software Services Private Limited and its affiliates, directors, officers, employees, agents, suppliers and licensors harmless from and against any liabilities, losses, damages or costs, including reasonable attorneys’ fees, incurred in connection with or arising from any third party allegations, claims, actions, disputes, or demands asserted against any of them as a result of or relating to your Content, your use of the Website and Services or any willful misconduct on your part."
+          "p": "You agree to indemnify and hold Innovage and its affiliates, directors, officers, employees, agents, suppliers and licensors harmless from and against any liabilities, losses, damages or costs, including reasonable attorneys’ fees, incurred in connection with or arising from any third party allegations, claims, actions, disputes, or demands asserted against any of them as a result of or relating to your Content, your use of the Website and Services or any willful misconduct on your part."
         }
       ]
     },
@@ -132,5 +128,26 @@
         }
       ]
     }
-  ]
+  ],
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "Where can users review the official Innovage terms of service?",
+        "a": "You can read the complete Innovage terms of service directly on our legal hub to understand subscription policies, service commitments, and user rights."
+      },
+      {
+        "q": "What regulations govern a software usage agreement in Ontario?",
+        "a": "A binding software usage agreement Ontario outlines legal obligations, service level agreements (SLAs), and intellectual property rights compliance under Ontario provincial law."
+      },
+      {
+        "q": "What is included in the acceptable use policy for Innovage products?",
+        "a": "The acceptable use policy Innovage defines prohibited system activities, account security requirements, data integrity guidelines, and platform fair-use standards."
+      },
+      {
+        "q": "Why are legal terms and conditions important for software subscription users?",
+        "a": "Establishing clear terms and conditions ensures transparent licensing terms, outlines dispute resolution protocols, and protects client data security across all platforms."
+      }
+    ]
+  }
 }

@@ -1,7 +1,13 @@
 {
   "hero": {
-    "title": "Custom software built around *how your business actually works.*",
-    "text": "We design and build web apps, portals, SaaS platforms and mobile apps for education, finance and marketing teams across Canada — and we stay on after launch.",
+    "title": "Custom software development built around *how your business actually works.*",
+    "text": "We design and build web apps, portals, SaaS platforms, and mobile apps for education, finance, and marketing teams across Canada — and we stay on after launch. As a trusted Canadian software company, we deliver reliable business management software Canada solutions tailored to your operational needs.",
+    "image": {
+      "src": "/images/canhub/receipt-review.png",
+      "alt": "CanHub 365 receipt review screen: subtotal, HST and total are extracted from a scanned receipt, with a suggested code awaiting accountant approval.",
+      "width": 1405,
+      "height": 902
+    },
     "industriesLabel": "Proven in",
     "primaryButton": {
       "label": "Get in Touch",
@@ -38,12 +44,12 @@
     "UI/UX Design",
     "Cloud Solutions"
   ],
-  "teckhub": {
+  "canhub": {
     "badge": "New",
     "label": "Our own product",
-    "title": "TeckHub*360*",
-    "subtitle": "The portal Canadian accounting firms *run filing season on.*",
-    "text": "After years of building client portals for Canadian practices one at a time, we built our own. Clients upload against a checklist, your team codes with OCR-suggested GIFI codes and files step by step — with payroll, invoices, deadlines and secure chat in the same place, under your firm's branding.",
+    "title": "CanHub *365*",
+    "subtitle": "The portal Canadian accounting firms *use for filing season*",
+    "text": "After years of building client portals for Canadian practices one at a time, we built our own. Clients upload against a checklist, your team codes with OCR-suggested GIFI codes and files step by step — with payroll, invoices, deadlines, and secure chat in the same place, under your firm's branding. Perfect for modern firms looking for advanced accounting and LMS software and efficient tax tracking.",
     "highlights": [
       {
         "value": "OCR",
@@ -64,8 +70,8 @@
       }
     ],
     "primaryButton": {
-      "label": "Explore TeckHub360",
-      "href": "/teckhub360"
+      "label": "Explore CanHub 365",
+      "href": "/canhub365"
     },
     "secondaryButton": {
       "label": "Book a demo",
@@ -76,7 +82,7 @@
     "title": "Software that fits your business, *not the other way around.*",
     "paragraphs": [
       "Off-the-shelf tools make your team change how it works to suit the software. We do the opposite: we learn the way your business already runs, build around it, then make it faster.",
-      "Strategy, UX/UI, development, deployment and ongoing support — one team, from the first conversation to years after launch."
+      "Strategy, UX/UI, development, deployment, and ongoing support — one team, from the first conversation to years after launch, backed by expert IT software consulting in Canada."
     ],
     "button": {
       "label": "Book a Free Consultation",
@@ -98,7 +104,7 @@
         {
           "icon": "pin",
           "title": "Canadian, end to end",
-          "text": "Based in Mississauga, working in your time zone, with Canadian hosting where compliance matters."
+          "text": "Based in Mississauga, Ontario, working in your time zone, with Canadian hosting where compliance matters."
         },
         {
           "icon": "heart",
@@ -114,13 +120,13 @@
   },
   "services": {
     "title": "What We *Build*",
-    "text": "Four things we do every day, on the stacks we know best — chosen for your project, not out of habit.",
+    "text": "Custom software, SaaS development, web and mobile app development and automation — four things we do every day on the stacks we know best, chosen for your project, not out of habit.",
     "linkLabel": "Read More",
     "items": [
       {
         "icon": "cube",
         "title": "Custom Software Development",
-        "text": "We map how work actually moves through your business, then build the portals, internal tools, dashboards and approval workflows around it.",
+        "text": "We map how work actually moves through your business, delivering top-tier solutions as a trusted custom software development company in Ontario.",
         "tags": [
           "React",
           "Next.js",
@@ -132,7 +138,7 @@
       {
         "icon": "cloud",
         "title": "SaaS Product Development",
-        "text": "Multi-tenancy, billing, onboarding, usage limits and admin designed in from day one — not bolted on after your first hundred customers.",
+        "text": "Scalable multi-tenant architecture, billing, onboarding, and admin designed from day one through expert SaaS development in Canada.",
         "tags": [
           "Next.js",
           "TypeScript",
@@ -144,7 +150,7 @@
       {
         "icon": "mobile",
         "title": "Web & Mobile Apps",
-        "text": "Fast websites and web apps, plus iOS and Android apps that share one codebase and one backend.",
+        "text": "Fast web platforms and cross-platform apps backed by seamless web and mobile app development in Canada.",
         "tags": [
           "Next.js",
           "React Native",
@@ -156,7 +162,7 @@
       {
         "icon": "bolt",
         "title": "AI & Automation",
-        "text": "Connect the systems you already use, automate the handoffs between them, and put AI to work on documents, extraction and drafting.",
+        "text": "Connect your existing tools, automate handoffs, and put AI to work on documents and data extraction.",
         "tags": [
           "Python",
           "Node.js",
@@ -169,7 +175,7 @@
   },
   "solutions": {
     "title": "Technology Built Around *Real Business Needs*",
-    "text": "From business automation to custom software platforms, we design and build digital solutions that solve complex operational challenges."
+    "text": "From business automation to custom business management software, we design and build digital solutions for Ontario businesses that solve complex operational challenges."
   },
   "industries": {
     "title": "Industry *Expertise*",
@@ -202,7 +208,7 @@
   },
   "clients": {
     "title": "Businesses We've *Helped Build*",
-    "text": "A decade of work for Canadian businesses — and clients who tend to stay for years, not projects."
+    "text": "A decade of custom software development for businesses across Ontario and Canada — and clients who tend to stay for years, not projects."
   },
   "testimonials": {
     "title": "Don't take *our word for it.*",
@@ -215,6 +221,27 @@
       "label": "View all articles",
       "href": "/blog"
     }
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "What services does a custom software development company in Ontario provide?",
+        "a": "As a leading custom software development company Ontario, we build robust digital solutions tailored to your unique operational needs."
+      },
+      {
+        "q": "How can business management software in Ontario improve corporate workflows?",
+        "a": "Implementing efficient business management software Ontario solutions helps organizations streamline daily tasks, track performance, and scale seamlessly."
+      },
+      {
+        "q": "Why do accounting firms in Ontario need a dedicated client portal?",
+        "a": "A secure client portal for accountants Ontario allows firms to seamlessly exchange tax documents, handle secure client communication, and manage approvals."
+      },
+      {
+        "q": "What are the key benefits of cross-platform web and mobile app development?",
+        "a": "Expert web and mobile app development Canada and scalable SaaS development Canada services ensure your business reaches users across all devices with high performance."
+      }
+    ]
   },
   "cta": {
     "title": "Let's talk about what you're trying to build.",

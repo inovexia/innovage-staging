@@ -1,11 +1,7 @@
 {
-  "meta": {
-    "title": "Services",
-    "description": "Website design, development, mobile apps, custom software, business automation, SaaS platforms and ongoing support."
-  },
   "hero": {
-    "title": "What We Do *Best*",
-    "text": "We offer a full suite of digital services to bring your vision to life—from strategy and design to development, launch and long-term support."
+    "title": "What We Do Best: *End-to-End Software Development Services*",
+    "text": "We offer a full suite of digital services to bring your vision to life—from strategy and design to development, launch, and long-term support. As a trusted partner for software development services Ontario, we combine technical precision with seamless execution to help your enterprise scale securely."
   },
   "cardLinkLabel": "Read More",
   "solutions": {
@@ -34,5 +30,26 @@
     },
     "caseLinkLabel": "Read the case study",
     "faqTitle": "{service} *questions*"
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "What kind of software development services are available in Ontario?",
+        "a": "Partnering with a reliable expert for software development services Ontario ensures your organization receives scalable, custom-built digital platforms tailored to regional market standards."
+      },
+      {
+        "q": "How can businesses benefit from professional IT software consulting in Ontario?",
+        "a": "Strategic IT software consulting Ontario helps enterprises navigate technology roadblocks, optimize architecture choices, and align IT roadmaps with business goals."
+      },
+      {
+        "q": "What is included in end-to-end software solutions for modern enterprises?",
+        "a": "Comprehensive end-to-end software solutions cover every phase of product lifecycle management—from initial system design and rigorous QA testing to deployment and long-term support."
+      },
+      {
+        "q": "How do digital transformation and business automation services accelerate growth?",
+        "a": "Leveraging advanced digital transformation services combined with scalable business automation services Canada empowers companies to eliminate manual bottlenecks, streamline workflows, and boost operational efficiency."
+      }
+    ]
   }
 }

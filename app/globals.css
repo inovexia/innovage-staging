@@ -23,7 +23,7 @@
   --container: 1240px;
   --header-h: 84px;
   /* spacing scale — use these instead of one-off values */
-  --space-section: clamp(64px, 7vw, 112px); /* vertical padding of every section */
+  --space-section: clamp(48px, 5vw, 72px); /* vertical padding of every section */
   --space-head: clamp(40px, 4.5vw, 64px); /* section heading -> content */
   --space-block: clamp(32px, 3.5vw, 56px); /* between blocks inside a section */
   --gap-cols: clamp(40px, 5vw, 64px); /* two-column layouts */
@@ -792,11 +792,9 @@ p {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   align-items: center;
-  padding: calc(var(--header-h) + 40px) 0 var(--space-section);
+  padding: calc(var(--header-h) + var(--space-section)) 0 var(--space-section);
   overflow: hidden;
 }
 .hero-canvas,
@@ -816,24 +814,6 @@ p {
   width: 100% !important;
   height: 100% !important;
 }
-/* static stand-in when the browser has no WebGL */
-.hero-fallback {
-  position: absolute;
-  top: 50%;
-  right: 6vw;
-  width: min(42vw, 620px);
-  height: auto;
-  transform: translateY(-46%);
-  animation: hero-float 6s ease-in-out infinite;
-}
-@keyframes hero-float {
-  50% { transform: translateY(-50%); }
-}
-@media (max-width: 960px) {
-  .hero-fallback {
-    display: none;
-  }
-}
 .hero-vignette {
   position: absolute;
   inset: 0;
@@ -845,10 +825,33 @@ p {
 .hero-inner {
   position: relative;
   z-index: 2;
+  display: grid;
+  gap: 28px var(--gap-cols);
+}
+.hero .btn-row {
+  margin-top: 24px;
+}
+.hero .btn-lg {
+  --pad-y: 13px;
+}
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 961px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+  .hero-stats {
+    grid-column: 1 / -1;
+  }
 }
 .hero-title {
   max-width: 800px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3vw, 2.75rem);
 }
 .hero .lead {
   max-width: 560px;
@@ -857,8 +860,8 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 16px;
-  margin: 28px 0 0;
+  gap: 10px 16px;
+  margin: 20px 0 0;
 }
 .hero-industries-label {
   color: var(--dim);
@@ -900,48 +903,20 @@ p {
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px 44px;
-  margin: 56px 0 0;
-  padding-top: 28px;
+  gap: 14px 44px;
+  margin: 0;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
-  max-width: 620px;
 }
 .hero-stats dt {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
 }
 .hero-stats dd {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
-}
-.scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 28px;
-  width: 26px;
-  height: 42px;
-  margin-left: -13px;
-  border: 1.5px solid var(--border-2);
-  border-radius: 20px;
-  z-index: 2;
-}
-.scroll-cue span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 8px;
-  margin-left: -2px;
-  border-radius: 2px;
-  background: var(--text);
-  animation: cue 1.8s var(--ease) infinite;
-}
-@keyframes cue {
-  0% { transform: translateY(0); opacity: 1; }
-  80% { transform: translateY(14px); opacity: 0; }
-  100% { opacity: 0; }
 }
 
 /* ---------- Marquee ---------- */
@@ -1436,11 +1411,15 @@ p {
 .process-frame {
   position: relative;
   height: min(78vh, 760px);
+  /* room for the active dot's scale and glow, which overflow:hidden would otherwise cut off */
+  margin-left: -10px;
+  padding-left: 10px;
   overflow: hidden;
   mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 10%, #000 90%, transparent 100%);
 }
 .process-frame .timeline-track {
+  left: 37px;
   top: 0;
   bottom: 0;
 }
@@ -1454,22 +1433,31 @@ p {
   transition: transform 0.8s var(--ease);
   will-change: transform;
 }
-.process-steps .step {
+/* fade the card and the dot's number and border, not the dot's fill: a see-through dot shows the line behind it */
+.process-steps .step-card {
+  cursor: pointer;
   opacity: 0.35;
-  transition: opacity 0.5s var(--ease);
+  transition: opacity 0.5s var(--ease), border-color 0.5s, background 0.5s;
 }
-.process-steps .step.lit {
+.process-steps .step.lit .step-card {
   opacity: 0.55;
 }
-.process-steps .step.current {
+.process-steps .step.current .step-card {
   opacity: 1;
 }
 .process-steps .step-dot {
   padding: 0;
   cursor: pointer;
+  color: color-mix(in srgb, var(--dim) 35%, var(--bg-2));
+  border-color: color-mix(in srgb, var(--border-2) 35%, var(--bg-2));
 }
-.process-steps .step-card {
-  cursor: pointer;
+.process-steps .step.lit .step-dot {
+  color: color-mix(in srgb, var(--text-strong) 55%, var(--bg-2));
+  border-color: color-mix(in srgb, var(--red) 55%, var(--bg-2));
+}
+.process-steps .step.current .step-dot {
+  color: var(--text-strong);
+  border-color: var(--red);
 }
 .process-dots {
   position: absolute;
@@ -1599,7 +1587,7 @@ p {
 /* ---------- Page hero (inner pages) ---------- */
 .page-hero {
   position: relative;
-  padding: calc(var(--header-h) + var(--space-section)) 0 calc(var(--space-section) * 0.5);
+  padding: calc(var(--header-h) + var(--space-section)) 0 var(--space-section);
   overflow: hidden;
   min-height: 520px;
   display: flex;
@@ -1617,6 +1605,9 @@ p {
 }
 .page-hero .display {
   max-width: 900px;
+}
+.page-hero-text > :last-child {
+  margin-bottom: 0;
 }
 .crumbs {
   display: flex;
@@ -2101,6 +2092,9 @@ p {
 }
 
 /* about / values */
+.about-grid > div > p:last-child {
+  margin-bottom: 0;
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2215,7 +2209,7 @@ p {
   color: var(--text);
 }
 
-/* teckhub */
+/* canhub */
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2536,15 +2530,9 @@ p {
   }
   .hero {
     align-items: flex-start;
-    padding-top: calc(var(--header-h) + 50px);
-    /* room for the device showcase below the copy */
-    padding-bottom: min(96vw, 520px);
   }
   .hero-vignette {
     background: linear-gradient(0deg, var(--bg) 0%, transparent 8%);
-  }
-  .scroll-cue {
-    display: none;
   }
   .solutions-panel {
     min-height: 480px;
@@ -2632,10 +2620,10 @@ p {
     grid-row: auto;
   }
   .hero-stats {
-    gap: 18px 28px;
+    gap: 12px 28px;
   }
   .hero-stats dt {
-    font-size: 22px;
+    font-size: 18px;
   }
   .logo-tile {
     width: 46%;
@@ -2687,7 +2675,7 @@ p {
 }
 
 /* =========================================================
-   Home — TeckHub360 showcase
+   Home — CanHub 365 showcase
    ========================================================= */
 .th-section {
   overflow: hidden;
@@ -3765,6 +3753,7 @@ p {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: var(--gap-cols);
+  row-gap: 0;
   align-items: start;
 }
 .faq-list {
@@ -4137,7 +4126,7 @@ p {
 }
 
 /* =========================================================
-   TeckHub360 page
+   CanHub 365 page
    ========================================================= */
 .page-hero-visual:has(.th-stage) {
   height: auto;
@@ -4148,6 +4137,36 @@ p {
 }
 .tp-hero-stage {
   width: 100%;
+}
+.th-stage.th-stage-image,
+.th-feature .th-stage.th-stage-image {
+  aspect-ratio: auto;
+  perspective: none;
+}
+.th-stage-image .th-tilt {
+  position: relative;
+  inset: auto;
+}
+@media (min-width: 961px) {
+  .page-hero.has-visual:has(.th-stage-image) .page-hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+}
+.th-stage-image img,
+.tp-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tp-shot-wide {
+  max-width: 1040px;
+  margin: 0 auto var(--space-head);
+}
+.tp-roadmap-head {
+  margin-bottom: var(--space-head);
+}
+.tp-roadmap-head .section-head {
+  margin-bottom: 0;
 }
 .tp-cards {
   display: grid;
@@ -4542,9 +4561,6 @@ p {
 }
 
 /* demo band */
-.tp-band-wrap {
-  padding-top: 0;
-}
 .tp-band {
   display: flex;
   justify-content: space-between;
@@ -4792,6 +4808,7 @@ p {
 }
 .tp-hint {
   display: inline-flex;
+  margin-bottom: 0;
   align-items: center;
   gap: 8px;
   font-size: 14px;

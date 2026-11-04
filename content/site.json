@@ -20,8 +20,8 @@
       "href": "/services"
     },
     {
-      "label": "TeckHub360",
-      "href": "/teckhub360",
+      "label": "CanHub 365",
+      "href": "/canhub365",
       "badge": "New"
     },
     {
@@ -51,8 +51,8 @@
         "href": "/about"
       },
       {
-        "label": "TeckHub360",
-        "href": "/teckhub360"
+        "label": "CanHub 365",
+        "href": "/canhub365"
       },
       {
         "label": "Case Studies",

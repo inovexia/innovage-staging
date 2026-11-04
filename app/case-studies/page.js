@@ -2,12 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
+import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
+import Rich from '@/components/Rich';
 import { caseStudies } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/case-studies.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/case-studies' });
+export const metadata = pageMeta({ path: '/case-studies' });
 
 export default function CaseStudiesPage() {
   return (
@@ -44,6 +46,8 @@ export default function CaseStudiesPage() {
           ))}
         </div>
       </section>
+
+      <FAQ title={<Rich text={content.faq.title} />} items={content.faq.items} />
 
       <CTASection {...content.cta} />
     </>

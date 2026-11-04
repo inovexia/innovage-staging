@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
+import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
 import Rich from '@/components/Rich';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/industries.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/industries' });
+export const metadata = pageMeta({ path: '/industries' });
 
 export default function IndustriesPage() {
   const { hero, expertise, ai, others } = content;
@@ -96,6 +97,8 @@ export default function IndustriesPage() {
           </div>
         </div>
       </section>
+
+      <FAQ title={<Rich text={content.faq.title} />} items={content.faq.items} />
 
       <CTASection {...content.cta} />
     </>

@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Icon from './Icon';
 import Counter from './Counter';
-import TeckHubStage from './TeckHubStage';
+import CanHubStage from './CanHubStage';
 import Rich from './Rich';
 
-// Content comes from "teckhub" in content/pages/home.json.
-export default function TeckHubShowcase({ badge, label, title, subtitle, text, highlights, primaryButton, secondaryButton }) {
+// Content comes from "canhub" in content/pages/home.json.
+export default function CanHubShowcase({ badge, label, title, subtitle, text, highlights, primaryButton, secondaryButton }) {
   return (
     <section className="section th-section" aria-label={label}>
       <div className="container">
@@ -48,7 +48,7 @@ export default function TeckHubShowcase({ badge, label, title, subtitle, text, h
               </div>
             </div>
 
-            <TeckHubStage />
+            <CanHubStage />
           </div>
         </div>
       </div>

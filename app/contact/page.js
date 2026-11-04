@@ -1,11 +1,13 @@
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
+import FAQ from '@/components/FAQ';
+import Rich from '@/components/Rich';
 import Icon from '@/components/Icon';
 import { site } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/contact.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/contact' });
+export const metadata = pageMeta({ path: '/contact' });
 
 export default function ContactPage() {
   const { hero, labels } = content;
@@ -39,6 +41,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <FAQ title={<Rich text={content.faq.title} />} items={content.faq.items} />
     </>
   );
 }

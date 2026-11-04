@@ -1,16 +1,17 @@
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import Counter from '@/components/Counter';
+import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
 import Rich from '@/components/Rich';
 import { stats } from '@/lib/data';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/about.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/about' });
+export const metadata = pageMeta({ path: '/about' });
 
 export default function AboutPage() {
-  const { hero, intro, values } = content;
+  const { hero, intro, values, faq } = content;
   return (
     <>
       <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'About' }]} />
@@ -65,6 +66,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <FAQ title={<Rich text={faq.title} />} items={faq.items} />
 
       <CTASection {...content.cta} />
     </>

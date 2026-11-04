@@ -4,8 +4,8 @@ import { useEffect, useRef } from 'react';
 import { createRenderer, isLightTheme, watchTheme } from './webgl';
 
 /**
- * Home hero: client work shown on floating devices, with an orbiting
- * particle ring and a drifting star field.
+ * Home hero backdrop: an orbiting particle ring around the banner image,
+ * and a drifting star field.
  * Reacts to the pointer and scroll; pauses when off-screen.
  */
 export default function HeroScene() {
@@ -23,17 +23,7 @@ export default function HeroScene() {
       const isSmall = window.innerWidth < 768;
 
       const renderer = createRenderer(THREE, { antialias: true, alpha: true, powerPreference: 'high-performance' });
-      if (!renderer) {
-        // no WebGL: show the device showcase as a static image instead
-        const img = document.createElement('img');
-        img.src = '/images/hero-devices.webp';
-        img.alt = '';
-        img.className = 'hero-fallback';
-        mount.appendChild(img);
-        mount.classList.add('is-ready');
-        cleanup = () => img.remove();
-        return;
-      }
+      if (!renderer) return; // no WebGL: the banner image still shows, just without the particles
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       mount.appendChild(renderer.domElement);
@@ -46,22 +36,6 @@ export default function HeroScene() {
       scene.add(root);
 
       const uniforms = { uTime: { value: 0 }, uLight: { value: isLightTheme() ? 1 : 0 } };
-
-      // --- Showcase: client work on devices (transparent PNG/WebP) ---------
-      const deviceMat = new THREE.MeshBasicMaterial({ transparent: true, alphaTest: 0.02, opacity: 0, toneMapped: false });
-      const devices = new THREE.Mesh(new THREE.PlaneGeometry(3.7, 3.7), deviceMat);
-      root.add(devices);
-      new THREE.TextureLoader().load('/images/hero-devices.webp', (tex) => {
-        if (disposed) return tex.dispose();
-        tex.colorSpace = THREE.SRGBColorSpace;
-        tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-        deviceMat.map = tex;
-        deviceMat.needsUpdate = true;
-        if (reduced) {
-          deviceMat.opacity = 1;
-          render();
-        }
-      });
 
       // --- Orbit ring of particles -----------------------------------------
       const ringCount = isSmall ? 900 : 1800;
@@ -132,27 +106,23 @@ export default function HeroScene() {
       const stars = new THREE.Points(starGeo, pointMat(2.2));
       scene.add(stars);
 
-      // --- Layout: orb sits to the right on desktop, centred on mobile -----
+      // --- Layout: keep the ring centred on the banner image -----------------
       const layout = () => {
         const w = mount.clientWidth;
         const h = mount.clientHeight;
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
-        if (w > 960) {
-          root.position.set(2.6, 0.1, 0);
-          root.scale.setScalar(0.82);
-          return;
-        }
-        // small screens: centre the devices in the free space below the hero copy
-        const inner = mount.parentElement?.querySelector('.hero-inner');
-        const bottom = inner ? inner.offsetTop + inner.offsetHeight : h * 0.6;
-        const free = Math.max(h - bottom, h * 0.25);
         const halfH = Math.tan((camera.fov * Math.PI) / 360) * 7;
         const halfW = halfH * camera.aspect;
-        const targetPx = bottom + free / 2;
-        root.position.set(0, (0.5 - targetPx / h) * 2 * halfH, 0);
-        root.scale.setScalar(Math.min((free * 2 * halfH) / (3.7 * h), (2 * halfW) / 3.7, 0.9));
+        const box = mount.parentElement.querySelector('.hero-visual').getBoundingClientRect();
+        const area = mount.getBoundingClientRect();
+        root.position.set(
+          ((box.left + box.width / 2 - area.left) / w - 0.5) * 2 * halfW,
+          (0.5 - (box.top + box.height / 2 - area.top) / h) * 2 * halfH,
+          0
+        );
+        root.scale.setScalar(w > 960 ? 0.82 : Math.min((2 * halfW) / 3.7, 0.9));
       };
       layout();
 
@@ -185,13 +155,6 @@ export default function HeroScene() {
         uniforms.uTime.value = t;
         pointer.x += (pointer.tx - pointer.x) * 0.05;
         pointer.y += (pointer.ty - pointer.y) * 0.05;
-
-        // devices float gently and keep only a soft share of the scene tilt
-        if (deviceMat.map && deviceMat.opacity < 1) deviceMat.opacity = Math.min(deviceMat.opacity + 0.025, 1);
-        devices.position.y = Math.sin(t * 0.8) * 0.08;
-        devices.rotation.z = Math.sin(t * 0.5) * 0.025;
-        devices.rotation.x = -(pointer.y * 0.25 + scrollP * 0.4) * 0.5;
-        devices.rotation.y = -pointer.x * 0.35 * 0.4;
 
         ring.rotation.y = t * 0.08;
         stars.rotation.y = t * 0.004;
@@ -230,7 +193,6 @@ export default function HeroScene() {
         window.removeEventListener('scroll', onScroll);
         ro.disconnect();
         io.disconnect();
-        deviceMat.map?.dispose();
         scene.traverse((o) => {
           o.geometry?.dispose();
           o.material?.dispose();

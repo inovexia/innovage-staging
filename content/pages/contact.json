@@ -1,15 +1,32 @@
 {
-  "meta": {
-    "title": "Contact",
-    "description": "Start your project with Innovage. Book a free consultation."
-  },
   "hero": {
-    "title": "Have an Idea? *Let's Talk.*",
-    "text": "Tell us what you're trying to achieve. We'll help you explore the right technology, approach, and path forward."
+    "title": "Contact Innovage – Have an Idea? *Let's Talk.*",
+    "text": "Request a software quote in Ontario, book a software demo of CanHub 365, schedule a software consultation or hire custom software developers for your next project. Tell us what you're trying to achieve and we'll help you explore the right technology, approach, and path forward."
   },
   "labels": {
-    "call": "Call us",
+    "call": "Call our Ontario office",
     "email": "Email us",
-    "visit": "Visit us"
+    "visit": "Visit our Mississauga office"
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "How can I request a software quote in Ontario for my project?",
+        "a": "You can easily request a software quote Ontario by filling out our project intake form, providing your specifications, and receiving a custom cost estimate tailored to your enterprise goals."
+      },
+      {
+        "q": "What is the best way to contact Innovage Software directly?",
+        "a": "To discuss your upcoming tech initiative, you can contact Innovage software via our online form, customer support email, or direct office phone line to speak with our regional technical consultants."
+      },
+      {
+        "q": "How do I book a software demo or schedule a software consultation?",
+        "a": "Prospective clients looking to evaluate our digital products can book a software demo or schedule software consultation sessions directly through our online calendar to see our platforms in action."
+      },
+      {
+        "q": "Why should businesses hire custom software developers for enterprise solutions?",
+        "a": "When you hire custom software developers, you gain dedicated engineering expertise, scalable cloud architecture, and bespoke digital tools built specifically to accelerate your business operations."
+      }
+    ]
   }
 }

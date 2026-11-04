@@ -1,15 +1,37 @@
 {
-  "meta": {
-    "title": "Process",
-    "description": "Discover, Define, Design, Build, Validate, Launch, Evolve — the Innovage seven-step process."
-  },
   "hero": {
-    "title": "Our Proven *Process*",
-    "text": "Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement."
+    "title": "Our Agile Software Development *Process*",
+    "text": "Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement. Built on a flexible agile software development methodology, we adapt seamlessly to your changing needs while ensuring transparent progress at every step."
   },
   "showcase": {
-    "_note": "The stages themselves are in content/shared.json under \"process\".",
+    "_note": "The stages themselves are in content/shared.json under \"process\". stepText replaces a stage's text on this page only.",
     "title": "Discover *→* Evolve",
-    "text": "At every stage, we work closely with you to reduce uncertainty, maintain visibility, and build technology that delivers real business value."
+    "text": "Our software development framework follows the full software development lifecycle process. At every stage, we work closely with you to reduce uncertainty, maintain visibility, and build technology that delivers real business value.",
+    "stepText": {
+      "Discover": "We start by understanding your business, users, objectives, challenges, and existing processes. This gives us the foundational context needed to guide our software development lifecycle process—ensuring we build the right solution rather than simply what was initially requested.",
+      "Define": "We turn business needs into clear requirements, priorities, workflows, scope, and measurable outcomes. Operating under our software development framework, we establish together what needs to be built and what success looks like for your organization.",
+      "Validate": "Quality is built into our workflow. Through a comprehensive QA and software testing process, we test functionality, usability, responsiveness, integration, performance, and real-world business workflows to ensure the solution is completely ready for live users."
+    }
+  },
+  "faq": {
+    "title": "Process *questions*",
+    "items": [
+      {
+        "q": "Why is the agile software development methodology preferred for custom projects?",
+        "a": "Utilizing an agile software development methodology allows development teams to deliver iterative updates, adapt quickly to changing requirements, and ensure continuous client collaboration."
+      },
+      {
+        "q": "What steps are included in a standard software development lifecycle process?",
+        "a": "A structured software development lifecycle process guides projects from initial concept and requirements gathering through system architecture, coding, and deployment."
+      },
+      {
+        "q": "How does our software development framework ensure project success?",
+        "a": "Following our software development framework guarantees transparent milestone tracking, high-performance code standards, and predictable delivery timelines for Canadian enterprises."
+      },
+      {
+        "q": "What role does the QA and software testing process play before launch?",
+        "a": "A rigorous QA and software testing process identifies bugs, validates security protocols, and ensures seamless cross-device performance before any product goes live."
+      }
+    ]
   }
 }

@@ -1,11 +1,7 @@
 {
-  "meta": {
-    "title": "TeckHub360 — client portal for Canadian accounting firms",
-    "description": "A white-label client portal for Canadian accounting firms — document checklists, OCR-assisted GIFI coding, step-by-step filing for business and T1 clients, payroll with client approval, invoicing, deadlines and secure chat in one place."
-  },
   "hero": {
-    "title": "The portal Canadian accounting firms *run filing season on.*",
-    "text": "Clients send documents against a checklist, your team codes and files them, payroll and invoices sit beside the return — and everyone can see exactly where things stand."
+    "title": "CanHub 365: the client portal Canadian accounting firms *use for filing season.*",
+    "text": "An all-in-one business software portal for accounting firms: clients send documents against a checklist, your team codes and files them, payroll and invoices sit beside the return — and everyone can see exactly where things stand."
   },
   "demoButtons": {
     "primary": {
@@ -19,7 +15,7 @@
   },
   "audiences": {
     "title": "One portal, *four kinds of user.*",
-    "text": "TeckHub360 grew out of building portals for Canadian practices one at a time. Everyone involved in a return logs in to the same place — and sees only their part of it.",
+    "text": "CanHub 365 grew out of building accounting client portals for Toronto-area and Canadian practices one at a time. Everyone involved in a return logs in to the same place — and sees only their part of it.",
     "items": [
       {
         "icon": "briefcase",
@@ -45,7 +41,7 @@
   },
   "modules": {
     "title": "Ten modules, *one login.*",
-    "text": "Everything a practice touches during filing season — rather than a document tool, a billing tool, a payroll spreadsheet and an inbox.",
+    "text": "Everything a practice touches during filing season in one integrated technology hub — rather than a document tool, a billing tool, a payroll spreadsheet and an inbox.",
     "items": [
       {
         "icon": "building",
@@ -100,9 +96,15 @@
     ]
   },
   "ocr": {
+    "image": {
+      "src": "/images/canhub/receipt-review.png",
+      "alt": "CanHub 365 receipt review screen: subtotal, HST and total are extracted from a scanned receipt, with a suggested code awaiting accountant approval.",
+      "width": 1405,
+      "height": 902
+    },
     "title": "Documents in. GIFI codes suggested. *A human still signs off.*",
     "paragraphs": [
-      "Coding a shoebox of receipts is the least pleasant, most repetitive part of the job. TeckHub360 reads each uploaded PDF, pulls out the figures and matches them against the CRA's General Index of Financial Information.",
+      "Coding a shoebox of receipts is the least pleasant, most repetitive part of the job. CanHub 365 reads each uploaded PDF, pulls out the figures and matches them against the CRA's General Index of Financial Information.",
       "Clients can also upload their profit & loss and balance sheet and have the rows extracted for you. The value is in removing the typing, not the judgement."
     ],
     "steps": [
@@ -200,6 +202,12 @@
   },
   "paperwork": {
     "title": "Chasing paperwork, *without the chasing.*",
+    "image": {
+      "src": "/images/canhub/document-intake.png",
+      "alt": "CanHub 365 document requests: the accountant requests documents, the client uploads them, and they arrive in the firm's document intake list for review.",
+      "width": 1648,
+      "height": 871
+    },
     "text": "Clients work from a checklist rather than a reply-all thread, and your team sees every CRA date across the whole book — with guidance and links for each.",
     "checklist": {
       "title": "Checklist & documents",
@@ -350,6 +358,12 @@
   },
   "roadmap": {
     "title": "And more *on the way.*",
+    "image": {
+      "src": "/images/canhub/roadmap.png",
+      "alt": "Concept illustration of the CanHub 365 portal on a laptop and phone, connected to two further screens marked in development.",
+      "width": 1635,
+      "height": 845
+    },
     "text": "A demo covers where each one sits — we would rather tell you that on a call than put a date on a web page.",
     "items": [
       {
@@ -370,32 +384,28 @@
     ]
   },
   "faq": {
-    "title": "TeckHub360 *questions*",
+    "title": "CanHub 365 *questions*",
     "items": [
       {
-        "q": "Does the OCR code documents on its own?",
-        "a": "No, and that is deliberate. It reads the document, suggests a CRA GIFI code with a confidence score and flags anything under 70%. An accountant confirms every code before it reaches the code summary."
+        "q": "What is the CanHub 365 platform and how does it help businesses?",
+        "a": "The CanHub 365 platform is an advanced, centralized cloud solution designed to streamline daily operations, corporate compliance, and team collaboration."
       },
       {
-        "q": "Does TeckHub360 e-file returns with the CRA?",
-        "a": "No. Your team files through the CRA software it already uses, then marks the return filed in the portal — so the client and the partner can both see it is done."
+        "q": "How does an accounting client portal in Toronto benefit modern firms?",
+        "a": "Utilizing a specialized accounting client portal Toronto enables accounting professionals to securely exchange files, communicate with clients, and manage compliance seamlessly."
       },
       {
-        "q": "Can we use our own branding?",
-        "a": "Yes — logo, favicon, heading, body and button colours, typeface, and light or dark theme, all from settings."
+        "q": "What features are included in accounting practice management software in Ontario?",
+        "a": "Comprehensive accounting practice management software Ontario automates internal scheduling, deadline tracking, task assignment, and billing workflows for growing firms."
       },
       {
-        "q": "Does it handle both businesses and individual filers?",
-        "a": "Both: corporations, sole proprietors, partnerships and the self-employed alongside T1 filers, each with their own filing steps, invoice type and client view."
-      },
-      {
-        "q": "Can clients pay invoices online?",
-        "a": "Payments are recorded against each invoice — E-Transfer, cheque, pre-authorized debit or cash — rather than taken by card through the portal."
+        "q": "Why do enterprises use an all-in-one business software portal and tax document management tools?",
+        "a": "Deploying an all-in-one business software portal combined with secure tax document management Ontario features ensures accurate record-keeping, streamlined audits, and protected client data."
       }
     ]
   },
   "cta": {
-    "title": "See TeckHub360 on your own client list.",
+    "title": "See CanHub 365 on your own client list.",
     "text": "A 30-minute walkthrough with one of your real filing scenarios, not a canned demo account. We will tell you honestly whether it fits how your practice already works.",
     "button": "Book a demo"
   }

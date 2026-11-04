@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { process } from '@/lib/data';
 
-export default function ProcessTimeline() {
+/** `stepText` optionally replaces a stage's text on this page, keyed by stage title. */
+export default function ProcessTimeline({ stepText }) {
   const ref = useRef(null);
   const [progress, setProgress] = useState(0);
   const [active, setActive] = useState(0);
@@ -46,7 +47,7 @@ export default function ProcessTimeline() {
             </span>
             <div className="step-card spot" data-reveal>
               <h3>{s.title}</h3>
-              <p>{s.text}</p>
+              <p>{stepText?.[s.title] || s.text}</p>
             </div>
           </li>
         ))}

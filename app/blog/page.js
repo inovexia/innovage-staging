@@ -1,11 +1,13 @@
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import BlogCard from '@/components/BlogCard';
+import FAQ from '@/components/FAQ';
+import Rich from '@/components/Rich';
 import { posts } from '@/lib/posts';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/blog.json';
 
-export const metadata = pageMeta({ ...content.meta, path: '/blog' });
+export const metadata = pageMeta({ path: '/blog' });
 
 export default function BlogPage() {
   const [featured, ...rest] = posts;
@@ -24,6 +26,8 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      <FAQ title={<Rich text={content.faq.title} />} items={content.faq.items} />
 
       <CTASection {...content.cta} />
     </>

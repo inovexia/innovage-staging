@@ -1,11 +1,7 @@
 {
-  "meta": {
-    "title": "Case Studies",
-    "description": "Businesses we have helped build — websites, platforms and custom software delivered by Innovage."
-  },
   "hero": {
-    "title": "Businesses We've *Helped Build*",
-    "text": "Secure, scalable solutions designed for long-term growth. A look at some of the work we've delivered."
+    "title": "Software Development Case Studies: *Businesses We've Helped Build*",
+    "text": "Secure, scalable solutions designed for long-term growth. A look at the Innovage software portfolio — from SaaS implementation success stories and e-commerce sites to custom software, alongside CanHub 365, our own accounting firm software built in Mississauga."
   },
   "cardLinkLabel": "View case study",
   "detail": {
@@ -35,5 +31,26 @@
     "cta": {
       "title": "Have a Project Like This in Mind?"
     }
+  },
+  "faq": {
+    "title": "Frequently asked *questions*",
+    "items": [
+      {
+        "q": "Where can I find software development case studies to review project results?",
+        "a": "Exploring detailed software development case studies allows enterprise clients and decision-makers to evaluate real-world ROI, technical architectures, and proven delivery success."
+      },
+      {
+        "q": "What do SaaS implementation success stories reveal about software scalability?",
+        "a": "Reviewing documented SaaS implementation success stories demonstrates how multi-tenant cloud platforms, automated billing workflows, and secure databases successfully scale growing businesses."
+      },
+      {
+        "q": "How does specialized accounting firm software in Mississauga help local practices?",
+        "a": "Specialized accounting firm software Mississauga streamlines tax document management, client portal collaboration, and automated reporting for accounting professionals across Ontario."
+      },
+      {
+        "q": "What projects are featured in the official Innovage software portfolio?",
+        "a": "The comprehensive Innovage software portfolio showcases our end-to-end expertise in building custom web apps, mobile solutions, and enterprise business automation systems."
+      }
+    ]
   }
 }

@@ -6,15 +6,16 @@ import Counter from '@/components/Counter';
 import ProcessExplorer from '@/components/ProcessExplorer';
 import SolutionsList from '@/components/SolutionsList';
 import CTASection from '@/components/CTASection';
-import TeckHubShowcase from '@/components/TeckHubShowcase';
+import CanHubShowcase from '@/components/CanHubShowcase';
 import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
 // import BlogSection from '@/components/BlogSection'; // blog section hidden on the homepage for now
 import Rich from '@/components/Rich';
 import { stats, clients } from '@/lib/data';
 import content from '@/content/pages/home.json';
 import industryContent from '@/content/pages/industries.json';
 
-const { hero, marquee, intro, services, solutions, industries, teckhub, process: processSection, testimonials, blog, cta } = content;
+const { hero, marquee, intro, services, solutions, industries, canhub, process: processSection, testimonials, blog, faq, cta } = content;
 
 export default function Home() {
   return (
@@ -24,30 +25,42 @@ export default function Home() {
         <HeroScene />
         <div className="hero-vignette" aria-hidden="true" />
         <div className="container hero-inner">
-          <h1 className="hero-title" data-reveal>
-            <Rich text={hero.title} />
-          </h1>
-          <p className="lead" data-reveal data-delay="120">{hero.text}</p>
-          <div className="hero-industries" data-reveal data-delay="160">
-            <span className="hero-industries-label">{hero.industriesLabel}</span>
-            <ul>
-              {[...industryContent.expertise.items, industries.ai].map((ind) => (
-                <li key={ind.title}>
-                  <Link href={ind.href || industries.button.href} className="hero-industry">
-                    <Icon name={ind.icon} size={16} />
-                    {ind.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div>
+            <h1 className="hero-title" data-reveal>
+              <Rich text={hero.title} />
+            </h1>
+            <p className="lead" data-reveal data-delay="120">{hero.text}</p>
+            <div className="hero-industries" data-reveal data-delay="160">
+              <span className="hero-industries-label">{hero.industriesLabel}</span>
+              <ul>
+                {[...industryContent.expertise.items, industries.ai].map((ind) => (
+                  <li key={ind.title}>
+                    <Link href={ind.href || industries.button.href} className="hero-industry">
+                      <Icon name={ind.icon} size={16} />
+                      {ind.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="btn-row" data-reveal data-delay="200">
+              <Link href={hero.primaryButton.href} className="btn btn-primary btn-lg" data-magnetic>
+                {hero.primaryButton.label} <Icon name="arrow" size={18} />
+              </Link>
+              <Link href={hero.secondaryButton.href} className="btn btn-ghost btn-lg" data-magnetic>
+                {hero.secondaryButton.label}
+              </Link>
+            </div>
           </div>
-          <div className="btn-row" data-reveal data-delay="200">
-            <Link href={hero.primaryButton.href} className="btn btn-primary btn-lg" data-magnetic>
-              {hero.primaryButton.label} <Icon name="arrow" size={18} />
-            </Link>
-            <Link href={hero.secondaryButton.href} className="btn btn-ghost btn-lg" data-magnetic>
-              {hero.secondaryButton.label}
-            </Link>
+          <div className="hero-visual" data-reveal data-delay="160">
+            <Image
+              src={hero.image.src}
+              alt={hero.image.alt}
+              width={hero.image.width}
+              height={hero.image.height}
+              sizes="(max-width: 960px) 100vw, 640px"
+              priority
+            />
           </div>
           <dl className="hero-stats" data-reveal data-delay="280">
             {hero.stats.map((s) => (
@@ -58,9 +71,6 @@ export default function Home() {
             ))}
           </dl>
         </div>
-        <a href="#intro" className="scroll-cue" aria-label="Scroll to content">
-          <span />
-        </a>
       </section>
 
       {/* MARQUEE */}
@@ -74,8 +84,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* TECKHUB360 — our new product, featured straight after the hero */}
-      <TeckHubShowcase {...teckhub} />
+      {/* CANHUB 365 — our new product, featured straight after the hero */}
+      <CanHubShowcase {...canhub} />
 
       {/* VALUE PROP + WHY US */}
       <section className="section" id="intro">
@@ -215,6 +225,9 @@ export default function Home() {
 
       {/* BLOG — hidden for now; restore the import above and this line to bring it back */}
       {/* <BlogSection {...blog} /> */}
+
+      {/* FAQ */}
+      <FAQ title={<Rich text={faq.title} />} items={faq.items} />
 
       <CTASection {...cta} />
     </>
