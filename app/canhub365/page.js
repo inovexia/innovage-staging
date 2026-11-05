@@ -3,7 +3,7 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
-import CanHubStage from '@/components/CanHubStage';
+import HeroCollage from '@/components/HeroCollage';
 import ThemePreview from '@/components/canhub/ThemePreview';
 import ProductShot from '@/components/canhub/ProductShot';
 import Rich from '@/components/Rich';
@@ -59,7 +59,7 @@ export default function CanHubPage() {
         title={c.hero.title}
         text={c.hero.text}
         crumbs={[{ label: 'CanHub 365' }]}
-        visual={<CanHubStage className="tp-hero-stage" priority />}
+        visual={<HeroCollage images={c.hero.images} variant="canhub" />}
       >
         <DemoButtons />
       </PageHero>

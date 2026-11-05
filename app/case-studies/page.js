@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
+import HeroCollage from '@/components/HeroCollage';
 import Icon from '@/components/Icon';
 import Rich from '@/components/Rich';
 import { caseStudies } from '@/lib/data';
@@ -14,7 +15,12 @@ export const metadata = pageMeta({ path: '/case-studies' });
 export default function CaseStudiesPage() {
   return (
     <>
-      <PageHero title={content.hero.title} text={content.hero.text} crumbs={[{ label: 'Case Studies' }]} />
+      <PageHero
+        title={content.hero.title}
+        text={content.hero.text}
+        crumbs={[{ label: 'Case Studies' }]}
+        visual={<HeroCollage images={content.hero.images} variant="cases" />}
+      />
 
       <section className="section">
         <div className="container case-grid">

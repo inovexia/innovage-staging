@@ -1,7 +1,27 @@
 {
   "hero": {
     "title": "Software Development Case Studies: *Businesses We've Helped Build*",
-    "text": "Secure, scalable solutions designed for long-term growth. A look at the Innovage software portfolio — from SaaS implementation success stories and e-commerce sites to custom software, alongside CanHub 365, our own accounting firm software built in Mississauga."
+    "text": "Secure, scalable solutions designed for long-term growth. A look at the Innovage software portfolio: real projects for Ontario businesses, from SaaS implementation success stories and e-commerce sites to custom software, alongside CanHub 365, our own accounting firm software built in Mississauga.",
+    "images": [
+      {
+        "src": "/images/case-studies/inovexia-desktop.webp",
+        "alt": "Inovexia Software website homepage built by Innovage.",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "src": "/images/case-studies/demosoap-desktop.webp",
+        "alt": "Demo Soap online store homepage built by Innovage.",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "src": "/images/case-studies/mattressville-desktop.webp",
+        "alt": "Mattressville retail website homepage built by Innovage.",
+        "width": 1440,
+        "height": 900
+      }
+    ]
   },
   "cardLinkLabel": "View case study",
   "detail": {

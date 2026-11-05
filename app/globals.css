@@ -3746,6 +3746,72 @@ p {
   }
 }
 
+/* Overlapping screenshots in a page banner (CanHub 365, Case Studies) */
+.page-hero.has-visual .page-hero-visual:has(.hero-collage) {
+  height: auto;
+}
+.page-hero-visual:has(.hero-collage)::after {
+  display: none;
+}
+.hero-collage {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+}
+.hero-collage-canhub {
+  aspect-ratio: 560 / 490;
+}
+.hero-collage-cases {
+  aspect-ratio: 560 / 520;
+}
+.hero-collage-shot {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #15131f;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+}
+.hero-collage-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-collage-shot:last-child {
+  border-color: rgba(237, 0, 28, 0.6);
+}
+.hero-collage-canhub .hero-collage-shot:nth-child(1) {
+  left: 2%;
+  top: 4%;
+  width: 92%;
+  transform: rotate(-4deg);
+}
+.hero-collage-canhub .hero-collage-shot:nth-child(2) {
+  left: 27%;
+  top: 42%;
+  width: 71%;
+  transform: rotate(3deg);
+}
+.hero-collage-cases .hero-collage-shot {
+  width: 70%;
+}
+.hero-collage-cases .hero-collage-shot:nth-child(1) {
+  left: 7%;
+  top: 3%;
+  transform: rotate(-5deg);
+}
+.hero-collage-cases .hero-collage-shot:nth-child(2) {
+  left: 23%;
+  top: 26%;
+  transform: rotate(2deg);
+}
+.hero-collage-cases .hero-collage-shot:nth-child(3) {
+  left: 11%;
+  top: 49%;
+  transform: rotate(-2deg);
+}
+
 /* =========================================================
    FAQ accordion
    ========================================================= */
@@ -4128,16 +4194,6 @@ p {
 /* =========================================================
    CanHub 365 page
    ========================================================= */
-.page-hero-visual:has(.th-stage) {
-  height: auto;
-}
-.page-hero-visual:has(.th-stage)::before,
-.page-hero-visual:has(.th-stage)::after {
-  display: none;
-}
-.tp-hero-stage {
-  width: 100%;
-}
 .th-stage.th-stage-image,
 .th-feature .th-stage.th-stage-image {
   aspect-ratio: auto;
@@ -4146,11 +4202,6 @@ p {
 .th-stage-image .th-tilt {
   position: relative;
   inset: auto;
-}
-@media (min-width: 961px) {
-  .page-hero.has-visual:has(.th-stage-image) .page-hero-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-  }
 }
 .th-stage-image img,
 .tp-shot {
