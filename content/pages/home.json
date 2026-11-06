@@ -40,7 +40,7 @@
     "Web Applications",
     "SaaS Platforms",
     "Mobile Experiences",
-    "Business Automation",
+    "Workflow Automation",
     "UI/UX Design",
     "Cloud Solutions"
   ],
@@ -169,13 +169,13 @@
           "Claude API",
           "Zapier"
         ],
-        "href": "/services/business-automation"
+        "href": "/services/workflow-automation"
       }
     ]
   },
   "solutions": {
     "title": "Technology Built Around *Real Business Needs*",
-    "text": "From business automation to custom business management software, we design and build digital solutions for Ontario businesses that solve complex operational challenges."
+    "text": "From workflow automation to custom business management software, we design and build digital solutions for Ontario businesses that solve complex operational challenges."
   },
   "industries": {
     "title": "Industry *Expertise*",

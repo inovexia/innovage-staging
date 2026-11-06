@@ -332,9 +332,9 @@
     }
   },
   {
-    "slug": "business-automation",
+    "slug": "workflow-automation",
     "icon": "bolt",
-    "title": "Business Automation",
+    "title": "Workflow Automation",
     "tagline": "Less repetitive work, more growth",
     "summary": "Connect your systems, automate workflows and reduce spreadsheets, emails and repetitive data entry.",
     "heroTitle": "AI & Workflow Automation *Services in Ontario*",
@@ -408,7 +408,7 @@
     "caseStudies": [
       "Klej"
     ],
-    "cardText": "Connect your systems, automate workflows, and reduce spreadsheets, emails, and repetitive data entry through streamlined business automation services Canada.",
+    "cardText": "Connect your systems, automate workflows, and reduce spreadsheets, emails, and repetitive data entry through streamlined workflow automation services Canada.",
     "processText": {
       "Build": "Our development team turns the approved workflow map into working automation: system integrations, workflow automation software and, where it helps, AI document extraction and drafting. Automations go live in phases, so you can check each one on real work before the next is switched on."
     }

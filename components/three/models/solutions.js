@@ -38,7 +38,7 @@ export default function buildSolutions({ THREE, M, rbox, box, mesh }) {
     });
   }
 
-  // ---- 02 Business Automation: meshing gears ------------------------------
+  // ---- 02 Workflow Automation: meshing gears ------------------------------
   {
     const g = new THREE.Group();
     const tooth = 0.13;

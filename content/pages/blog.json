@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Ontario Software Technology *Blog & Insights*",
-    "text": "Practical thinking from the Innovage team in Mississauga, Ontario: SaaS development insights, AI and business automation trends, and practical guides to growing your business with technology."
+    "text": "Practical thinking from the Innovage team in Mississauga, Ontario: SaaS development insights, AI and workflow automation trends, and practical guides to growing your business with technology."
   },
   "cardLinkLabel": "Read article",
   "cta": {
@@ -26,8 +26,8 @@
         "a": "Reading expert SaaS development insights equips startups and enterprise leaders with best practices for multi-tenant architecture, cloud security, and subscription growth models."
       },
       {
-        "q": "What are the current AI and business automation trends impacting companies in Ontario?",
-        "a": "Staying updated on AI and business automation trends helps organizations integrate smart workflow tools, eliminate manual tasks, and maintain a competitive advantage in today's digital market."
+        "q": "What are the current AI and workflow automation trends impacting companies in Ontario?",
+        "a": "Staying updated on AI and workflow automation trends helps organizations integrate smart workflow tools, eliminate manual tasks, and maintain a competitive advantage in today's digital market."
       },
       {
         "q": "Why should accounting practices follow a cloud accounting software guide?",

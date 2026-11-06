@@ -59,7 +59,7 @@ export default function CanHubPage() {
         title={c.hero.title}
         text={c.hero.text}
         crumbs={[{ label: 'CanHub 365' }]}
-        visual={<HeroCollage images={c.hero.images} variant="canhub" />}
+        visual={<HeroCollage images={c.hero.images} variant="canhub" note={c.hero.imagesNote} />}
       >
         <DemoButtons />
       </PageHero>

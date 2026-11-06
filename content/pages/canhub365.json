@@ -4,18 +4,28 @@
     "text": "An all-in-one business software portal for accounting firms: clients send documents against a checklist, your team codes and files them, payroll and invoices sit beside the return — and everyone can see exactly where things stand.",
     "images": [
       {
-        "src": "/images/canhub/practice-overview.png",
-        "alt": "CanHub 365 practice overview showing active clients, documents awaited and client workflows, beside the client document upload screen on a phone.",
-        "width": 1602,
-        "height": 852
+        "device": "laptop",
+        "src": "/images/canhub/device-laptop.webp",
+        "alt": "CanHub 365 practice overview on a laptop, showing active clients, documents awaited and client workflows.",
+        "width": 1195,
+        "height": 698
       },
       {
-        "src": "/images/canhub/receipt-review.png",
-        "alt": "CanHub 365 receipt review screen with extracted vendor, subtotal, HST and total, and a suggested code for an accountant to approve.",
-        "width": 1405,
-        "height": 902
+        "device": "tablet",
+        "src": "/images/canhub/device-tablet.webp",
+        "alt": "CanHub 365 receipt review on a tablet, with extracted vendor, subtotal, HST and total, and a suggested code for an accountant to approve.",
+        "width": 1364,
+        "height": 811
+      },
+      {
+        "device": "phone",
+        "src": "/images/canhub/device-phone.webp",
+        "alt": "CanHub 365 client portal on a phone, showing the documents a client has uploaded and still needs to upload.",
+        "width": 295,
+        "height": 617
       }
-    ]
+    ],
+    "imagesNote": "Concept illustration"
   },
   "demoButtons": {
     "primary": {

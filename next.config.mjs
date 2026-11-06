@@ -13,6 +13,8 @@ const nextConfig = {
       // product renamed from TeckHub360, then CanHub360, to CanHub 365
       { source: '/teckhub360', destination: '/canhub365', permanent: true },
       { source: '/canhub360', destination: '/canhub365', permanent: true },
+      // service renamed from Business Automation to Workflow Automation
+      { source: '/services/business-automation', destination: '/services/workflow-automation', permanent: true },
     ];
   },
 };

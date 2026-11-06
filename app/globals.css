@@ -3760,7 +3760,7 @@ p {
   margin-inline: auto;
 }
 .hero-collage-canhub {
-  aspect-ratio: 560 / 490;
+  aspect-ratio: 600 / 410;
 }
 .hero-collage-cases {
   aspect-ratio: 560 / 520;
@@ -3781,17 +3781,57 @@ p {
 .hero-collage-shot:last-child {
   border-color: rgba(237, 0, 28, 0.6);
 }
-.hero-collage-canhub .hero-collage-shot:nth-child(1) {
-  left: 2%;
-  top: 4%;
-  width: 92%;
-  transform: rotate(-4deg);
+.hero-device.hero-collage-shot {
+  overflow: visible;
+  padding: 1.6%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: #17161d;
 }
-.hero-collage-canhub .hero-collage-shot:nth-child(2) {
-  left: 27%;
-  top: 42%;
-  width: 71%;
-  transform: rotate(3deg);
+.hero-device img {
+  border-radius: 3px;
+}
+.hero-device-laptop.hero-collage-shot {
+  left: 8%;
+  top: 0;
+  width: 84%;
+  padding: 1.4% 1.4% 2%;
+  border-radius: 14px 14px 4px 4px;
+}
+/* laptop base */
+.hero-device-laptop::after {
+  content: '';
+  position: absolute;
+  left: -7%;
+  right: -7%;
+  top: 100%;
+  height: 14px;
+  border-radius: 2px 2px 12px 12px;
+  background: linear-gradient(180deg, #4a4954, #24232b);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4);
+}
+.hero-device-tablet.hero-collage-shot {
+  left: 0;
+  top: 49%;
+  width: 54%;
+  padding: 2%;
+  border-radius: 16px;
+}
+.hero-device-phone.hero-collage-shot {
+  right: 3%;
+  top: 41%;
+  width: 21%;
+  padding: 1.3%;
+  border-radius: 20px;
+}
+.hero-device-phone img {
+  border-radius: 13px;
+}
+.hero-collage-note {
+  position: absolute;
+  right: 3%;
+  bottom: -22px;
+  font-size: 0.72rem;
+  color: var(--muted, #8a8898);
 }
 .hero-collage-cases .hero-collage-shot {
   width: 70%;

@@ -2,7 +2,7 @@ import buildSolutions from './solutions';
 
 // One model per service, in the same order as `services` (lib/data.js):
 // website-design, website-development, app-development, custom-software,
-// business-automation, saas-platforms, sitecare.
+// workflow-automation, saas-platforms, sitecare.
 export default function buildServices(kit) {
   const { THREE, M, rbox, box, mesh } = kit;
   const models = [];
