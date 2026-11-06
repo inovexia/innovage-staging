@@ -1,17 +1,24 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import buildSolutions from './models/solutions';
-import buildProcess from './models/process';
-import buildServices from './models/services';
-import { createRenderer, isLightTheme, watchTheme } from './webgl';
+import { createRenderer, isLightTheme, nextTask, whenPageIsIdle, watchTheme } from './webgl';
 
-const SETS = { solutions: buildSolutions, process: buildProcess, services: buildServices };
+// each page downloads only the models it shows
+const SETS = {
+  solutions: () => import('./models/solutions'),
+  process: () => import('./models/process'),
+  services: () => import('./models/services'),
+};
+// pre-rendered pictures in /images/models, one per model
+const POSTERS = { solutions: 5, process: 7, services: 7 };
 
 /**
  * Small 3D stage that shows one model per item of a set. The active model
  * springs in while the others spin out; each idles with its own motion and
  * tilts toward the pointer. Neutral graphite/silver with a single red accent.
+ * Building a model scene freezes the page for a moment (several seconds on a phone), so
+ * every visitor first sees a picture of the model. The live 3D loads only when a mouse
+ * moves over the section, where its motion can be seen; phones keep the pictures.
  */
 export default function ModelScene({ set, active = 0, className = '', zoom = 7 }) {
   const mountRef = useRef(null);
@@ -29,11 +36,13 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
     let disposed = false;
     let cleanup = () => {};
 
-    Promise.all([
+    const start = () => Promise.all([
       import('three'),
       import('three/addons/geometries/RoundedBoxGeometry.js'),
       import('three/addons/environments/RoomEnvironment.js'),
-    ]).then(([THREE, { RoundedBoxGeometry }, { RoomEnvironment }]) => {
+      SETS[set](),
+    ]).then(async ([THREE, { RoundedBoxGeometry }, { RoomEnvironment }, { default: buildModels }]) => {
+      await nextTask();
       if (disposed) return;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -44,6 +53,12 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       mount.appendChild(renderer.domElement);
 
+      await nextTask();
+      if (disposed) {
+        renderer.dispose();
+        renderer.domElement.remove();
+        return;
+      }
       const scene = new THREE.Scene();
       const pmrem = new THREE.PMREMGenerator(renderer);
       const envTex = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
@@ -91,7 +106,7 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
 
       const stage = new THREE.Group();
       scene.add(stage);
-      const models = SETS[set](kit);
+      const models = buildModels(kit);
       models.forEach((m, i) => {
         m.p = i === activeRef.current ? 1 : 0;
         m.baseRot = m.group.rotation.clone();
@@ -99,6 +114,13 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
         m.baseScale = m.group.scale.x;
         stage.add(m.group);
       });
+
+      await renderer.compileAsync(scene, camera);
+      if (disposed) {
+        renderer.dispose();
+        renderer.domElement.remove();
+        return;
+      }
 
       // ---- interaction / loop ----------------------------------------------
       const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
@@ -218,11 +240,37 @@ export default function ModelScene({ set, active = 0, className = '', zoom = 7 }
       };
     });
 
+    let cancelIdle = () => {};
+    const onEnter = () => {
+      cancelIdle = whenPageIsIdle(start, 0);
+    };
+    const section = mount.closest('section') || mount.parentElement;
+    const canAnimate = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches;
+    if (canAnimate) section.addEventListener('pointerenter', onEnter, { once: true });
+
     return () => {
       disposed = true;
+      section.removeEventListener('pointerenter', onEnter);
+      cancelIdle();
       cleanup();
     };
   }, [set, zoom]);
 
-  return <div ref={mountRef} className={`model-scene ${className}`} aria-hidden="true" />;
+  // a services page only ever shows its own model; the others switch between theirs
+  const posters = set === 'services' ? [active] : Array.from({ length: POSTERS[set] }, (_, i) => i);
+
+  return (
+    <div ref={mountRef} className={`model-scene ${className}`} aria-hidden="true">
+      {posters.map((i) => (
+        <img
+          key={i}
+          className={`model-poster ${i === active ? 'show' : ''}`}
+          src={`/images/models/${set}-${i}.webp`}
+          alt=""
+          decoding="async"
+          loading={set === 'services' ? 'eager' : 'lazy'}
+        />
+      ))}
+    </div>
+  );
 }

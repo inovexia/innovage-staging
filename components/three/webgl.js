@@ -1,5 +1,28 @@
 let warned = false;
 
+// Runs `cb` once the page has loaded and the browser has a free moment, so the 3D work
+// never competes with the content. Returns a cancel function.
+export function whenPageIsIdle(cb, delay = 1200) {
+  let timer = 0;
+  let idle = 0;
+  const start = () => {
+    timer = setTimeout(() => {
+      if (window.requestIdleCallback) idle = window.requestIdleCallback(cb, { timeout: 2000 });
+      else cb();
+    }, delay);
+  };
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start, { once: true });
+  return () => {
+    window.removeEventListener('load', start);
+    clearTimeout(timer);
+    if (idle) window.cancelIdleCallback(idle);
+  };
+}
+
+// Lets the browser handle clicks and scrolling between the heavy steps of building a scene.
+export const nextTask = () => new Promise((resolve) => setTimeout(resolve));
+
 // three.js needs WebGL2 and logs a console error before throwing when it can't get a
 // context. Some drivers (e.g. Firefox's ANGLE "EGL_NO_CONFIG") only reject particular
 // attributes such as antialias or the high-performance GPU, so we request the context

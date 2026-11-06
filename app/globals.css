@@ -729,6 +729,16 @@ p {
   filter: none;
 }
 
+/* first-screen content shows straight away instead of waiting for scripts and a fade */
+.hero [data-reveal],
+.page-hero [data-reveal],
+.article-cover[data-reveal] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
 /* pointer spotlight */
 .spot {
   position: relative;
@@ -1179,10 +1189,27 @@ p {
 }
 .model-scene {
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.2s var(--ease);
 }
-.model-scene.is-ready {
+.model-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.model-poster.show {
+  opacity: 1;
+}
+.model-scene.is-ready .model-poster {
+  opacity: 0;
+}
+.model-scene canvas {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
+}
+.model-scene.is-ready canvas {
   opacity: 1;
 }
 .model-scene canvas {

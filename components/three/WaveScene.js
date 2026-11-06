@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { snoise } from './noise';
-import { createRenderer, isLightTheme, watchTheme } from './webgl';
+import { createRenderer, isLightTheme, whenPageIsIdle, watchTheme } from './webgl';
 
 /**
  * Inner-page header background: an undulating grid of glowing points that
@@ -17,13 +17,13 @@ export default function WaveScene() {
     let disposed = false;
     let cleanup = () => {};
 
-    import('three').then((THREE) => {
+    const cancelIdle = whenPageIsIdle(() => import('three').then((THREE) => {
       if (disposed) return;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       const renderer = createRenderer(THREE, { antialias: false, alpha: true });
       if (!renderer) return;
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       mount.appendChild(renderer.domElement);
 
@@ -155,10 +155,11 @@ export default function WaveScene() {
         renderer.dispose();
         renderer.domElement.remove();
       };
-    });
+    }));
 
     return () => {
       disposed = true;
+      cancelIdle();
       cleanup();
     };
   }, []);

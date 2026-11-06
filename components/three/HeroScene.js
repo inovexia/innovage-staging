@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { createRenderer, isLightTheme, watchTheme } from './webgl';
+import { createRenderer, isLightTheme, whenPageIsIdle, watchTheme } from './webgl';
 
 /**
  * Home hero backdrop: an orbiting particle ring around the banner image,
@@ -17,14 +17,14 @@ export default function HeroScene() {
     let disposed = false;
     let cleanup = () => {};
 
-    import('three').then((THREE) => {
+    const cancelIdle = whenPageIsIdle(() => import('three').then((THREE) => {
       if (disposed) return;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const isSmall = window.innerWidth < 768;
 
-      const renderer = createRenderer(THREE, { antialias: true, alpha: true, powerPreference: 'high-performance' });
+      const renderer = createRenderer(THREE, { antialias: false, alpha: true });
       if (!renderer) return; // no WebGL: the banner image still shows, just without the particles
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.setSize(mount.clientWidth, mount.clientHeight);
       mount.appendChild(renderer.domElement);
 
@@ -200,10 +200,11 @@ export default function HeroScene() {
         renderer.dispose();
         renderer.domElement.remove();
       };
-    });
+    }));
 
     return () => {
       disposed = true;
+      cancelIdle();
       cleanup();
     };
   }, []);
