@@ -33,11 +33,12 @@ export default function ArticleAside({ headings, url, title }) {
   };
 
   const enc = encodeURIComponent;
+  const tagged = (source, medium) => enc(`${url}?utm_source=${source}&utm_medium=${medium}&utm_campaign=blog-share`);
   return (
     <aside className="article-aside">
       {headings.length > 0 && (
         <nav className="toc" aria-label="On this page">
-          <h4>On this page</h4>
+          <h2>On this page</h2>
           <ol>
             {headings.map((h) => (
               <li key={h.id}>
@@ -51,15 +52,15 @@ export default function ArticleAside({ headings, url, title }) {
       )}
 
       <div className="share">
-        <h4>Share</h4>
+        <h2>Share</h2>
         <div className="share-row">
-          <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+          <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${tagged('linkedin', 'social')}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
             in
           </a>
-          <a href={`https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+          <a href={`https://twitter.com/intent/tweet?url=${tagged('x', 'social')}&text=${enc(title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X">
             𝕏
           </a>
-          <a href={`mailto:?subject=${enc(title)}&body=${enc(url)}`} aria-label="Share by email">
+          <a href={`mailto:?subject=${enc(title)}&body=${tagged('email-share', 'email')}`} aria-label="Share by email">
             <Icon name="mail" size={16} />
           </a>
           <button type="button" onClick={copy} aria-label="Copy link">
@@ -70,7 +71,7 @@ export default function ArticleAside({ headings, url, title }) {
       </div>
 
       <div className="aside-cta">
-        <h4>Planning a project?</h4>
+        <h2>Planning a project?</h2>
         <p>Book a free consultation and we&apos;ll help you find the right approach.</p>
         <Link href="/contact" className="btn btn-primary btn-sm">
           Book a Free Consultation <Icon name="arrow" size={16} />

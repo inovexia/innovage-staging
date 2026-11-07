@@ -10,7 +10,7 @@ export default function CanHubStage({ className = '', priority = false }) {
           alt="CanHub 365 practice overview showing active clients, documents awaited and client workflows, beside the client's document upload screen on a phone."
           width={1602}
           height={852}
-          sizes="(max-width: 960px) 100vw, 720px"
+          sizes="(max-width: 960px) 100vw, (max-width: 1440px) 720px, (max-width: 2200px) 50vw, 1030px"
           priority={priority}
         />
       </div>

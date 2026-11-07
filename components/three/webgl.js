@@ -1,5 +1,8 @@
 let warned = false;
 
+// The animated backgrounds are decoration, so phones skip them and never download three.js.
+export const isPhone = () => window.innerWidth < 768;
+
 // Runs `cb` once the page has loaded and the browser has a free moment, so the 3D work
 // never competes with the content. Returns a cancel function.
 export function whenPageIsIdle(cb, delay = 1200) {

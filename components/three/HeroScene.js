@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { createRenderer, isLightTheme, whenPageIsIdle, watchTheme } from './webgl';
+import { createRenderer, isLightTheme, isPhone, whenPageIsIdle, watchTheme } from './webgl';
 
 /**
  * Home hero backdrop: an orbiting particle ring around the banner image,
@@ -13,14 +13,13 @@ export default function HeroScene() {
 
   useEffect(() => {
     const mount = mountRef.current;
-    if (!mount) return;
+    if (!mount || isPhone()) return;
     let disposed = false;
     let cleanup = () => {};
 
     const cancelIdle = whenPageIsIdle(() => import('three').then((THREE) => {
       if (disposed) return;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const isSmall = window.innerWidth < 768;
 
       const renderer = createRenderer(THREE, { antialias: false, alpha: true });
       if (!renderer) return; // no WebGL: the banner image still shows, just without the particles
@@ -38,7 +37,7 @@ export default function HeroScene() {
       const uniforms = { uTime: { value: 0 }, uLight: { value: isLightTheme() ? 1 : 0 } };
 
       // --- Orbit ring of particles -----------------------------------------
-      const ringCount = isSmall ? 900 : 1800;
+      const ringCount = 1800;
       const ringPos = new Float32Array(ringCount * 3);
       const ringSeed = new Float32Array(ringCount);
       for (let i = 0; i < ringCount; i++) {
@@ -91,7 +90,7 @@ export default function HeroScene() {
       root.add(ring);
 
       // --- Star field ------------------------------------------------------
-      const starCount = isSmall ? 600 : 1400;
+      const starCount = 1400;
       const starPos = new Float32Array(starCount * 3);
       const starSeed = new Float32Array(starCount);
       for (let i = 0; i < starCount; i++) {

@@ -14,7 +14,7 @@ export default function AboutPage() {
   const { hero, intro, values, faq } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'About' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'About' }]} path="/about" />
 
       <section className="section">
         <div className="container about-grid">

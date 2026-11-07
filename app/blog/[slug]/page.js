@@ -8,6 +8,9 @@ import ArticleAside from '@/components/ArticleAside';
 import Icon from '@/components/Icon';
 import { posts, getPost, formatDate, slugify } from '@/lib/posts';
 import Rich from '@/components/Rich';
+import JsonLd from '@/components/JsonLd';
+import LinkedText from '@/components/LinkedText';
+import { blogPostSchema } from '@/lib/schema';
 import { pageMeta, SITE_URL as SITE } from '@/lib/seo';
 import content from '@/content/pages/blog.json';
 
@@ -23,7 +26,7 @@ export async function generateMetadata({ params }) {
   if (!post) return {};
   return pageMeta({
     title: post.title,
-    description: post.excerpt,
+    description: post.description || post.excerpt,
     path: `/blog/${post.slug}`,
     type: 'article',
     image: { url: `/images/og/blog-${post.image.split('/').pop().replace('.webp', '.jpg')}`, width: 1200, height: 630, alt: post.title },
@@ -33,10 +36,10 @@ export async function generateMetadata({ params }) {
 
 function Block({ b }) {
   if (b.h2) return <h2 id={slugify(b.h2)}>{b.h2}</h2>;
-  if (b.p) return <p>{b.p}</p>;
+  if (b.p) return <p><LinkedText text={b.p} /></p>;
   if (b.quote) return <blockquote>{b.quote}</blockquote>;
-  if (b.ul) return <ul>{b.ul.map((li) => <li key={li}>{li}</li>)}</ul>;
-  if (b.ol) return <ol>{b.ol.map((li) => <li key={li}>{li}</li>)}</ol>;
+  if (b.ul) return <ul>{b.ul.map((li) => <li key={li}><LinkedText text={li} /></li>)}</ul>;
+  if (b.ol) return <ol>{b.ol.map((li) => <li key={li}><LinkedText text={li} /></li>)}</ol>;
   return null;
 }
 
@@ -52,22 +55,10 @@ export default async function BlogPostPage({ params }) {
   const next = posts[idx + 1];
   const initials = post.author.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.date,
-    image: SITE + post.image,
-    author: { '@type': 'Organization', name: 'Innovage' },
-    publisher: { '@type': 'Organization', name: 'Innovage Softwares Inc.' },
-    mainEntityOfPage: `${SITE}/blog/${post.slug}`,
-  };
-
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero title={post.title} crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}>
+      <JsonLd data={blogPostSchema(post)} />
+      <PageHero title={post.title} crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]} path={`/blog/${post.slug}`}>
         <div className="article-meta" data-reveal data-delay="160">
           <span className="avatar" aria-hidden="true">{initials}</span>
           <span>
@@ -85,7 +76,7 @@ export default async function BlogPostPage({ params }) {
       <section className="section article-section">
         <div className="container">
           <figure className="article-cover" data-reveal>
-            <Image src={post.image} alt={`${post.title} — cover illustration`} width={1600} height={900} priority sizes="(max-width: 1240px) 100vw, 1192px" />
+            <Image src={post.image} alt={`${post.title} — cover illustration`} width={1600} height={900} priority sizes="(max-width: 2200px) 100vw, 2060px" />
           </figure>
 
           <div className="article-grid">

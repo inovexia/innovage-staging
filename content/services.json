@@ -1,6 +1,7 @@
 [
   {
     "slug": "website-design",
+    "relatedPosts": ["website-that-converts", "maintenance-matters"],
     "icon": "design",
     "title": "Website Design",
     "tagline": "Websites that turn visitors into customers",
@@ -83,6 +84,7 @@
   },
   {
     "slug": "website-development",
+    "relatedPosts": ["website-that-converts", "maintenance-matters"],
     "icon": "code",
     "title": "Website Development",
     "tagline": "Fast, scalable websites built for your business",
@@ -166,6 +168,7 @@
   },
   {
     "slug": "app-development",
+    "relatedPosts": ["mobile-app-checklist", "saas-mvp-roadmap"],
     "icon": "mobile",
     "title": "App Development",
     "tagline": "Powerful mobile experiences for iOS and Android",
@@ -250,6 +253,7 @@
   },
   {
     "slug": "custom-software",
+    "relatedPosts": ["custom-software-vs-off-the-shelf", "automate-before-you-hire"],
     "icon": "cube",
     "title": "Custom Software",
     "tagline": "Turn your business process into software",
@@ -333,6 +337,7 @@
   },
   {
     "slug": "workflow-automation",
+    "relatedPosts": ["automate-before-you-hire", "custom-software-vs-off-the-shelf"],
     "icon": "bolt",
     "title": "Workflow Automation",
     "tagline": "Less repetitive work, more growth",
@@ -415,6 +420,7 @@
   },
   {
     "slug": "saas-platforms",
+    "relatedPosts": ["saas-mvp-roadmap", "custom-software-vs-off-the-shelf"],
     "icon": "cloud",
     "title": "SaaS Platforms",
     "tagline": "Subscription-based software platforms",
@@ -497,6 +503,7 @@
   },
   {
     "slug": "sitecare",
+    "relatedPosts": ["maintenance-matters", "website-that-converts"],
     "icon": "shield",
     "title": "Sitecare & Support",
     "tagline": "Long-term technology partnership",

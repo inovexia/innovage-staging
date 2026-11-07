@@ -7,6 +7,8 @@ import HeroCollage from '@/components/HeroCollage';
 import ThemePreview from '@/components/canhub/ThemePreview';
 import ProductShot from '@/components/canhub/ProductShot';
 import Rich from '@/components/Rich';
+import JsonLd from '@/components/JsonLd';
+import { softwareSchema } from '@/lib/schema';
 import { pageMeta } from '@/lib/seo';
 import content from '@/content/pages/canhub365.json';
 
@@ -55,10 +57,12 @@ export default function CanHubPage() {
   const { checklist, deadlines } = c.paperwork;
   return (
     <>
+      <JsonLd data={softwareSchema()} />
       <PageHero
         title={c.hero.title}
         text={c.hero.text}
         crumbs={[{ label: 'CanHub 365' }]}
+        path="/canhub365"
         visual={<HeroCollage images={c.hero.images} variant="canhub" note={c.hero.imagesNote} />}
       >
         <DemoButtons />
@@ -181,7 +185,7 @@ export default function CanHubPage() {
         <div className="container">
           <SectionHead center title={c.paperwork.title} text={c.paperwork.text} />
           <div className="tp-shot-wide" data-reveal data-delay="60">
-            <ProductShot image={c.paperwork.image} sizes="(max-width: 1100px) 100vw, 1040px" />
+            <ProductShot image={c.paperwork.image} sizes="(max-width: 1100px) 100vw, (max-width: 2080px) 72vw, 1500px" />
           </div>
           <div className="tp-panels">
             <div className="tp-panel" data-reveal data-delay="60">

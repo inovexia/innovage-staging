@@ -7,8 +7,12 @@ import Icon from '@/components/Icon';
 import ModelScene from '@/components/three/ModelScene';
 import Image from 'next/image';
 import FAQ from '@/components/FAQ';
+import BlogCard from '@/components/BlogCard';
+import JsonLd from '@/components/JsonLd';
 import Rich from '@/components/Rich';
 import { services, caseStudies, fill } from '@/lib/data';
+import { getPost } from '@/lib/posts';
+import { serviceSchema } from '@/lib/schema';
 import { pageMeta } from '@/lib/seo';
 import page from '@/content/pages/services.json';
 
@@ -31,13 +35,16 @@ export default async function ServicePage({ params }) {
   const info = service;
   const vars = { service: service.title };
   const cases = info.caseStudies.map((name) => caseStudies.find((c) => c.client === name)).filter(Boolean);
+  const relatedPosts = (info.relatedPosts || []).map(getPost).filter(Boolean);
 
   return (
     <>
+      <JsonLd data={serviceSchema(service)} />
       <PageHero
         title={service.heroTitle || service.title}
         text={service.heroText || service.tagline + '. ' + service.summary}
         crumbs={[{ label: 'Services', href: '/services' }, { label: service.title }]}
+        path={`/services/${service.slug}`}
         visual={<ModelScene set="services" active={services.indexOf(service)} className="page-hero-scene" zoom={5.3} />}
       />
 
@@ -161,6 +168,22 @@ export default async function ServicePage({ params }) {
                     </span>
                   </div>
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* RELATED ARTICLES */}
+      {relatedPosts.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="section-head left">
+              <h2 className="h2" data-reveal data-delay="60"><Rich text={t.postsTitle} /></h2>
+            </div>
+            <div className="post-grid">
+              {relatedPosts.map((p, i) => (
+                <BlogCard key={p.slug} post={p} delay={i * 90} />
               ))}
             </div>
           </div>

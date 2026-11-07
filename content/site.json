@@ -9,6 +9,13 @@
     "Mississauga, Ontario, Canada",
     "L5L 5R2"
   ],
+  "postalAddress": {
+    "streetAddress": "36-4181 Sladeview Cres",
+    "addressLocality": "Mississauga",
+    "addressRegion": "ON",
+    "postalCode": "L5L 5R2",
+    "addressCountry": "CA"
+  },
   "enquiryEmail": "enquiry@innovagesoft.com",
   "nav": [
     {

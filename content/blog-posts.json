@@ -10,6 +10,7 @@
       "category": "Strategy",
       "date": "2026-09-18",
       "title": "Custom Software vs. Off-the-Shelf: How to Decide",
+      "description": "Custom software or off-the-shelf? Use this practical framework to compare cost, flexibility, ownership and long-term value before you decide.",
       "excerpt": "When does it make sense to build your own platform? A practical framework for weighing cost, flexibility and long-term value.",
       "body": [
         {
@@ -43,7 +44,7 @@
         },
         {
           "ul": [
-            "Your team spends hours each week bridging gaps between tools with copy-paste and spreadsheets.",
+            "Your team spends hours each week [bridging gaps between tools](/blog/automate-before-you-hire) with copy-paste and spreadsheets.",
             "Per-seat or per-transaction pricing is climbing faster than revenue.",
             "You need to own your data, integrations or customer experience end to end.",
             "The process is a competitive advantage and changes as you learn."
@@ -62,10 +63,10 @@
           "h2": "The hybrid route most businesses take"
         },
         {
-          "p": "In practice the answer is rarely all-or-nothing. Many of our clients keep proven products for commodity functions and build a custom layer — a portal, a dashboard, an automation hub — that ties everything together around their unique process."
+          "p": "In practice the answer is rarely all-or-nothing. Many of our clients keep proven products for commodity functions and build a [custom layer](/services/custom-software) — a portal, a dashboard, an [automation hub](/services/workflow-automation) — that ties everything together around their unique process."
         },
         {
-          "p": "If you are weighing the decision, start with a short discovery session. An hour spent mapping the workflow usually makes the right answer obvious."
+          "p": "If you are weighing the decision, start with a [short discovery session](/contact). An hour spent mapping the workflow usually makes the right answer obvious."
         }
       ]
     },
@@ -74,6 +75,7 @@
       "category": "Automation",
       "date": "2026-08-27",
       "title": "Automate Before You Hire: Finding Hidden Hours",
+      "description": "Spreadsheets, copy-paste and email approvals quietly eat your week. Learn how to find hidden hours, score tasks and automate before you hire.",
       "excerpt": "Spreadsheets, copy-paste and email approvals quietly eat your week. Here is how to spot and remove them.",
       "body": [
         {
@@ -118,7 +120,7 @@
           "h2": "Start small, then connect"
         },
         {
-          "p": "The best automation projects begin with one painful workflow and a measurable goal: hours saved, errors avoided, response time reduced. Once that works, connect the next system. Over a few months, isolated tools become a joined-up operation."
+          "p": "The best [automation projects](/services/workflow-automation) begin with one painful workflow and a measurable goal: hours saved, errors avoided, response time reduced. Once that works, connect the next system. Over a few months, isolated tools become a [joined-up operation](/services/custom-software)."
         },
         {
           "quote": "Automation should give people their time back for the work only people can do."
@@ -136,10 +138,11 @@
       "category": "Design",
       "date": "2026-08-04",
       "title": "What Makes a Website Actually Convert",
+      "description": "Beyond good looks: the clarity, speed, proof and form patterns that turn website visitors into enquiries, and how to keep improving them.",
       "excerpt": "Beyond good looks: the structure, speed and messaging patterns behind sites that turn visitors into customers.",
       "body": [
         {
-          "p": "A beautiful website that does not generate enquiries is an expensive brochure. Conversion is not about tricks or pop-ups — it comes from clarity, speed and trust, designed in from the first wireframe."
+          "p": "A beautiful website that does not generate enquiries is an expensive brochure. Conversion is not about tricks or pop-ups — it comes from clarity, speed and trust, [designed in from the first wireframe](/services/website-design)."
         },
         {
           "h2": "Clarity in the first five seconds"
@@ -171,7 +174,7 @@
           "h2": "Proof beats promises"
         },
         {
-          "p": "Visitors trust what others say about you more than what you say about yourself. Place evidence close to your claims: client logos near the hero, a short case study beside a service description, real numbers instead of adjectives."
+          "p": "Visitors trust what others say about you more than what you say about yourself. Place evidence close to your claims: client logos near the hero, a [short case study](/case-studies) beside a service description, real numbers instead of adjectives."
         },
         {
           "quote": "Show the outcome, not just the feature."
@@ -195,13 +198,14 @@
       "category": "SaaS",
       "date": "2026-07-15",
       "title": "From Idea to SaaS MVP in Seven Steps",
+      "description": "Launch a subscription product without over-building: seven practical steps that take a SaaS MVP from customer discovery to launch and beyond.",
       "excerpt": "Our Discover-to-Evolve process applied to launching a subscription product without over-building.",
       "body": [
         {
           "p": "Most SaaS products that struggle do not fail because of bad code. They fail because they took too long to reach real users, or launched with features nobody asked for. A focused MVP fixes both problems."
         },
         {
-          "p": "Here is how our seven-step process applies to taking a subscription product from idea to launch."
+          "p": "Here is how our [seven-step process](/process) applies to taking a [subscription product](/services/saas-platforms) from idea to launch."
         },
         {
           "h2": "1. Discover"
@@ -255,6 +259,7 @@
       "category": "Support",
       "date": "2026-06-30",
       "title": "Why Website Maintenance Is a Growth Lever",
+      "description": "Security, speed and continuous improvement: why website maintenance protects rankings and conversions, and what a good plan should include.",
       "excerpt": "Security, speed and continuous improvement: the case for treating your site like a product.",
       "body": [
         {
@@ -270,7 +275,7 @@
           "h2": "Performance drifts over time"
         },
         {
-          "p": "New content, images, tracking scripts and features add weight. Without periodic tuning, a fast site becomes a slow one, and both search rankings and conversions suffer."
+          "p": "New content, images, tracking scripts and features add weight. Without periodic tuning, a fast site becomes a slow one, and both search rankings and [conversions](/blog/website-that-converts) suffer."
         },
         {
           "h2": "What good maintenance includes"
@@ -291,7 +296,7 @@
           "h2": "From maintenance to improvement"
         },
         {
-          "p": "The real value appears when maintenance includes continuous improvement: refining pages that underperform, testing new calls to action and adapting to how customers behave. Over a year, those small changes often outperform a full redesign."
+          "p": "The real value appears when [maintenance includes continuous improvement](/services/sitecare): refining pages that underperform, testing new calls to action and adapting to how customers behave. Over a year, those small changes often outperform a full redesign."
         }
       ]
     },
@@ -300,10 +305,11 @@
       "category": "Mobile",
       "date": "2026-06-09",
       "title": "The Pre-Launch Checklist for Mobile Apps",
+      "description": "Everything to validate before submitting to the App Store and Google Play: stability, performance, store listings, accessibility and more.",
       "excerpt": "Everything to validate before you hit submit on the App Store and Google Play.",
       "body": [
         {
-          "p": "Launching a mobile app is more involved than publishing a website. Store reviews, device fragmentation and the difficulty of fixing mistakes once users have installed a version all raise the stakes. A disciplined pre-launch checklist saves weeks of pain."
+          "p": "Launching a [mobile app](/services/app-development) is more involved than publishing a website. Store reviews, device fragmentation and the difficulty of fixing mistakes once users have installed a version all raise the stakes. A disciplined pre-launch checklist saves weeks of pain."
         },
         {
           "h2": "Functionality and stability"

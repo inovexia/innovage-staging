@@ -3,6 +3,7 @@ import Image from 'next/image';
 import HeroScene from '@/components/three/HeroScene';
 import Icon from '@/components/Icon';
 import Counter from '@/components/Counter';
+import HeroHighlights from '@/components/HeroHighlights';
 import ProcessExplorer from '@/components/ProcessExplorer';
 import SolutionsList from '@/components/SolutionsList';
 import CTASection from '@/components/CTASection';
@@ -11,6 +12,8 @@ import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 // import BlogSection from '@/components/BlogSection'; // blog section hidden on the homepage for now
 import Rich from '@/components/Rich';
+import JsonLd from '@/components/JsonLd';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
 import { stats, clients } from '@/lib/data';
 import content from '@/content/pages/home.json';
 import industryContent from '@/content/pages/industries.json';
@@ -20,6 +23,7 @@ const { hero, marquee, intro, services, solutions, industries, canhub, process: 
 export default function Home() {
   return (
     <>
+      <JsonLd data={[organizationSchema(), websiteSchema()]} />
       {/* HERO */}
       <section className="hero">
         <HeroScene />
@@ -58,9 +62,10 @@ export default function Home() {
               alt={hero.image.alt}
               width={hero.image.width}
               height={hero.image.height}
-              sizes="(max-width: 960px) 100vw, 640px"
+              sizes="(max-width: 960px) 100vw, (max-width: 2200px) 50vw, 1030px"
               priority
             />
+            <HeroHighlights />
           </div>
           <dl className="hero-stats" data-reveal data-delay="280">
             {hero.stats.map((s) => (

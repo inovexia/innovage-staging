@@ -59,8 +59,8 @@ export default function Header() {
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${hidden && !open ? 'is-hidden' : ''}`}>
       <div className="container header-inner">
         <Link href="/" className="logo" aria-label="Innovage home">
-          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={180} height={30} priority className="logo-dark" />
-          <Image src="/images/innovage-logo-dark.png" alt="Innovage" width={180} height={30} priority className="logo-light" />
+          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={166} height={32} priority className="logo-dark" />
+          <Image src="/images/innovage-logo-dark.png" alt="Innovage" width={166} height={32} priority className="logo-light" />
         </Link>
 
         <nav className="nav-pill" aria-label="Main">

@@ -48,7 +48,7 @@ export default function LegalToc({ items }) {
 
   return (
     <nav className="toc" aria-label="Table of contents">
-      <h4>Table of Contents</h4>
+      <h2>Table of Contents</h2>
       <ol ref={listRef}>
         {items.map((i) => (
           <li key={i.id}>

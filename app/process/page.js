@@ -12,7 +12,7 @@ export default function ProcessPage() {
   const { hero, showcase, faq } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Process' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Process' }]} path="/process" />
 
       <ProcessShowcase title={<Rich text={showcase.title} />} text={showcase.text} stepText={showcase.stepText} />
 

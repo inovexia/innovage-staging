@@ -19,6 +19,7 @@ export default function CaseStudiesPage() {
         title={content.hero.title}
         text={content.hero.text}
         crumbs={[{ label: 'Case Studies' }]}
+        path="/case-studies"
         visual={<HeroCollage images={content.hero.images} variant="cases" />}
       />
 
@@ -29,7 +30,7 @@ export default function CaseStudiesPage() {
               <Link href={`/case-studies/${c.slug}`} className="case-link" aria-label={`${c.client} case study`} />
               <div className={`case-visual ${c.images ? 'has-shot' : ''}`}>
                 {c.images && (
-                  <Image src={c.images.desktop} alt="" fill sizes="(max-width: 960px) 100vw, 560px" className="case-shot" />
+                  <Image src={c.images.desktop} alt="" fill sizes="(max-width: 960px) 100vw, (max-width: 2200px) 46vw, 960px" className="case-shot" />
                 )}
                 <div className="logo-tile">
                   <Image src={c.logo} alt={c.client} width={160} height={60} />

@@ -11,11 +11,18 @@ export default function sitemap() {
     '/',
     ...Object.keys(PAGE_META),
     ...services.map((s) => `/services/${s.slug}`),
-    ...caseStudies.map((c) => `/case-studies/${c.slug}`),
   ]);
 
   return [
     ...[...paths].map((path) => ({ url: url(path) })),
-    ...posts.map((p) => ({ url: url(`/blog/${p.slug}`), lastModified: p.date })),
+    ...caseStudies.map((c) => ({
+      url: url(`/case-studies/${c.slug}`),
+      ...(c.images && { images: [url(c.images.desktop), url(c.images.mobile)] }),
+    })),
+    ...posts.map((p) => ({
+      url: url(`/blog/${p.slug}`),
+      lastModified: p.updated || p.date,
+      images: [url(p.image)],
+    })),
   ];
 }

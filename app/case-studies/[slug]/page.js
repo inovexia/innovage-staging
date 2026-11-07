@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   if (!c) return {};
   return pageMeta({
     title: `${c.client} — Case Study`,
-    description: `${c.title}. ${c.text}`,
+    description: c.description || `${c.title}. ${c.text}`,
     path: `/case-studies/${c.slug}`,
     type: 'article',
     ...(c.images && { image: { url: `/images/og/case-${c.images.desktop.split('/').pop().replace('-desktop.webp', '.jpg')}`, width: 1200, height: 630, alt: `${c.client} website designed and built by Innovage` } }),
@@ -67,7 +67,7 @@ function Showcase({ c }) {
           <span className="cd-dots"><i /><i /><i /></span>
           <span className="cd-url">{c.url ? host(c.url) : c.client}</span>
         </div>
-        <Image src={c.images.desktop} alt={`${c.client} website on desktop`} width={1440} height={900} priority sizes="(max-width: 960px) 90vw, 560px" />
+        <Image src={c.images.desktop} alt={`${c.client} website on desktop`} width={1440} height={900} priority sizes="(max-width: 960px) 90vw, (max-width: 2200px) 42vw, 920px" />
       </div>
       <div className="cd-phone">
         <Image src={c.images.mobile} alt={`${c.client} website on mobile`} width={500} height={1000} sizes="160px" />
@@ -103,6 +103,7 @@ export default async function CaseStudyPage({ params }) {
         title={c.client}
         text={c.title + '. ' + c.text}
         crumbs={[{ label: 'Case Studies', href: '/case-studies' }, { label: c.client }]}
+        path={`/case-studies/${c.slug}`}
         visual={<Showcase c={c} />}
       >
         <div className="btn-row" data-reveal data-delay="220">
@@ -191,7 +192,7 @@ export default async function CaseStudyPage({ params }) {
                     alt={`${c.client} homepage`}
                     width={1200}
                     height={c.images.fullHeight || 750}
-                    sizes="(max-width: 960px) 92vw, 820px"
+                    sizes="(max-width: 960px) 92vw, (max-width: 2100px) 62vw, 1300px"
                     style={sync ? { '--anim': sync.d } : undefined}
                   />
                 </div>

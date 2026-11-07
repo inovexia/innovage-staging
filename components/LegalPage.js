@@ -23,10 +23,10 @@ function Block({ b, subject }) {
 }
 
 /** Legal document layout: sticky table of contents + numbered, linkable sections. */
-export default function LegalPage({ title, text, crumb, intro, sections, subject, contactTitle, faq }) {
+export default function LegalPage({ title, text, crumb, path, intro, sections, subject, contactTitle, faq }) {
   return (
     <>
-      <PageHero title={title} text={text} crumbs={[{ label: crumb }]} />
+      <PageHero title={title} text={text} crumbs={[{ label: crumb }]} path={path} />
       <section className="section">
         <div className="container legal-grid">
           <aside className="legal-toc">

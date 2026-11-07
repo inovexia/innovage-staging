@@ -10,8 +10,8 @@ export default function Footer() {
       <div className="footer-glow" aria-hidden="true" />
       <div className="container footer-grid">
         <div className="footer-brand">
-          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={200} height={33} className="logo-dark" />
-          <Image src="/images/innovage-logo-dark.png" alt="Innovage" width={200} height={33} className="logo-light" />
+          <Image src="/images/innovage-footer-logo.png" alt="Innovage" width={208} height={40} className="logo-dark" />
+          <Image src="/images/innovage-logo-dark.png" alt="Innovage" width={208} height={40} className="logo-light" />
           <p>{footer.text}</p>
           <Link href={footer.button.href} className="btn btn-ghost btn-sm" data-magnetic>
             {footer.button.label} <Icon name="arrow" size={16} />
@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>{footer.servicesTitle}</h4>
+          <h2>{footer.servicesTitle}</h2>
           <ul>
             {services.map((s) => (
               <li key={s.slug}>
@@ -30,7 +30,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>{footer.companyTitle}</h4>
+          <h2>{footer.companyTitle}</h2>
           <ul>
             {footer.companyLinks.map((l) => (
               <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
@@ -39,7 +39,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4>{footer.contactTitle}</h4>
+          <h2>{footer.contactTitle}</h2>
           <ul className="contact-list">
             <li>
               <Icon name="phone" size={18} />

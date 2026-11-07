@@ -13,7 +13,7 @@ export default function ContactPage() {
   const { hero, labels } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Contact' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Contact' }]} path="/contact" />
 
       <section className="section">
         <div className="container contact-grid">

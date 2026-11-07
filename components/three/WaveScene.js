@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { snoise } from './noise';
-import { createRenderer, isLightTheme, whenPageIsIdle, watchTheme } from './webgl';
+import { createRenderer, isLightTheme, isPhone, whenPageIsIdle, watchTheme } from './webgl';
 
 /**
  * Inner-page header background: an undulating grid of glowing points that
@@ -13,7 +13,7 @@ export default function WaveScene() {
 
   useEffect(() => {
     const mount = mountRef.current;
-    if (!mount) return;
+    if (!mount || isPhone()) return;
     let disposed = false;
     let cleanup = () => {};
 
@@ -32,7 +32,7 @@ export default function WaveScene() {
       camera.position.set(0, 3.2, 8);
       camera.lookAt(0, 0, -2);
 
-      const cols = window.innerWidth < 768 ? 90 : 160;
+      const cols = 160;
       const rows = 60;
       const count = cols * rows;
       const pos = new Float32Array(count * 3);

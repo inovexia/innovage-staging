@@ -13,7 +13,7 @@ export default function IndustriesPage() {
   const { hero, expertise, ai, others } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Industries' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Industries' }]} path="/industries" />
 
       {/* CORE EXPERTISE */}
       <section className="section">

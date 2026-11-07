@@ -15,7 +15,7 @@ export default function ServicesPage() {
   const { hero } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Services' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Services' }]} path="/services" />
 
       <section className="section">
         <div className="container">

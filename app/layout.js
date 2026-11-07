@@ -2,7 +2,7 @@ import { Plus_Jakarta_Sans, Sora } from 'next/font/google';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Effects from '@/components/Effects';
-import { pageMeta, SITE_URL, DEFAULT_TITLE } from '@/lib/seo';
+import { pageMeta, ALLOW_INDEXING, SITE_URL, DEFAULT_TITLE } from '@/lib/seo';
 import './globals.css';
 
 const body = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-body', display: 'swap' });
@@ -11,6 +11,7 @@ const display = Sora({ subsets: ['latin'], variable: '--font-display', display: 
 export const metadata = {
   ...pageMeta({ path: '/' }),
   metadataBase: new URL(SITE_URL),
+  ...(ALLOW_INDEXING ? {} : { robots: { index: false, follow: false } }),
   title: { default: DEFAULT_TITLE, template: '%s | Innovage' },
   icons: { icon: '/images/favicon.png', apple: '/images/favicon.png' },
 };

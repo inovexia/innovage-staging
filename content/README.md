@@ -26,5 +26,9 @@ All copy on the website lives in these JSON files. Edit a file, save, and the pa
 - **`cta`:** the closing "call to action" band on a page. `title`, `text` and `button` are all optional; anything left out falls back to `cta` in `site.json`.
 - **`icon`:** must be one of the names defined in `components/Icon.js` (e.g. `cube`, `cloud`, `shield`, `users`).
 - **`slug`:** the page URL (`/services/<slug>`). Changing it changes the URL, so avoid editing it once a page is live.
+- **Links inside blog posts:** in a paragraph or list item, write `[words](/path)` to link to another page.
+- **`description`:** on a blog post or case study, the text search engines show (keep it under 155 characters). It falls back to the short summary if left out.
+- **`updated`:** on a blog post, the date of the last real content change (`YYYY-MM-DD`). It feeds the sitemap and schema, so only change it when the content changes.
+- **`relatedPosts`:** on a service, the blog post slugs shown under "Related articles" on that service page.
 - **`_note`:** editor notes and TODOs. The site ignores them.
 - JSON is strict: use double quotes, no trailing commas, and no comments. A typo here breaks the build, and the error message gives the file and line.

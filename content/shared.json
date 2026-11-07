@@ -103,19 +103,19 @@
     {
       "title": "Web Applications",
       "text": "Secure, responsive applications accessible from anywhere.",
-      "cta": "Learn More",
+      "cta": "Explore Web Applications",
       "href": "/services/website-development"
     },
     {
       "title": "Enterprise & Professional Systems",
       "text": "Complex systems involving multiple users, roles, workflows, reporting, and integrations.",
-      "cta": "Learn More",
+      "cta": "Explore Enterprise Systems",
       "href": "/services/custom-software"
     },
     {
       "title": "SaaS Platforms",
       "text": "Scalable multi-user applications designed for recurring-service businesses.",
-      "cta": "Learn More",
+      "cta": "Explore SaaS Platforms",
       "href": "/services/saas-platforms"
     }
   ],

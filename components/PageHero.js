@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import WaveScene from './three/WaveScene';
 import Rich from './Rich';
+import JsonLd from './JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
 
-export default function PageHero({ title, text, crumbs = [], visual, children }) {
+export default function PageHero({ title, text, crumbs = [], path, visual, children }) {
   return (
     <section className={`page-hero ${visual ? 'has-visual' : ''}`}>
+      {path && <JsonLd data={breadcrumbSchema(crumbs, path)} />}
       <WaveScene />
       <div className="page-hero-fade" aria-hidden="true" />
       <div className="container page-hero-inner">

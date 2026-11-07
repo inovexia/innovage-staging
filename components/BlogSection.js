@@ -27,7 +27,7 @@ export default function BlogSection({ title, text, button }) {
         <div className="bs-grid">
           <article className="bs-feature" data-reveal data-delay="120">
             <Link href={`/blog/${featured.slug}`} className="bs-cover-link" aria-label={featured.title} />
-            <Image src={featured.image} alt="" fill sizes="(max-width: 960px) 100vw, 700px" className="bs-feature-img" />
+            <Image src={featured.image} alt="" fill sizes="(max-width: 960px) 100vw, (max-width: 2200px) 50vw, 1030px" className="bs-feature-img" />
             <div className="bs-shade" aria-hidden="true" />
             <span className="bs-badge">
               <span className="pulse" /> Featured · {featured.category}

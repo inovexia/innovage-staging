@@ -14,7 +14,7 @@ export default function BlogPage() {
   const { hero, cardLinkLabel } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Blog' }]} />
+      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Blog' }]} path="/blog" />
 
       <section className="section">
         <div className="container">
