@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
@@ -13,7 +14,24 @@ export default function IndustriesPage() {
   const { hero, expertise, ai, others } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Industries' }]} path="/industries" />
+      <PageHero
+        title={hero.title}
+        text={hero.text}
+        crumbs={[{ label: 'Industries' }]}
+        path="/industries"
+        visual={
+          <div className="hero-shot hero-shot-industries">
+            <Image
+              src={hero.image.src}
+              alt={hero.image.alt}
+              width={hero.image.width}
+              height={hero.image.height}
+              sizes="(max-width: 960px) 90vw, 620px"
+              priority
+            />
+          </div>
+        }
+      />
 
       {/* CORE EXPERTISE */}
       <section className="section">

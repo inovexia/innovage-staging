@@ -3,7 +3,6 @@ import Image from 'next/image';
 import HeroScene from '@/components/three/HeroScene';
 import Icon from '@/components/Icon';
 import Counter from '@/components/Counter';
-import HeroHighlights from '@/components/HeroHighlights';
 import ProcessExplorer from '@/components/ProcessExplorer';
 import SolutionsList from '@/components/SolutionsList';
 import CTASection from '@/components/CTASection';
@@ -65,7 +64,6 @@ export default function Home() {
               sizes="(max-width: 960px) 100vw, (max-width: 2200px) 50vw, 1030px"
               priority
             />
-            <HeroHighlights />
           </div>
           <dl className="hero-stats" data-reveal data-delay="280">
             {hero.stats.map((s) => (
@@ -134,7 +132,7 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <h2 className="h2" data-reveal><Rich text={services.title} /></h2>
-            <p className="lead" data-reveal data-delay="80">{services.text}</p>
+            <p className="lead lead-wide" data-reveal data-delay="80">{services.text}</p>
           </div>
           <div className="card-grid four">
             {services.items.map((p, i) => (

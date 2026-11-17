@@ -1,7 +1,13 @@
 {
   "hero": {
-    "title": "Industry-Specific Software Solutions *for Every Industry*",
-    "text": "Every industry runs differently. We design technology around the unique workflows, customers, and regulations that make yours unique, delivering robust industry-specific software solutions built for long-term growth."
+    "title": "Industry-Specific Software Solutions *for Many Industries*",
+    "text": "Every industry runs differently. We design technology around the unique workflows, customers, and regulations that make yours unique, delivering robust industry-specific software solutions built for long-term growth.",
+    "image": {
+      "src": "/images/industries-banner.webp",
+      "alt": "",
+      "width": 1300,
+      "height": 854
+    }
   },
   "expertise": {
     "title": "Where We Go *Deepest*",

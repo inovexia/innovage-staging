@@ -1,9 +1,9 @@
 {
   "name": "Innovage",
   "legalName": "Innovage Softwares Inc.",
-  "phone": "+1-(905) 232 0482",
-  "phoneHref": "tel:+19052320482",
-  "email": "innovage@innovagesoft.com",
+  "phone": "+1 (289) 497-8264",
+  "phoneHref": "tel:+12894978264",
+  "email": "contact@innovagesoft.com",
   "address": [
     "36-4181 Sladeview Cres",
     "Mississauga, Ontario, Canada",
@@ -51,6 +51,11 @@
       "href": "/contact"
     },
     "servicesTitle": "Services",
+    "_servicesNote": "Footer only: services listed in hideServices are left out, and serviceLabels renames a service here without changing its page or the header menu.",
+    "hideServices": ["website-design", "workflow-automation"],
+    "serviceLabels": {
+      "website-development": "Web Design & Development"
+    },
     "companyTitle": "Company",
     "companyLinks": [
       {
@@ -62,16 +67,13 @@
         "href": "/canhub365"
       },
       {
-        "label": "Case Studies",
-        "href": "/case-studies"
+        "_note": "Add an href to make this a link (an https:// address opens in a new tab).",
+        "label": "Examiner",
+        "href": ""
       },
       {
-        "label": "Industries",
-        "href": "/industries"
-      },
-      {
-        "label": "Process",
-        "href": "/process"
+        "label": "Online Examiner",
+        "href": ""
       },
       {
         "label": "Blog",

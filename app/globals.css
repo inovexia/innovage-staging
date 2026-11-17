@@ -842,6 +842,13 @@ p {
 .section-head .lead {
   margin-inline: auto;
 }
+/* longer intro that should still sit on three lines on desktop */
+.section-head:has(.lead-wide) {
+  max-width: min(100%, 64rem);
+}
+.lead.lead-wide {
+  max-width: 46em;
+}
 .section-head.left {
   text-align: left;
   margin-left: 0;
@@ -897,11 +904,34 @@ p {
 }
 .hero-visual {
   position: relative;
+  isolation: isolate;
+}
+/* soft brand glow behind the product screens */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 12% 10% 8%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(237, 0, 28, 0.22), transparent 72%);
+  filter: blur(30px);
+  pointer-events: none;
 }
 .hero-visual img {
+  position: relative;
   display: block;
   width: 100%;
   height: auto;
+  filter:
+    drop-shadow(0 28px 36px rgb(var(--shadow-rgb) / calc(0.45 * var(--shadow-a))))
+    drop-shadow(0 6px 10px rgb(var(--shadow-rgb) / calc(0.25 * var(--shadow-a))));
+}
+/* the device lineup is wide and short: give it a little more presence beside the headline */
+@media (min-width: 1400px) {
+  .hero-visual img {
+    transform: scale(1.1);
+    transform-origin: 100% 50%; /* grow into the gap beside the text, keep the right edge on the container */
+  }
 }
 /* animated highlights over the banner image */
 .hh {
@@ -923,10 +953,10 @@ p {
   opacity: 0;
 }
 .hh-amount {
-  animation: hh-amount 8s var(--hh-start) infinite both;
+  animation: hh-amount 8s var(--hh-start) 2 both;
 }
 .hh-field {
-  animation: hh-field 8s var(--hh-start) infinite both;
+  animation: hh-field 8s var(--hh-start) 2 both;
 }
 .hh-arrow {
   fill: #ed001c;
@@ -934,10 +964,10 @@ p {
   stroke-width: 4;
   paint-order: stroke;
   opacity: 0;
-  animation: hh-travel 8s var(--hh-start) infinite both;
+  animation: hh-travel 8s var(--hh-start) 2 both;
 }
 .hh-callout .hh-ring {
-  animation: hh-callout 8s 4.4s infinite both;
+  animation: hh-callout 8s 4.4s 2 both;
 }
 .hh-pointer {
   fill: #ed001c;
@@ -946,8 +976,8 @@ p {
   paint-order: stroke;
   opacity: 0;
   animation:
-    hh-callout 8s 4.4s infinite both,
-    hh-bounce 0.8s ease-in-out infinite alternate;
+    hh-callout 8s 4.4s 2 both,
+    hh-bounce 0.8s ease-in-out 26 alternate;
 }
 @keyframes hh-travel {
   0% {
@@ -2666,6 +2696,11 @@ main {
   color: var(--text-strong);
   padding-left: 4px;
 }
+/* footer items that have no link yet: same look as the links, no hover */
+.site-footer ul:not(.contact-list) > li > span {
+  color: var(--muted);
+  font-size: var(--fs-body-sm);
+}
 .contact-list li {
   display: flex;
   gap: var(--sp-sm);
@@ -3982,7 +4017,49 @@ main {
   }
 }
 
-/* Overlapping screenshots in a page banner (CanHub 365, Case Studies) */
+/* Single screenshot with animated highlights in a page banner (CanHub 365) */
+.page-hero.has-visual .page-hero-visual:has(.hero-shot) {
+  height: auto;
+}
+.page-hero-visual:has(.hero-shot)::after {
+  display: none;
+}
+.hero-shot {
+  position: relative;
+  width: 100%;
+  max-width: clamp(600px, 40vw, 900px);
+  margin-inline: auto;
+}
+.hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Contact: a 3D illustration rather than a screenshot, so keep it smaller and give it depth */
+.hero-shot-contact {
+  max-width: clamp(300px, 30vw, 520px);
+}
+/* Process: same treatment, but the illustration is wider */
+.hero-shot-process {
+  max-width: clamp(340px, 40vw, 680px);
+}
+.hero-shot-industries {
+  max-width: clamp(340px, 36vw, 620px);
+}
+@media (max-width: 960px) {
+  /* stacked under the text: use the width that is now free */
+  .hero-shot-process,
+  .hero-shot-industries {
+    max-width: min(100%, 560px);
+  }
+}
+.hero-shot-contact img,
+.hero-shot-process img,
+.hero-shot-industries img {
+  filter: drop-shadow(0 26px 34px rgb(var(--shadow-rgb) / calc(0.4 * var(--shadow-a))));
+}
+
+/* Overlapping screenshots in a page banner (Case Studies) */
 .page-hero.has-visual .page-hero-visual:has(.hero-collage) {
   height: auto;
 }
@@ -4506,6 +4583,18 @@ main {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: var(--gap-cols);
   align-items: center;
+}
+/* partnership: keep the link close to the paragraph above it */
+.tp-partner .section-head {
+  margin-bottom: var(--sp-lg);
+}
+/* a photograph (not a product screenshot) inside a split section */
+.tp-shot.tp-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 24px 48px -20px rgb(var(--shadow-rgb) / calc(0.5 * var(--shadow-a)));
 }
 
 /* modules hub */

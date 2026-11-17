@@ -1,7 +1,13 @@
 {
   "hero": {
     "title": "Contact Innovage – Have an Idea? *Let's Talk.*",
-    "text": "Request a software quote in Ontario, book a CanHub 365 demo or schedule a free consultation with the developers who will build your project. Tell us what you're trying to achieve and we'll help you explore the right technology, approach, and path forward."
+    "text": "Request a software quote in Ontario, book a CanHub 365 demo or schedule a free consultation with the developers who will build your project. Tell us what you're trying to achieve and we'll help you explore the right technology, approach, and path forward.",
+    "image": {
+      "src": "/images/contact-banner.webp",
+      "alt": "",
+      "width": 1010,
+      "height": 778
+    }
   },
   "labels": {
     "call": "Call our Ontario office",

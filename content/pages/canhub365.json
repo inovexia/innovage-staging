@@ -2,30 +2,26 @@
   "hero": {
     "title": "CanHub 365: the client portal Canadian accounting firms *use for filing season.*",
     "text": "An all-in-one business software portal for accounting firms: clients send documents against a checklist, your team codes and files them, payroll and invoices sit beside the return — and everyone can see exactly where things stand.",
-    "images": [
-      {
-        "device": "laptop",
-        "src": "/images/canhub/device-laptop.webp",
-        "alt": "CanHub 365 practice overview on a laptop, showing active clients, documents awaited and client workflows.",
-        "width": 1195,
-        "height": 698
-      },
-      {
-        "device": "tablet",
-        "src": "/images/canhub/device-tablet.webp",
-        "alt": "CanHub 365 receipt review on a tablet, with extracted vendor, subtotal, HST and total, and a suggested code for an accountant to approve.",
-        "width": 1364,
-        "height": 811
-      },
-      {
-        "device": "phone",
-        "src": "/images/canhub/device-phone.webp",
-        "alt": "CanHub 365 client portal on a phone, showing the documents a client has uploaded and still needs to upload.",
-        "width": 295,
-        "height": 617
-      }
-    ],
-    "imagesNote": "Concept illustration"
+    "image": {
+      "src": "/images/canhub/receipt-review.png",
+      "alt": "CanHub 365 receipt review screen: subtotal, HST and total are extracted from a scanned receipt, with a suggested code awaiting accountant approval.",
+      "width": 1405,
+      "height": 902
+    }
+  },
+  "partner": {
+    "title": "Developed in partnership with *MSC Accounting*",
+    "text": "Innovage partnered with MSC Accounting, a Mississauga accounting firm, to develop CanHub 365 around the day-to-day work of an accounting practice. The portal gives firms and their clients one place to collect documents, track filing progress, and manage approvals.",
+    "link": {
+      "label": "Visit MSC Accounting",
+      "href": "https://mscaccountants.com/"
+    },
+    "image": {
+      "src": "/images/canhub/partnership.webp",
+      "alt": "Two collaborators at an office desk reviewing an accounting workflow together, one pointing at a laptop showing document, calculation, report and approval steps while the other ticks off the same steps on paper.",
+      "width": 1200,
+      "height": 900
+    }
   },
   "demoButtons": {
     "primary": {

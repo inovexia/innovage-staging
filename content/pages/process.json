@@ -1,7 +1,13 @@
 {
   "hero": {
     "title": "Our Agile Software Development *Process*",
-    "text": "Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement. Built on a flexible agile software development methodology, we adapt seamlessly to your changing needs while ensuring transparent progress at every step."
+    "text": "Our proven process brings together business discovery, product strategy, UX/UI design, development, testing, deployment, and ongoing improvement. Built on a flexible agile software development methodology, we adapt seamlessly to your changing needs while ensuring transparent progress at every step.",
+    "image": {
+      "src": "/images/process-banner.webp",
+      "alt": "",
+      "width": 1300,
+      "height": 704
+    }
   },
   "showcase": {
     "_note": "The stages themselves are in content/shared.json under \"process\". stepText replaces a stage's text on this page only.",

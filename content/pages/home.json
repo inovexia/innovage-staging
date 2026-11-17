@@ -3,10 +3,10 @@
     "title": "Custom software development built around *how your business actually works.*",
     "text": "We design and build web apps, portals, SaaS platforms, and mobile apps for education, finance, and marketing teams across Canada — and we stay on after launch. As a trusted Canadian software company, we deliver reliable business management software Canada solutions tailored to your operational needs.",
     "image": {
-      "src": "/images/canhub/receipt-review.png",
-      "alt": "CanHub 365 receipt review screen: subtotal, HST and total are extracted from a scanned receipt, with a suggested code awaiting accountant approval.",
-      "width": 1405,
-      "height": 902
+      "src": "/images/hero-devices-banner.webp",
+      "alt": "Software built by Innovage on every screen size: CanHub 365 document review on a desktop monitor, an Online Examiner exam on a laptop, exam results on a tablet, and a Client Portal request status on a phone.",
+      "width": 2000,
+      "height": 1035
     },
     "industriesLabel": "Proven in",
     "primaryButton": {
@@ -120,7 +120,7 @@
   },
   "services": {
     "title": "What We *Build*",
-    "text": "Custom software, SaaS development, web and mobile app development and automation — four things we do every day on the stacks we know best, chosen for your project, not out of habit.",
+    "text": "Custom software, SaaS development, web and mobile app development and automation — four things we do every day for clients or in-house projects on the stacks we know best, chosen for your project, not out of habit.",
     "linkLabel": "Read More",
     "items": [
       {

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
 import FAQ from '@/components/FAQ';
@@ -13,7 +14,24 @@ export default function ContactPage() {
   const { hero, labels } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Contact' }]} path="/contact" />
+      <PageHero
+        title={hero.title}
+        text={hero.text}
+        crumbs={[{ label: 'Contact' }]}
+        path="/contact"
+        visual={
+          <div className="hero-shot hero-shot-contact">
+            <Image
+              src={hero.image.src}
+              alt={hero.image.alt}
+              width={hero.image.width}
+              height={hero.image.height}
+              sizes="(max-width: 960px) 80vw, 520px"
+              priority
+            />
+          </div>
+        }
+      />
 
       <section className="section">
         <div className="container contact-grid">

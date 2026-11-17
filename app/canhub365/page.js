@@ -3,7 +3,8 @@ import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import FAQ from '@/components/FAQ';
 import Icon from '@/components/Icon';
-import HeroCollage from '@/components/HeroCollage';
+import Image from 'next/image';
+import HeroHighlights from '@/components/HeroHighlights';
 import ThemePreview from '@/components/canhub/ThemePreview';
 import ProductShot from '@/components/canhub/ProductShot';
 import Rich from '@/components/Rich';
@@ -63,7 +64,19 @@ export default function CanHubPage() {
         text={c.hero.text}
         crumbs={[{ label: 'CanHub 365' }]}
         path="/canhub365"
-        visual={<HeroCollage images={c.hero.images} variant="canhub" note={c.hero.imagesNote} />}
+        visual={
+          <div className="hero-shot">
+            <Image
+              src={c.hero.image.src}
+              alt={c.hero.image.alt}
+              width={c.hero.image.width}
+              height={c.hero.image.height}
+              sizes="(max-width: 960px) 100vw, (max-width: 2200px) 45vw, 820px"
+              priority
+            />
+            <HeroHighlights />
+          </div>
+        }
       >
         <DemoButtons />
       </PageHero>
@@ -291,6 +304,35 @@ export default function CanHubPage() {
             </div>
           </div>
           <Cards items={c.roadmap.items} cols="three" />
+        </div>
+      </section>
+
+      {/* PARTNERSHIP */}
+      <section id="partner" className="section section-alt tp-partner">
+        <div className="container tp-split">
+          <div>
+            <SectionHead title={c.partner.title} text={c.partner.text} />
+            {/* shows as plain text until partner.link.href is filled in */}
+            {c.partner.link.href ? (
+              <a
+                href={c.partner.link.href}
+                className="link-arrow"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-reveal
+                data-delay="160"
+              >
+                {c.partner.link.label} <Icon name="arrow" size={16} />
+              </a>
+            ) : (
+              <span className="link-arrow" data-reveal data-delay="160">
+                {c.partner.link.label} <Icon name="arrow" size={16} />
+              </span>
+            )}
+          </div>
+          <div data-reveal data-delay="120">
+            <ProductShot image={c.partner.image} className="tp-photo" sizes="(max-width: 960px) 100vw, 640px" />
+          </div>
         </div>
       </section>
 

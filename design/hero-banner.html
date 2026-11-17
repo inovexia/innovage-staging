@@ -1,0 +1,306 @@
+<!doctype html>
+<!--
+  Source for public/images/hero-devices-banner.webp (homepage banner).
+  Re-render: node design/render-hero.mjs
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --red: #e0182d;
+    --red-soft: #fde6e8;
+    --ink: #17171c;
+    --muted: #6d6d78;
+    --line: #e6e6ec;
+    --panel: #f6f6f9;
+    --green: #1f8a4c;
+    --green-soft: #e3f4ea;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 1000px; background: transparent; overflow: hidden; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); position: relative; -webkit-font-smoothing: antialiased; }
+  svg.i { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  .dev { position: absolute; }
+  .screen { position: relative; overflow: hidden; background: #fff; }
+
+  /* ---------- Monitor ---------- */
+  .monitor { left: 380px; top: 59px; width: 840px; }
+  .monitor .bezel { background: #111114; border-radius: 18px 18px 0 0; padding: 16px; box-shadow: inset 0 0 0 1px #2c2c33; }
+  .monitor .screen { width: 808px; height: 505px; border-radius: 3px; }
+  .monitor .chin { height: 52px; border-radius: 0 0 18px 18px; background: linear-gradient(180deg, #e9e9ee, #c9c9d1); display: grid; place-items: center; }
+  .monitor .chin span { width: 14px; height: 14px; border-radius: 50%; background: #b5b5bf; }
+  .monitor .neck { width: 150px; height: 120px; margin: 0 auto; background: linear-gradient(90deg, #b9b9c2, #e4e4ea 50%, #b0b0ba); clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+  .monitor .foot { width: 300px; height: 16px; margin: 0 auto; border-radius: 4px 4px 10px 10px; background: linear-gradient(180deg, #ececf1, #b4b4be); box-shadow: 0 18px 26px -8px rgba(0,0,0,.45); }
+
+  /* ---------- Laptop ---------- */
+  .laptop { left: 1090px; top: 461px; width: 500px; }
+  .laptop .lid { width: 470px; margin: 0 auto; background: #111114; border-radius: 16px 16px 0 0; padding: 13px 12px 15px; box-shadow: inset 0 0 0 1px #2c2c33; }
+  .laptop .screen { width: 446px; height: 279px; border-radius: 2px; }
+  .laptop .base { height: 16px; border-radius: 0 0 14px 14px; background: linear-gradient(180deg, #e8e8ee, #a9a9b4); position: relative; box-shadow: 0 20px 26px -10px rgba(0,0,0,.5); }
+  .laptop .base::before { content: ''; position: absolute; left: 50%; top: 0; width: 80px; height: 6px; transform: translateX(-50%); border-radius: 0 0 8px 8px; background: #b9b9c3; }
+
+  /* ---------- Tablet ---------- */
+  .tablet { left: 104px; top: 318px; width: 330px; height: 466px; background: #111114; border-radius: 28px; padding: 22px 16px; box-shadow: inset 0 0 0 1px #34343c, 0 30px 40px -18px rgba(0,0,0,.55); }
+  .tablet .screen { width: 298px; height: 422px; border-radius: 6px; }
+
+  /* ---------- Phone ---------- */
+  .phone { left: 410px; top: 424px; width: 178px; height: 360px; background: #111114; border-radius: 30px; padding: 9px; box-shadow: inset 0 0 0 1px #3a3a42, 0 30px 36px -14px rgba(0,0,0,.6); }
+  .phone .screen { width: 160px; height: 342px; border-radius: 22px; }
+
+  /* ---------- Shared UI ---------- */
+  .pill { display: inline-flex; align-items: center; gap: 5px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+  .pill.red { background: var(--red-soft); color: var(--red); }
+  .pill.green { background: var(--green-soft); color: var(--green); }
+  .pill.grey { background: #efeff3; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 7px; font-weight: 600; }
+  .btn.primary { background: var(--red); color: #fff; }
+  .btn.ghost { border: 1px solid #d6d6de; color: var(--ink); background: #fff; }
+
+  /* ---------- CanHub 365 (monitor) ---------- */
+  .ch { display: grid; grid-template-rows: 66px 1fr; height: 100%; background: var(--panel); font-size: 12px; }
+  .ch-top { display: flex; align-items: center; gap: 12px; padding: 0 20px; background: #fff; border-bottom: 1px solid var(--line); }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 27px; letter-spacing: -.6px; line-height: 1; }
+  .logo b { width: 32px; height: 32px; border-radius: 8px; background: var(--red); display: grid; place-items: center; color: #fff; font-size: 18px; letter-spacing: 0; }
+  .ch-search { margin-left: auto; width: 210px; height: 28px; border-radius: 8px; background: var(--panel); display: flex; align-items: center; gap: 7px; padding: 0 10px; color: #9a9aa6; }
+  .avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #f6a2ab, var(--red)); }
+  .ch-body { display: grid; grid-template-columns: 168px 1fr; min-height: 0; }
+  .side { background: #fff; border-right: 1px solid var(--line); padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; }
+  .side a { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; color: #4a4a55; font-weight: 500; font-size: 12.5px; }
+  .side a svg { font-size: 15px; }
+  .side a.on { background: var(--red); color: #fff; box-shadow: 0 6px 14px -6px rgba(224,24,45,.7); }
+  .ch-main { padding: 14px 20px; display: grid; grid-template-rows: auto auto 1fr; gap: 11px; min-height: 0; }
+  .ch-head { display: flex; align-items: center; justify-content: space-between; }
+  .ch-head h3 { font-size: 19px; font-weight: 700; letter-spacing: -.3px; }
+  .ch-head .pill { padding: 6px 11px; font-size: 11.5px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 11px; color: var(--muted); font-weight: 600; padding: 10px 16px; background: #fafafc; border-bottom: 1px solid var(--line); }
+  td { padding: 7px 16px; border-bottom: 1px solid var(--line); font-weight: 500; }
+  tr:last-child td { border-bottom: 0; }
+  td .doc { display: flex; align-items: center; gap: 10px; }
+  td .doc svg { font-size: 16px; color: #8a8a96; }
+  td .pill { padding: 4px 10px; font-size: 11px; }
+  .review { padding: 14px 18px 16px; }
+  .review h4 { font-size: 14px; margin-bottom: 14px; }
+  .steps { display: flex; align-items: flex-start; }
+  .step { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; font-size: 11.5px; font-weight: 600; }
+  .step small { color: var(--muted); font-weight: 500; font-size: 10.5px; }
+  .dot { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid #c9c9d2; background: #fff; display: grid; place-items: center; z-index: 1; }
+  .dot.done { background: var(--red); border-color: var(--red); color: #fff; font-size: 12px; }
+  .dot.now { border-color: var(--red); box-shadow: 0 0 0 4px var(--red-soft); }
+  .step:not(:last-child)::after { content: ''; position: absolute; top: 10px; left: 50%; width: 100%; height: 2.5px; background: #dcdce3; }
+  .step.lit:not(:last-child)::after { background: var(--red); }
+
+  /* ---------- Online Examiner (laptop) ---------- */
+  .ox { height: 100%; display: grid; grid-template-rows: 50px 1fr; background: var(--panel); font-size: 10px; }
+  .ox-top { display: flex; align-items: center; justify-content: space-between; padding: 0 14px; background: #fff; border-bottom: 1px solid var(--line); }
+  .ox-top .logo { font-size: 21px; gap: 8px; letter-spacing: -.4px; }
+  .ox-top .logo b { width: 25px; height: 25px; border-radius: 7px; font-size: 14px; }
+  .timer { display: flex; align-items: center; gap: 5px; font-weight: 700; font-size: 12px; }
+  .timer svg { color: var(--red); font-size: 12px; }
+  .ox-main { padding: 10px 16px; display: grid; gap: 8px; align-content: start; }
+  .ox-title { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 12.5px; }
+  .ox-title span { font-size: 10px; color: var(--muted); font-weight: 600; }
+  .bar { height: 6px; border-radius: 6px; background: #e4e4ea; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--red); border-radius: 6px; }
+  .q { padding: 10px 14px; display: grid; gap: 7px; }
+  .q small { color: var(--muted); font-size: 9.5px; font-weight: 600; }
+  .q h5 { font-size: 13px; font-weight: 700; letter-spacing: -.2px; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+  .opt { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid var(--line); border-radius: 7px; font-weight: 600; font-size: 10.5px; }
+  .opt i { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid #b9b9c4; }
+  .opt.on { background: var(--red-soft); border-color: #f4b3ba; }
+  .opt.on i { border: 3.5px solid var(--red); }
+  .ox-nav { display: flex; justify-content: space-between; }
+  .ox-nav .btn { padding: 6px 14px; font-size: 10.5px; }
+
+  /* ---------- Results (tablet) ---------- */
+  .rs { height: 100%; background: var(--panel); font-size: 11px; display: grid; grid-template-rows: 58px 1fr; }
+  .rs-top { display: flex; align-items: center; justify-content: space-between; padding: 0 16px; background: #fff; border-bottom: 1px solid var(--line); }
+  .rs-top .logo { font-size: 21px; gap: 8px; letter-spacing: -.4px; }
+  .rs-top .logo b { width: 25px; height: 25px; border-radius: 7px; font-size: 14px; }
+  .rs-main { padding: 10px 12px; display: grid; gap: 8px; align-content: start; }
+  .score { padding: 13px 14px; display: flex; align-items: center; gap: 16px; }
+  .ring { width: 76px; height: 76px; border-radius: 50%; background: conic-gradient(var(--red) 0 86%, #ececf1 0); display: grid; place-items: center; flex: none; }
+  .ring div { width: 60px; height: 60px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-weight: 800; font-size: 19px; letter-spacing: -.5px; }
+  .score h5 { font-size: 14px; margin-bottom: 3px; }
+  .score p { color: var(--muted); font-size: 10.5px; margin-bottom: 8px; }
+  .score .pill { padding: 3px 9px; font-size: 10px; }
+  .topics { padding: 10px 14px; display: grid; gap: 8px; }
+  .topics h6 { font-size: 12px; }
+  .topic { display: grid; gap: 5px; }
+  .topic div { display: flex; justify-content: space-between; font-weight: 600; font-size: 10.5px; }
+  .topic div span { color: var(--muted); }
+  .rs-main > .btn { padding: 9px; font-size: 11px; }
+
+  /* ---------- Client Portal (phone) ---------- */
+  .cp { height: 100%; background: #fff; font-size: 9px; position: relative; }
+  .notch { position: absolute; top: 7px; left: 50%; width: 54px; height: 15px; border-radius: 10px; transform: translateX(-50%); background: #111114; }
+  .sbar { display: flex; justify-content: space-between; align-items: center; padding: 8px 16px 0; height: 28px; font-weight: 700; font-size: 8.5px; }
+  .sbar span:last-child { display: flex; gap: 3px; }
+  .sbar i { width: 9px; height: 6px; border-radius: 1px; background: var(--ink); display: inline-block; }
+  .cp-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); font-weight: 800; font-size: 16px; letter-spacing: -.3px; }
+  .cp-head svg { font-size: 13px; }
+  .cp-main { padding: 8px 12px; }
+  .cp-main small { color: var(--muted); font-size: 8px; }
+  .cp-main h5 { font-size: 13px; margin: 2px 0 6px; letter-spacing: -.2px; }
+  .cp-main .pill { padding: 3px 8px; font-size: 8.5px; margin-bottom: 10px; }
+  .tl { display: grid; }
+  .tl div { display: grid; grid-template-columns: 16px 1fr; gap: 8px; position: relative; padding-bottom: 11px; }
+  .tl div:not(:last-child)::before { content: ''; position: absolute; left: 7px; top: 14px; bottom: 0; width: 2px; background: #dcdce3; }
+  .tl div.lit::before { background: var(--red) !important; }
+  .tl .dot { width: 16px; height: 16px; border-width: 2px; font-size: 9px; }
+  .tl b { display: block; font-size: 9.5px; }
+  .tl em { font-style: normal; color: var(--muted); font-size: 8px; }
+  .cp-upload { margin-top: 2px; border: 1.5px dashed #d6d6de; border-radius: 9px; padding: 8px; text-align: center; color: var(--muted); font-size: 8.5px; font-weight: 600; }
+  .cp-upload b { color: var(--red); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="doc" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="check-c" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="pulse" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+  <symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14-5l-2 2M4 4v4h4M4 13a8 8 0 0 0 14 5l2-2M20 20v-4h-4"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="left" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></symbol>
+  <symbol id="right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+  <symbol id="circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></symbol>
+</svg>
+
+<!-- Monitor: CanHub 365 -->
+<div class="dev monitor">
+  <div class="bezel"><div class="screen">
+    <div class="ch">
+      <div class="ch-top">
+        <div class="logo"><b>C</b>CanHub 365</div>
+        <div class="ch-search"><svg class="i"><use href="#search"/></svg>Search clients, documents…</div>
+        <div class="avatar"></div>
+      </div>
+      <div class="ch-body">
+        <nav class="side">
+          <a class="on"><svg class="i"><use href="#doc"/></svg>Documents</a>
+          <a><svg class="i"><use href="#layers"/></svg>Requests</a>
+          <a><svg class="i"><use href="#check-c"/></svg>Reviews</a>
+          <a><svg class="i"><use href="#pulse"/></svg>Activity</a>
+          <a><svg class="i"><use href="#gear"/></svg>Settings</a>
+        </nav>
+        <div class="ch-main">
+          <div class="ch-head">
+            <h3>Application Documents</h3>
+            <span class="pill red"><svg class="i"><use href="#refresh"/></svg>Review: In Progress</span>
+          </div>
+          <div class="card">
+            <table>
+              <tr><th>Document</th><th>Required</th><th>Status</th></tr>
+              <tr><td><span class="doc"><svg class="i"><use href="#doc"/></svg>Application Form</span></td><td>Yes</td><td><span class="pill green"><svg class="i"><use href="#check"/></svg>Approved</span></td></tr>
+              <tr><td><span class="doc"><svg class="i"><use href="#doc"/></svg>Identity Proof</span></td><td>Yes</td><td><span class="pill red"><svg class="i"><use href="#refresh"/></svg>Under Review</span></td></tr>
+              <tr><td><span class="doc"><svg class="i"><use href="#doc"/></svg>Address Proof</span></td><td>Yes</td><td><span class="pill green"><svg class="i"><use href="#check"/></svg>Approved</span></td></tr>
+              <tr><td><span class="doc"><svg class="i"><use href="#doc"/></svg>Supporting Statement</span></td><td>No</td><td><span class="pill grey"><svg class="i"><use href="#circle"/></svg>Not Submitted</span></td></tr>
+            </table>
+          </div>
+          <div class="card review">
+            <h4>Review Status</h4>
+            <div class="steps">
+              <div class="step lit"><span class="dot done"><svg class="i"><use href="#check"/></svg></span>Submitted<small>Jan 10</small></div>
+              <div class="step"><span class="dot now"></span>In Review<small>Jan 11</small></div>
+              <div class="step"><span class="dot"></span>Decision<small>—</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div>
+  <div class="chin"><span></span></div>
+  <div class="neck"></div>
+  <div class="foot"></div>
+</div>
+
+<!-- Laptop: Online Examiner -->
+<div class="dev laptop">
+  <div class="lid"><div class="screen">
+    <div class="ox">
+      <div class="ox-top">
+        <div class="logo"><b>O</b>Online Examiner</div>
+        <div class="timer"><svg class="i"><use href="#clock"/></svg>58:24 left</div>
+      </div>
+      <div class="ox-main">
+        <div class="ox-title">General Knowledge Assessment <span>12 of 20</span></div>
+        <div class="bar"><i style="width:60%"></i></div>
+        <div class="card q">
+          <small>Question 13 of 20</small>
+          <h5>Which planet is known as the Red Planet?</h5>
+          <div class="opts">
+            <div class="opt"><i></i>Venus</div>
+            <div class="opt on"><i></i>Mars</div>
+            <div class="opt"><i></i>Jupiter</div>
+            <div class="opt"><i></i>Saturn</div>
+          </div>
+        </div>
+        <div class="ox-nav">
+          <span class="btn ghost"><svg class="i"><use href="#left"/></svg>Previous</span>
+          <span class="btn primary">Next<svg class="i"><use href="#right"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div></div>
+  <div class="base"></div>
+</div>
+
+<!-- Tablet: exam results -->
+<div class="dev tablet"><div class="screen">
+  <div class="rs">
+    <div class="rs-top">
+      <div class="logo"><b>O</b>Online Examiner</div>
+      <svg class="i" style="font-size:15px"><use href="#menu"/></svg>
+    </div>
+    <div class="rs-main">
+      <div class="card score">
+        <div class="ring"><div>86%</div></div>
+        <div>
+          <h5>Your Results</h5>
+          <p>General Knowledge Assessment</p>
+          <span class="pill green"><svg class="i"><use href="#check"/></svg>Passed</span>
+        </div>
+      </div>
+      <div class="card topics">
+        <h6>Score by topic</h6>
+        <div class="topic"><div>Geography <span>92%</span></div><div class="bar"><i style="width:92%"></i></div></div>
+        <div class="topic"><div>Science <span>88%</span></div><div class="bar"><i style="width:88%"></i></div></div>
+        <div class="topic"><div>History <span>81%</span></div><div class="bar"><i style="width:81%"></i></div></div>
+        <div class="topic"><div>Mathematics <span>76%</span></div><div class="bar"><i style="width:76%"></i></div></div>
+      </div>
+      <span class="btn primary">Review answers</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- Phone: Client Portal -->
+<div class="dev phone"><div class="screen">
+  <div class="cp">
+    <div class="notch"></div>
+    <div class="sbar"><span>10:44</span><span><i></i><i></i></span></div>
+    <div class="cp-head"><svg class="i"><use href="#menu"/></svg>Client Portal</div>
+    <div class="cp-main">
+      <small>Request #REG-4587</small>
+      <h5>Request Status</h5>
+      <span class="pill red"><svg class="i"><use href="#refresh"/></svg>In Progress</span>
+      <div class="tl">
+        <div class="lit"><span class="dot done"><svg class="i"><use href="#check"/></svg></span><span><b>Request Submitted</b><em>Jan 10, 10:14 AM</em></span></div>
+        <div class="lit"><span class="dot done"><svg class="i"><use href="#check"/></svg></span><span><b>Under Review</b><em>Jan 11, 2:36 PM</em></span></div>
+        <div><span class="dot now"></span><span><b>In Progress</b><em>Now</em></span></div>
+        <div><span class="dot"></span><span><b>Completed</b><em>Pending</em></span></div>
+      </div>
+      <div class="cp-upload">Need more files? <b>Upload</b></div>
+    </div>
+  </div>
+</div></div>
+</body>
+</html>

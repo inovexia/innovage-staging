@@ -21,11 +21,13 @@ export default function Footer() {
         <div>
           <h2>{footer.servicesTitle}</h2>
           <ul>
-            {services.map((s) => (
-              <li key={s.slug}>
-                <Link href={`/services/${s.slug}`}>{s.title}</Link>
-              </li>
-            ))}
+            {services
+              .filter((s) => !footer.hideServices?.includes(s.slug))
+              .map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/services/${s.slug}`}>{footer.serviceLabels?.[s.slug] ?? s.title}</Link>
+                </li>
+              ))}
           </ul>
         </div>
 
@@ -33,7 +35,15 @@ export default function Footer() {
           <h2>{footer.companyTitle}</h2>
           <ul>
             {footer.companyLinks.map((l) => (
-              <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
+              <li key={l.label}>
+                {!l.href ? (
+                  <span>{l.label}</span>
+                ) : l.href.startsWith('http') ? (
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+                ) : (
+                  <Link href={l.href}>{l.label}</Link>
+                )}
+              </li>
             ))}
           </ul>
         </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import CTASection from '@/components/CTASection';
 import ProcessShowcase from '@/components/ProcessShowcase';
@@ -12,7 +13,24 @@ export default function ProcessPage() {
   const { hero, showcase, faq } = content;
   return (
     <>
-      <PageHero title={hero.title} text={hero.text} crumbs={[{ label: 'Process' }]} path="/process" />
+      <PageHero
+        title={hero.title}
+        text={hero.text}
+        crumbs={[{ label: 'Process' }]}
+        path="/process"
+        visual={
+          <div className="hero-shot hero-shot-process">
+            <Image
+              src={hero.image.src}
+              alt={hero.image.alt}
+              width={hero.image.width}
+              height={hero.image.height}
+              sizes="(max-width: 960px) 90vw, 680px"
+              priority
+            />
+          </div>
+        }
+      />
 
       <ProcessShowcase title={<Rich text={showcase.title} />} text={showcase.text} stepText={showcase.stepText} />
 
