@@ -17,6 +17,7 @@ export const metadata = {
   ...(ALLOW_INDEXING ? {} : { robots: { index: false, follow: false } }),
   title: { default: DEFAULT_TITLE, template: '%s | Innovage' },
   icons: { icon: '/images/favicon.png', apple: '/images/favicon.png' },
+  verification: { google: 'qN8u2ImrcIsQEb5L_AxJ639Fk2_CkFo8zdL44FWA19s' },
 };
 
 export const viewport = {
